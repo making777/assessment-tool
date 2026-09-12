@@ -1,145 +1,78 @@
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>診断一覧</title>
+  <link rel="stylesheet" href="index.css">
+</head>
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    sans-serif;
+<body>
 
-  background: #f4f1ec;
-  color: #332f2b;
-}
+  <main class="home">
 
-.home {
-  width: min(680px, 100%);
-  margin: auto;
-  padding: 50px 20px 70px;
-}
+    <header class="home-header">
+      <p class="eyebrow">DIAGNOSIS COLLECTION</p>
+      <h1>診断一覧</h1>
+      <p>気になる診断を選んでください</p>
+    </header>
 
-.home-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
 
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #938a80;
-  margin: 0 0 12px;
-}
+    <section class="menu">
 
-.home-header h1 {
-  margin: 0;
-  font-size: 42px;
-  font-weight: 400;
-  letter-spacing: 3px;
-}
+      <a href="X/X1.html" class="menu-card card-a">
+        <span class="letter">X</span>
+        <div>
+          <h2>説明</h2>
+          <p>
+          このサイトについて
+          </p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      
+      <a href="A/A1.html" class="menu-card card-a">
+        <span class="letter">A</span>
+        <div>
+          <h2>A診断</h2>
+          <p>あなたのタイプを診断</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-.home-header p:last-child {
-  color: #81786f;
-  font-size: 14px;
-}
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+      <a href="B/B1.html" class="menu-card card-b">
+        <span class="letter">B</span>
+        <div>
+          <h2>B診断</h2>
+          <p>あなたの魅力を診断</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-.menu-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 18px;
 
-  min-height: 105px;
-  padding: 18px 24px;
+      <a href="C/C1.html" class="menu-card card-c">
+        <span class="letter">C</span>
+        <div>
+          <h2>C診断</h2>
+          <p>あなたの感性を診断</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-  text-decoration: none;
-  color: inherit;
 
-  background: white;
-  border-radius: 22px;
+      <a href="D/D1.html" class="menu-card card-d">
+        <span class="letter">D</span>
+        <div>
+          <h2>D診断</h2>
+          <p>あなたの未来を診断</p>
+        </div>
+        <span class="arrow">→</span>
+      </a>
 
-  box-shadow: 0 8px 25px rgba(60, 50, 40, 0.08);
+    </section>
 
-  transition: transform .2s ease;
-}
+  </main>
 
-.menu-card:hover {
-  transform: translateY(-3px);
-}
-
-.letter {
-  width: 65px;
-  height: 65px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  font-size: 27px;
-  font-weight: 500;
-}
-
-.card-a .letter {
-  background: #ded5c5;
-}
-
-.card-b .letter {
-  background: #d6e0d4;
-}
-
-.card-c .letter {
-  background: #ddd3e5;
-}
-
-.card-d .letter {
-  background: #e4cfc7;
-}
-
-.menu-card h2 {
-  margin: 0 0 6px;
-  font-size: 18px;
-}
-
-.menu-card p {
-  margin: 0;
-  color: #827970;
-  font-size: 13px;
-}
-
-.arrow {
-  margin-left: auto;
-  font-size: 25px;
-  color: #968b81;
-}
-
-@media (max-width: 480px) {
-
-  .home {
-    padding-top: 35px;
-  }
-
-  .home-header h1 {
-    font-size: 36px;
-  }
-
-  .menu-card {
-    min-height: 92px;
-  }
-
-  .letter {
-    width: 56px;
-    height: 56px;
-    font-size: 23px;
-  }
-}
+</body>
+</html>
