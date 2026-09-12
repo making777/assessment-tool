@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星詠み研究所 | SEIYOMI RESEARCH INSTITUTE</title>
+
+  <link rel="stylesheet" href="A.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-mark">S.R.I.</div>
+
+  <div>
+    <h1>星詠み研究所</h1>
+    <p>SEIYOMI RESEARCH INSTITUTE</p>
+  </div>
+</header>
+
+
+<main class="container">
+
+  <section class="hero">
+    <span class="label">AMDS / A-TYPE ANALYSIS</span>
+
+    <h2>適性解析入力</h2>
+
+    <p>
+      あなたの出生情報・身体的特徴・血統情報を入力してください。
+    </p>
+  </section>
+
+
+  <form id="diagnosisForm">
+
+    <!-- 基本情報 -->
+    <section class="panel">
+
+      <div class="panel-title">
+        <span>01</span>
+        基本情報
+      </div>
+
+
+      <!-- 生年月日 -->
+      <div class="field">
+
+        <label for="date">
+          生年月日
+        </label>
+
+        <input
+          type="date"
+          id="date"
+          required
+        >
+
+      </div>
+
+
+      <!-- 利き手 -->
+      <div class="field">
+
+        <label>
+          利き手
+        </label>
+
+        <div class="choices">
+
+          <label>
+            <input
+              type="radio"
+              name="hand"
+              value="右利き"
+            >
+            右利き
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="hand"
+              value="左利き"
+            >
+            左利き
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="hand"
+              value="両利き"
+            >
+            両利き
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <!-- 星座 -->
+      <div class="field">
+
+        <label for="zodiac">
+          星座
+        </label>
+
+        <select id="zodiac" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>牡羊座</option>
+          <option>牡牛座</option>
+          <option>双子座</option>
+          <option>蟹座</option>
+          <option>獅子座</option>
+          <option>乙女座</option>
+          <option>天秤座</option>
+          <option>蠍座</option>
+          <option>射手座</option>
+          <option>山羊座</option>
+          <option>水瓶座</option>
+          <option>魚座</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- 出生順位 -->
+      <div class="field">
+
+        <label for="family">
+          出生順位・出生形態
+        </label>
+
+        <select id="family" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>一人っ子</option>
+          <option>第一子</option>
+          <option>中間子</option>
+          <option>末っ子</option>
+          <option>双子・三つ子など</option>
+          <option>不明</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- 血液型 -->
+      <div class="field">
+
+        <label for="blood">
+          血液型
+        </label>
+
+        <select id="blood" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>A</option>
+          <option>B</option>
+          <option>O</option>
+          <option>AB</option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- 出生情報 -->
+    <section class="panel">
+
+      <div class="panel-title">
+        <span>02</span>
+        出生情報
+      </div>
+
+
+      <!-- 出生環境 -->
+      <div class="field">
+
+        <label for="origin">
+          出生環境
+        </label>
+
+        <select id="origin" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>山岳地帯</option>
+          <option>河川・湖沼地域</option>
+          <option>海沿い</option>
+          <option>都市部</option>
+          <option>田園・農村部</option>
+          <option>古都・歴史都市</option>
+          <option>不明</option>
+
+        </select>
+
+      </div>
+
+
+      <!-- 氏名を構成する音の数 -->
+      <div class="field">
+
+        <label for="phonetic">
+          氏名を構成する音の数
+        </label>
+
+        <input
+          type="number"
+          id="phonetic"
+          min="1"
+          max="99"
+          placeholder="例：8"
+          required
+        >
+
+      </div>
+
+
+      <!-- 名前に含まれる数字 -->
+      <div class="field">
+
+        <label for="nameNumber">
+          名前に含まれる数字
+        </label>
+
+        <input
+          type="number"
+          id="nameNumber"
+          min="0"
+          max="999"
+          placeholder="0〜999"
+          required
+        >
+
+      </div>
+
+
+      <!-- 出生時間帯 -->
+      <div class="field">
+
+        <label for="time">
+          出生時間帯
+        </label>
+
+        <select id="time" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>深夜</option>
+          <option>夜明け</option>
+          <option>朝</option>
+          <option>午前中</option>
+          <option>午後</option>
+          <option>夕方</option>
+          <option>夜</option>
+          <option>深夜帯</option>
+          <option>不明</option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- 血統情報 -->
+    <section class="panel">
+
+      <div class="panel-title">
+        <span>03</span>
+        血統情報
+      </div>
+
+
+      <div class="field">
+
+        <label for="lineage">
+          特殊血統
+        </label>
+
+        <select id="lineage" required>
+
+          <option value="">
+            選択してください
+          </option>
+
+          <option>神族</option>
+          <option>竜族</option>
+          <option>精霊族</option>
+          <option>魔族</option>
+          <option>妖怪・妖異系</option>
+          <option>天使族</option>
+          <option>なし</option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <p
+      id="error"
+      class="error"
+    ></p>
+
+
+    <button
+      type="submit"
+      class="primary-button"
+    >
+      解析を開始する
+    </button>
+
+
+    <button
+      type="button"
+      id="resetButton"
+      class="secondary-button"
+    >
+      入力をリセット
+    </button>
+
+  </form>
+
+</main>
+
+
+<footer>
+  SEIYOMI RESEARCH INSTITUTE / AMDS
+</footer>
+
+
+<script src="A.js"></script>
+
+</body>
+</html>
