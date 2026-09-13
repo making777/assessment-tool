@@ -1,512 +1,372 @@
-/* =========================================
-   SEIYOMI RESEARCH INSTITUTE
-   A / COMMON JAVASCRIPT
-========================================= */
+/* =========================================================
+   A.M.D.S.
+   Ability & Magic Diagnostic System
+
+   Adelheid Kreuz Institute
+   ========================================================= */
 
 
-document.addEventListener("DOMContentLoaded", () => {
+/* ---------------------------------------------------------
+   A1 : INPUT FORM
+   --------------------------------------------------------- */
 
-  /*
-   * ================================
-   * A1.html
-   * 入力処理
-   * ================================
-   */
+const diagnosisForm = document.getElementById("diagnosisForm");
 
-  const form =
-    document.getElementById("diagnosisForm");
+if (diagnosisForm) {
 
+    diagnosisForm.addEventListener("submit", function (event) {
 
-  if (form) {
-
-    const error =
-      document.getElementById("error");
+        event.preventDefault();
 
 
-    form.addEventListener("submit", (event) => {
+        const hand =
+            document.querySelector('input[name="hand"]:checked')?.value || "";
 
-      event.preventDefault();
+        const family =
+            document.querySelector('input[name="family"]:checked')?.value || "";
+
+        const blood =
+            document.querySelector('input[name="blood"]:checked')?.value || "";
+
+        const origin =
+            document.querySelector('input[name="origin"]:checked')?.value || "";
+
+        const time =
+            document.querySelector('input[name="time"]:checked')?.value || "";
+
+        const lineage =
+            document.querySelector('input[name="lineage"]:checked')?.value || "";
 
 
-      const hand =
-        document.querySelector(
-          'input[name="hand"]:checked'
+        const data = {
+
+            date:
+                document.getElementById("date").value,
+
+            hand:
+                hand,
+
+            zodiac:
+                document.getElementById("zodiac").value,
+
+            family:
+                family,
+
+            blood:
+                blood,
+
+            origin:
+                origin,
+
+            phonetic:
+                document.getElementById("phonetic").value,
+
+            nameNumber:
+                document.getElementById("nameNumber").value,
+
+            time:
+                time,
+
+            lineage:
+                lineage
+
+        };
+
+
+        /*
+         * 入力データを一時保存
+         */
+        sessionStorage.setItem(
+            "A_diagnosis",
+            JSON.stringify(data)
         );
 
 
-      const data = {
-
-        date:
-          document.getElementById("date").value,
-
-        hand:
-          hand ? hand.value : "",
-
-        zodiac:
-          document.getElementById("zodiac").value,
-
-        family:
-          document.getElementById("family").value,
-
-        blood:
-          document.getElementById("blood").value,
-
-        origin:
-          document.getElementById("origin").value,
-
-        phonetic:
-          document.getElementById("phonetic").value,
-
-        nameNumber:
-          document.getElementById("nameNumber").value,
-
-        time:
-          document.getElementById("time").value,
-
-        lineage:
-          document.getElementById("lineage").value
-
-      };
-
-
-      /*
-       * 未入力チェック
-       */
-
-      const values = Object.values(data);
-
-
-      if (
-        values.some(
-          value => !value
-        )
-      ) {
-
-        error.textContent =
-          "未入力の項目があります。すべて入力してください。";
-
-        return;
-      }
-
-
-      error.textContent = "";
-
-
-      /*
-       * A2・A3へデータを渡す
-       */
-
-      sessionStorage.setItem(
-        "A_diagnosis",
-        JSON.stringify(data)
-      );
-
-
-      /*
-       * A2へ移動
-       */
-
-      window.location.href =
-        "A2.html";
+        /*
+         * A2へ移動
+         */
+        window.location.href = "A2.html";
 
     });
 
-
-    /*
-     * リセット
-     */
-
-    const resetButton =
-      document.getElementById(
-        "resetButton"
-      );
+}
 
 
-    if (resetButton) {
+/* ---------------------------------------------------------
+   共通データ取得
+   --------------------------------------------------------- */
 
-      resetButton.addEventListener(
-        "click",
-        () => {
+function getDiagnosisData() {
 
-          form.reset();
+    const saved =
+        sessionStorage.getItem("A_diagnosis");
 
-          error.textContent = "";
+    if (!saved) {
+        return null;
+    }
 
-        }
-      );
+    try {
+
+        return JSON.parse(saved);
+
+    } catch (error) {
+
+        return null;
 
     }
 
-  }
+}
 
 
-  /*
-   * ================================
-   * A2.html
-   * 結果表示
-   * ================================
-   */
+/* ---------------------------------------------------------
+   A2 : ANALYSIS REPORT
+   --------------------------------------------------------- */
 
-
-  const gradeElement =
+const gradeElement =
     document.getElementById("grade");
 
 
-  if (gradeElement) {
+if (gradeElement) {
 
-    const raw =
-      sessionStorage.getItem(
-        "A_diagnosis"
-      );
+    const data = getDiagnosisData();
 
 
-    /*
-     * データがない場合
-     */
+    if (!data) {
 
-    if (!raw) {
+        window.location.href = "A1.html";
 
-      window.location.href =
-        "A1.html";
+    } else {
 
-      return;
+        /*
+         * 参考仕様で提示されていた暫定スコア
+         */
+        let score = 70;
+
+        score += Number(data.phonetic) % 15;
+        score += Number(data.nameNumber) % 10;
+
+
+        if (score > 99) {
+            score = 99;
+        }
+
+
+        let grade;
+
+        if (score >= 90) {
+            grade = "S";
+        } else if (score >= 80) {
+            grade = "A";
+        } else if (score >= 70) {
+            grade = "B";
+        } else {
+            grade = "C";
+        }
+
+
+        const reportId =
+            "AMDS-" +
+            Date.now().toString().slice(-6);
+
+
+        /*
+         * 結果を保存
+         */
+        const result = {
+
+            score: score,
+
+            grade: grade,
+
+            reportId: reportId
+
+        };
+
+
+        sessionStorage.setItem(
+            "A_result",
+            JSON.stringify(result)
+        );
+
+
+        /*
+         * A2へ表示
+         */
+
+        const reportIdElement =
+            document.getElementById("reportId");
+
+        if (reportIdElement) {
+            reportIdElement.textContent = reportId;
+        }
+
+
+        const bloodElement =
+            document.getElementById("blood");
+
+        if (bloodElement) {
+            bloodElement.textContent = data.blood;
+        }
+
+
+        const zodiacElement =
+            document.getElementById("zodiac");
+
+        if (zodiacElement) {
+            zodiacElement.textContent = data.zodiac;
+        }
+
+
+        const lineageElement =
+            document.getElementById("lineage");
+
+        if (lineageElement) {
+            lineageElement.textContent = data.lineage;
+        }
+
+
+        const originElement =
+            document.getElementById("origin");
+
+        if (originElement) {
+            originElement.textContent = data.origin;
+        }
+
+
+        const typeElement =
+            document.getElementById("type");
+
+        if (typeElement) {
+            typeElement.textContent =
+                data.blood + "型";
+        }
 
     }
 
+}
+
+
+/* ---------------------------------------------------------
+   A3 : DETAILED ANALYSIS
+   --------------------------------------------------------- */
+
+const detailGrade =
+    document.getElementById("detailGrade");
+
+
+if (detailGrade) {
 
     const data =
-      JSON.parse(raw);
+        getDiagnosisData();
+
+    const savedResult =
+        sessionStorage.getItem("A_result");
 
 
-    /*
-     * 現在の暫定計算式
-     *
-     * ※正式な診断式ではありません。
-     * ※仕様変更時にここを変更します。
-     */
+    if (!data || !savedResult) {
 
-    let score = 70;
+        window.location.href = "A1.html";
 
+    } else {
 
-    score +=
-      Number(data.phonetic) % 15;
+        let result;
 
+        try {
 
-    score +=
-      Number(data.nameNumber) % 10;
+            result =
+                JSON.parse(savedResult);
 
+        } catch (error) {
 
-    if (score > 99) {
+            window.location.href = "A1.html";
 
-      score = 99;
-
-    }
+        }
 
 
-    /*
-     * ランク
-     */
+        if (result) {
 
-    let grade = "C";
-
-
-    if (score >= 90) {
-
-      grade = "S";
-
-    }
-    else if (score >= 80) {
-
-      grade = "A";
-
-    }
-    else if (score >= 70) {
-
-      grade = "B";
-
-    }
+            detailGrade.textContent =
+                result.grade;
 
 
-    /*
-     * レポートID
-     */
+            const reportId =
+                document.getElementById("detailReportId");
 
-    const reportId =
-      document.getElementById(
-        "reportId"
-      );
-
-
-    if (reportId) {
-
-      reportId.textContent =
-        "AMDS-" +
-        Date.now()
-          .toString()
-          .slice(-6);
-
-    }
+            if (reportId) {
+                reportId.textContent =
+                    result.reportId;
+            }
 
 
-    /*
-     * ランク表示
-     */
+            setText(
+                "detailDate",
+                data.date
+            );
 
-    gradeElement.textContent =
-      grade;
+            setText(
+                "detailHand",
+                data.hand
+            );
 
+            setText(
+                "detailZodiac",
+                data.zodiac
+            );
 
-    /*
-     * タイプ表示
-     */
+            setText(
+                "detailFamily",
+                data.family
+            );
 
-    const type =
-      document.getElementById(
-        "type"
-      );
+            setText(
+                "detailBlood",
+                data.blood
+            );
 
+            setText(
+                "detailOrigin",
+                data.origin
+            );
 
-    if (type) {
+            setText(
+                "detailPhonetic",
+                data.phonetic + " 音"
+            );
 
-      type.textContent =
-        data.blood + "型系統";
+            setText(
+                "detailNameNumber",
+                data.nameNumber
+            );
+
+            setText(
+                "detailTime",
+                data.time
+            );
+
+            setText(
+                "detailLineage",
+                data.lineage
+            );
+
+        }
 
     }
 
-
-    /*
-     * メッセージ
-     */
-
-    const message =
-      document.getElementById(
-        "message"
-      );
+}
 
 
-    if (message) {
+/* ---------------------------------------------------------
+   テキスト表示用
+   --------------------------------------------------------- */
 
-      message.textContent =
-        "現在の入力条件から算出された暫定適性ランクです。";
+function setText(id, value) {
 
+    const element =
+        document.getElementById(id);
+
+    if (element) {
+        element.textContent =
+            value || "—";
     }
 
-
-    /*
-     * 結果一覧
-     */
-
-    const zodiac =
-      document.getElementById(
-        "rZodiac"
-      );
-
-
-    if (zodiac) {
-
-      zodiac.textContent =
-        data.zodiac;
-
-    }
-
-
-    const blood =
-      document.getElementById(
-        "rBlood"
-      );
-
-
-    if (blood) {
-
-      blood.textContent =
-        data.blood + "型";
-
-    }
-
-
-    const lineage =
-      document.getElementById(
-        "rLineage"
-      );
-
-
-    if (lineage) {
-
-      lineage.textContent =
-        data.lineage;
-
-    }
-
-
-    const origin =
-      document.getElementById(
-        "rOrigin"
-      );
-
-
-    if (origin) {
-
-      origin.textContent =
-        data.origin;
-
-    }
-
-  }
-
-
-  /*
-   * ================================
-   * A3.html
-   * 詳細情報表示
-   * ================================
-   */
-
-
-  const detailDate =
-    document.getElementById("date");
-
-
-  const detailHand =
-    document.getElementById("hand");
-
-
-  const detailZodiac =
-    document.getElementById("zodiac");
-
-
-  const detailFamily =
-    document.getElementById("family");
-
-
-  const detailBlood =
-    document.getElementById("blood");
-
-
-  /*
-   * A3に必要な要素がある場合
-   */
-
-  if (
-    detailDate &&
-    detailHand &&
-    detailZodiac &&
-    detailFamily &&
-    detailBlood
-  ) {
-
-    const raw =
-      sessionStorage.getItem(
-        "A_diagnosis"
-      );
-
-
-    /*
-     * データがない場合
-     */
-
-    if (!raw) {
-
-      window.location.href =
-        "A1.html";
-
-      return;
-
-    }
-
-
-    const data =
-      JSON.parse(raw);
-
-
-    detailDate.textContent =
-      data.date;
-
-
-    detailHand.textContent =
-      data.hand;
-
-
-    detailZodiac.textContent =
-      data.zodiac;
-
-
-    detailFamily.textContent =
-      data.family;
-
-
-    detailBlood.textContent =
-      data.blood + "型";
-
-
-    const origin =
-      document.getElementById(
-        "origin"
-      );
-
-
-    if (origin) {
-
-      origin.textContent =
-        data.origin;
-
-    }
-
-
-    const phonetic =
-      document.getElementById(
-        "phonetic"
-      );
-
-
-    if (phonetic) {
-
-      phonetic.textContent =
-        data.phonetic;
-
-    }
-
-
-    const nameNumber =
-      document.getElementById(
-        "nameNumber"
-      );
-
-
-    if (nameNumber) {
-
-      nameNumber.textContent =
-        data.nameNumber;
-
-    }
-
-
-    const time =
-      document.getElementById(
-        "time"
-      );
-
-
-    if (time) {
-
-      time.textContent =
-        data.time;
-
-    }
-
-
-    const lineage =
-      document.getElementById(
-        "lineage"
-      );
-
-
-    if (lineage) {
-
-      lineage.textContent =
-        data.lineage;
-
-    }
-
-  }
-
-});
+}
