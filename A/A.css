@@ -945,3 +945,132 @@ body {
     }
 
 }
+
+/* ==============================
+   BIRTH DATE
+============================== */
+
+.birth-date {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.birth-date-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.birth-date-item input {
+    width: 100%;
+    height: 62px;
+
+    padding: 10px 14px;
+
+    border: 1px solid var(--line-dark);
+    border-radius: 0;
+
+    background: #FFFFFF;
+
+    color: var(--text);
+
+    font-family: "Noto Serif JP", serif;
+    font-size: 15px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition:
+        border-color 0.12s ease,
+        box-shadow 0.12s ease;
+}
+
+.birth-date-item input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 1px var(--navy);
+}
+
+.birth-date-item input::placeholder {
+    color: #B7C0C8;
+}
+
+.birth-date-item span {
+    flex: 0 0 auto;
+
+    color: var(--text);
+    font-size: 14px;
+}
+
+
+/* ==============================
+   ZODIAC
+============================== */
+
+.zodiac-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* ==============================
+   NUMERIC INPUT
+============================== */
+
+.numeric-input {
+    appearance: textfield;
+    -webkit-appearance: none;
+}
+
+.numeric-input::-webkit-inner-spin-button,
+.numeric-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.numeric-input::placeholder {
+    color: #B7C0C8;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 700px) {
+
+    .zodiac-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .birth-date {
+        gap: 8px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .birth-date {
+        gap: 6px;
+    }
+
+    .birth-date-item {
+        gap: 4px;
+    }
+
+    .birth-date-item input {
+        height: 52px;
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+
+    .birth-date-item span {
+        font-size: 12px;
+    }
+
+    .zodiac-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
