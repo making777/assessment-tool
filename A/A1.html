@@ -85,25 +85,53 @@
 
             <!-- 01 -->
 
-            <div class="question">
+<div class="question">
+    <div class="question-title">
+        <span class="question-number">01</span>
+        <div class="question-label">
+            <strong>生年月日</strong>
+            <small>DATE OF BIRTH</small>
+        </div>
+    </div>
 
-                <div class="question-title">
-                    <span class="question-number">01</span>
+    <div class="birth-date">
+        <div class="birth-date-item">
+            <input
+                type="number"
+                id="birthYear"
+                min="1"
+                max="9999"
+                placeholder="例：2000"
+            >
+            <span>年</span>
+        </div>
 
-                    <div>
-                        <h3>生年月日</h3>
-                        <span>BIRTH DATE</span>
-                    </div>
-                </div>
+        <div class="birth-date-item">
+            <input
+                type="number"
+                id="birthMonth"
+                min="1"
+                max="12"
+                placeholder="例：1"
+            >
+            <span>月</span>
+        </div>
 
-                <input
-                    type="date"
-                    id="date"
-                    required
-                >
+        <div class="birth-date-item">
+            <input
+                type="number"
+                id="birthDay"
+                min="1"
+                max="31"
+                placeholder="例：1"
+            >
+            <span>日</span>
+        </div>
 
-            </div>
-
+        <!-- A.jsで使用する内部値 -->
+        <input type="hidden" id="date">
+    </div>
+</div>
 
             <!-- 02 -->
 
@@ -141,34 +169,81 @@
             <!-- 03 -->
 
             <div class="question">
+    <div class="question-title">
+        <span class="question-number">03</span>
+        <div class="question-label">
+            <strong>星座</strong>
+            <small>ZODIAC SIGN</small>
+        </div>
+    </div>
 
-                <div class="question-title">
-                    <span class="question-number">03</span>
+    <div class="choice-grid zodiac-grid">
 
-                    <div>
-                        <h3>星座</h3>
-                        <span>ZODIAC SIGN</span>
-                    </div>
-                </div>
+        <label>
+            <input type="radio" name="zodiacChoice" value="牡羊座">
+            <span>牡羊座</span>
+        </label>
 
-                <select id="zodiac" required>
-                    <option value="">選択してください</option>
-                    <option value="牡羊座">牡羊座</option>
-                    <option value="牡牛座">牡牛座</option>
-                    <option value="双子座">双子座</option>
-                    <option value="蟹座">蟹座</option>
-                    <option value="獅子座">獅子座</option>
-                    <option value="乙女座">乙女座</option>
-                    <option value="天秤座">天秤座</option>
-                    <option value="蠍座">蠍座</option>
-                    <option value="射手座">射手座</option>
-                    <option value="山羊座">山羊座</option>
-                    <option value="水瓶座">水瓶座</option>
-                    <option value="魚座">魚座</option>
-                </select>
+        <label>
+            <input type="radio" name="zodiacChoice" value="牡牛座">
+            <span>牡牛座</span>
+        </label>
 
-            </div>
+        <label>
+            <input type="radio" name="zodiacChoice" value="双子座">
+            <span>双子座</span>
+        </label>
 
+        <label>
+            <input type="radio" name="zodiacChoice" value="蟹座">
+            <span>蟹座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="獅子座">
+            <span>獅子座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="乙女座">
+            <span>乙女座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="天秤座">
+            <span>天秤座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="蠍座">
+            <span>蠍座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="射手座">
+            <span>射手座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="山羊座">
+            <span>山羊座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="水瓶座">
+            <span>水瓶座</span>
+        </label>
+
+        <label>
+            <input type="radio" name="zodiacChoice" value="魚座">
+            <span>魚座</span>
+        </label>
+
+    </div>
+
+    <!-- A.jsで使用する内部値 -->
+    <input type="hidden" id="zodiac">
+</div>
 
             <!-- 04 -->
 
@@ -319,58 +394,57 @@
 
             <div class="numeric-row">
 
-                <div class="numeric-question">
+    <div class="numeric-question">
 
-                    <div class="question-title">
-                        <span class="question-number">07</span>
+        <div class="question-title">
+            <span class="question-number">07</span>
 
-                        <div>
-                            <h3>氏名を構成する音の数</h3>
-                            <span>PHONETIC COUNT</span>
-                        </div>
-                    </div>
-
-                    <div class="number-input">
-                        <input
-                            type="number"
-                            id="phonetic"
-                            min="0"
-                            step="1"
-                            placeholder="例：6"
-                            required
-                        >
-                        <span>音</span>
-                    </div>
-
-                </div>
-
-
-                <div class="numeric-question">
-
-                    <div class="question-title">
-                        <span class="question-number">08</span>
-
-                        <div>
-                            <h3>名前に含まれる数字</h3>
-                            <span>NAME NUMBER</span>
-                        </div>
-                    </div>
-
-                    <div class="number-input">
-                        <input
-                            type="number"
-                            id="nameNumber"
-                            min="0"
-                            step="1"
-                            placeholder="例：7"
-                            required
-                        >
-                    </div>
-
-                </div>
-
+            <div class="question-label">
+                <strong>氏名を構成する音の数</strong>
+                <small>PHONETIC COUNT</small>
             </div>
+        </div>
 
+        <div class="numeric-input-wrap">
+            <input
+                type="number"
+                id="phonetic"
+                class="numeric-input"
+                min="0"
+                inputmode="numeric"
+                placeholder="例：1"
+            >
+            <span class="numeric-unit">音</span>
+        </div>
+
+    </div>
+
+
+    <div class="numeric-question">
+
+        <div class="question-title">
+            <span class="question-number">08</span>
+
+            <div class="question-label">
+                <strong>名前に含まれる数字</strong>
+                <small>NAME NUMBER</small>
+            </div>
+        </div>
+
+        <div class="numeric-input-wrap">
+            <input
+                type="number"
+                id="nameNumber"
+                class="numeric-input"
+                min="0"
+                inputmode="numeric"
+                placeholder="例：1"
+            >
+        </div>
+
+    </div>
+
+</div>
 
             <!-- 09 -->
 
