@@ -1,532 +1,547 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
 
-
 :root {
     --navy: #102A43;
     --navy-light: #173B5C;
-    --blue-gray: #829AB1;
-    --light-blue: #D9E2EC;
-    --paper: #F7F8FA;
+    --blue-gray: #7892AA;
+    --line: #E1E8ED;
+    --line-dark: #91A9BD;
+    --paper: #FFFFFF;
+    --background: #F5F7F9;
+    --text: #30465B;
+    --muted: #7890A5;
     --white: #FFFFFF;
-    --text: #243B53;
-    --muted: #627D98;
-    --line: #BCCCDC;
 }
-
 
 * {
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
     margin: 0;
+    padding: 0;
     color: var(--text);
-    background-color: var(--paper);
-
-    font-family:
-        "Noto Serif JP",
-        "Yu Mincho",
-        "Hiragino Mincho ProN",
-        serif;
-
-    line-height: 1.8;
-
-    background-image:
-        linear-gradient(
-            rgba(16, 42, 67, 0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(16, 42, 67, 0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 32px 32px;
+    background:
+        linear-gradient(rgba(16, 42, 67, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 42, 67, 0.018) 1px, transparent 1px),
+        var(--background);
+    background-size: 24px 24px;
+    font-family: "Noto Serif JP", serif;
+    line-height: 1.7;
 }
 
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
+/* ==============================
+   HEADER
+============================== */
 
 .site-header {
+    width: 100%;
     background: var(--navy);
+    border-bottom: 3px solid var(--blue-gray);
     color: var(--white);
-    border-bottom: 3px solid var(--navy-light);
 }
-
 
 .header-inner {
-    width: min(1100px, calc(100% - 32px));
+    max-width: 1180px;
+    min-height: 88px;
     margin: 0 auto;
-    padding: 22px 0;
+    padding: 14px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
+/* 左側：紋章＋組織名 */
 
 .institute-mark {
     display: flex;
     align-items: center;
     gap: 15px;
+    min-width: 0;
 }
 
+/* 紋章 */
 
 .emblem {
-    width: 48px;
-    height: 48px;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border: 1px solid rgba(255,255,255,0.7);
+    position: relative;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 50%;
 
-    font-size: 21px;
+    color: var(--white);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 42%,
+            rgba(255, 255, 255, 0.08) 43%,
+            transparent 45%
+        );
 }
 
+/* 紋章の外側に細い観測円 */
+
+.emblem::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+}
+
+/* 組織名 */
+
+.institute-name {
+    min-width: 0;
+}
 
 .institute-name .jp-name {
-    font-size: 17px;
-    letter-spacing: 0.08em;
-}
+    margin: 0;
 
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.35;
+}
 
 .institute-name .en-name {
-    margin-top: 2px;
+    margin-top: 3px;
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.68);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
 }
 
+/* ヘッダー右側 */
+
+.site-header::after {
+    content: "";
+    display: block;
+}
+
+/* ==============================
+   PAGE
+============================== */
 
 .page {
-    width: min(1000px, calc(100% - 32px));
+    width: min(100% - 44px, 1060px);
     margin: 0 auto;
-    padding: 38px 0 70px;
+    padding: 42px 0 70px;
 }
 
+/* ==============================
+   DOCUMENT HEADING
+============================== */
 
 .document-heading {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-
-    margin-bottom: 35px;
+    margin-bottom: 10px;
 
     color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 10px;
-    letter-spacing: 0.13em;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
 }
 
-
-.system-title,
-.report-header {
-    text-align: center;
-    margin-bottom: 40px;
+.system-title {
+    margin-bottom: 35px;
 }
-
 
 .system-code {
-    color: var(--navy-light);
+    margin-bottom: 4px;
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
+    color: var(--blue-gray);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
 }
 
-
-.system-title h1,
-.report-header h1 {
-    margin: 7px 0 0;
+.system-title h1 {
+    margin: 0;
 
     color: var(--navy);
-
-    font-size: clamp(25px, 4vw, 36px);
+    font-size: 30px;
     font-weight: 600;
     letter-spacing: 0.08em;
+    line-height: 1.4;
 }
-
-
-.system-title > p,
-.report-header > p {
-    margin: 4px 0 0;
-
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 11px;
-    letter-spacing: 0.2em;
-}
-
 
 .title-line {
-    width: 90px;
-    height: 1px;
-
-    margin: 22px auto;
-
+    width: 55px;
+    height: 2px;
+    margin: 15px 0;
     background: var(--navy);
 }
 
-
 .system-description {
+    margin: 0;
+
     color: var(--muted);
     font-size: 13px;
+    line-height: 1.9;
 }
 
+/* ==============================
+   PANEL
+============================== */
 
 .panel {
     margin-bottom: 25px;
-    padding: 30px;
+    padding: 30px 32px;
 
-    background: rgba(255,255,255,0.96);
-
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid #D8E1E8;
 }
 
+/* ==============================
+   SECTION HEADING
+============================== */
 
 .section-heading {
     display: flex;
     align-items: flex-start;
     gap: 18px;
 
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-
-    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
 }
-
-
-.section-number {
-    padding-top: 5px;
-
-    color: var(--navy-light);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    white-space: nowrap;
-}
-
 
 .section-heading h2 {
     margin: 0;
 
     color: var(--navy);
-
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 600;
     letter-spacing: 0.08em;
+    line-height: 1.4;
 }
 
+.section-heading p {
+    margin: 2px 0 0;
 
-.section-heading span:not(.section-number) {
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
+    color: var(--blue-gray);
+    font-family: "Playfair Display", Georgia, serif;
     font-size: 10px;
     letter-spacing: 0.16em;
 }
 
+/* ==============================
+   QUESTION
+============================== */
 
 .question {
     padding: 25px 0;
-
-    border-bottom: 1px solid #E1E8ED;
+    border-bottom: 1px solid var(--line);
 }
 
+.question:first-child {
+    padding-top: 0;
+}
 
 .question:last-child {
     border-bottom: none;
 }
 
-
 .question-title {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: 24px;
 
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
-
 
 .question-number {
-    min-width: 32px;
+    flex: 0 0 38px;
 
     color: var(--navy-light);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 12px;
-    letter-spacing: 0.08em;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
 }
 
-
-.question-title h3 {
-    margin: 0;
-
-    color: var(--text);
-
-    font-size: 16px;
-    font-weight: 600;
+.question-label {
+    min-width: 0;
 }
 
-
-.question-title span:not(.question-number) {
+.question-label strong {
     display: block;
 
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 9px;
-    letter-spacing: 0.12em;
+    color: var(--navy);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.45;
 }
 
+.question-label small {
+    display: block;
+    margin-top: 2px;
 
-input[type="date"],
-select,
-.number-input input {
-    width: 100%;
-    height: 48px;
-
-    padding: 0 14px;
-
-    color: var(--text);
-    background: var(--white);
-
-    border: 1px solid var(--blue-gray);
-
-    border-radius: 2px;
-
-    font-family:
-        "Noto Serif JP",
-        serif;
-
-    font-size: 14px;
-
-    outline: none;
+    color: var(--blue-gray);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
 }
 
-
-input:focus,
-select:focus {
-    border-color: var(--navy);
-    box-shadow: 0 0 0 2px rgba(16,42,67,0.08);
-}
-
+/* ==============================
+   CHOICE BUTTONS
+============================== */
 
 .choice-grid {
     display: grid;
-    gap: 9px;
+    gap: 12px;
 }
-
 
 .choice-grid.two {
     grid-template-columns: repeat(2, 1fr);
 }
 
-
 .choice-grid.three {
     grid-template-columns: repeat(3, 1fr);
 }
-
 
 .choice-grid.four {
     grid-template-columns: repeat(4, 1fr);
 }
 
-
 .choice-grid label {
-    position: relative;
+    display: block;
     cursor: pointer;
 }
 
-
 .choice-grid input {
     position: absolute;
+    width: 1px;
+    height: 1px;
     opacity: 0;
     pointer-events: none;
 }
 
-
 .choice-grid label span {
-    min-height: 46px;
+    min-height: 62px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 8px 10px;
+    padding: 12px 14px;
 
-    background: var(--white);
-
-    border: 1px solid var(--blue-gray);
+    background: #FFFFFF;
+    border: 1px solid var(--line-dark);
 
     color: var(--text);
-
-    font-size: 13px;
+    font-size: 15px;
+    text-align: center;
 
     transition:
-        background-color 0.15s ease,
-        color 0.15s ease,
-        border-color 0.15s ease;
+        background-color 0.12s ease,
+        border-color 0.12s ease,
+        color 0.12s ease,
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
 }
 
+/* 選択されたボタン */
 
-.choice-grid label input:checked + span {
+.choice-grid input:checked + span {
+    background: var(--navy-light);
+    border-color: var(--navy-light);
     color: var(--white);
-    background: var(--navy);
-    border-color: var(--navy);
+
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.18);
+    
+    transform: translateY(1px);
 }
 
+/* 押している瞬間 */
+
+.choice-grid label:active span {
+    background: #244B6A;
+    border-color: #244B6A;
+    color: var(--white);
+
+    transform: translateY(2px);
+
+    box-shadow:
+        inset 0 3px 6px rgba(0, 0, 0, 0.22);
+}
+
+/* ==============================
+   NUMERIC INPUT
+============================== */
 
 .numeric-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 
+    position: relative;
+
     padding: 25px 0;
-
-    border-bottom: 1px solid #E1E8ED;
+    border-bottom: 1px solid var(--line);
 }
-
 
 .numeric-question {
     min-width: 0;
 }
 
-
-.number-input {
+.numeric-input-wrap {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
+.numeric-input {
+    width: 100%;
+    height: 64px;
 
-.number-input input {
-    flex: 1;
+    padding: 10px 18px;
+
+    border: 1px solid var(--line-dark);
+    border-radius: 0;
+
+    background: #FFFFFF;
+
+    color: var(--text);
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+
+    outline: none;
 }
 
-
-.number-input span {
-    color: var(--muted);
-    white-space: nowrap;
+.numeric-input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 1px var(--navy);
 }
 
+.numeric-input::placeholder {
+    color: #B7C0C8;
+}
+
+.numeric-unit {
+    flex: 0 0 auto;
+
+    color: var(--blue-gray);
+    font-size: 14px;
+}
+
+/* 07・08の間の縦線 */
+
+.numeric-row::after {
+    content: "";
+
+    position: absolute;
+
+    top: 25px;
+    bottom: 25px;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: var(--line-dark);
+
+    pointer-events: none;
+}
+
+/* ==============================
+   DIAGNOSIS
+============================== */
 
 .diagnosis-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
-    border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
-}
-
-
-.diagnosis-list div {
-    padding: 15px;
-
-    background: #FBFCFD;
-
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-
-    font-size: 14px;
-}
-
-
-.flow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     gap: 12px;
 }
 
-
-.flow-item {
-    min-width: 120px;
-
-    padding: 15px 10px;
-
-    text-align: center;
+.diagnosis-item {
+    padding: 18px 20px;
 
     border: 1px solid var(--line);
-    background: #FBFCFD;
+    background: #FAFBFC;
 }
 
+.diagnosis-item strong {
+    display: block;
+
+    color: var(--navy);
+    font-size: 15px;
+}
+
+.diagnosis-item span {
+    display: block;
+    margin-top: 3px;
+
+    color: var(--muted);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
+
+/* ==============================
+   FLOW
+============================== */
+
+.flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    margin: 30px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.flow-item {
+    padding: 17px 12px;
+
+    text-align: center;
+    border-right: 1px solid var(--line);
+}
+
+.flow-item:last-child {
+    border-right: none;
+}
+
+.flow-item small {
+    display: block;
+
+    color: var(--blue-gray);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+}
 
 .flow-item strong {
     display: block;
+    margin-top: 3px;
 
-    color: var(--navy-light);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
+    color: var(--navy);
     font-size: 12px;
+    font-weight: 500;
 }
 
-
-.flow-item span {
-    font-size: 13px;
-}
-
-
-.flow-line {
-    width: 30px;
-    height: 1px;
-
-    background: var(--blue-gray);
-}
-
+/* ==============================
+   START BUTTON
+============================== */
 
 .start-button {
     width: 100%;
@@ -539,22 +554,28 @@ select:focus {
     color: var(--white);
     background: var(--navy);
 
-    font-family:
-        "Noto Serif JP",
-        serif;
+    font-family: "Noto Serif JP", serif;
 
     cursor: pointer;
 
     transition:
-        background-color 0.15s ease,
-        transform 0.15s ease;
+        background-color 0.12s ease,
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
 }
-
 
 .start-button:hover {
     background: var(--navy-light);
 }
 
+.start-button:active {
+    background: #0B2033;
+
+    transform: translateY(2px);
+
+    box-shadow:
+        inset 0 3px 6px rgba(0, 0, 0, 0.25);
+}
 
 .start-button span {
     display: block;
@@ -563,378 +584,286 @@ select:focus {
     letter-spacing: 0.12em;
 }
 
-
 .start-button strong {
     display: block;
 
     margin-top: 2px;
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
+    font-family: "Playfair Display", Georgia, serif;
     font-size: 10px;
     font-weight: 400;
-
     letter-spacing: 0.2em;
 }
 
+/* ==============================
+   BUTTON
+============================== */
 
-.report-id {
-    margin-top: 18px;
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    color: var(--muted);
+    min-height: 52px;
+    padding: 12px 24px;
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
+    border-radius: 2px;
 
-    font-size: 11px;
-    letter-spacing: 0.12em;
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background-color 0.12s ease,
+        color 0.12s ease,
+        border-color 0.12s ease,
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
 }
 
-
-.result-panel {
-    margin-bottom: 25px;
-    padding: 42px 30px;
-
-    text-align: center;
-
+.primary-button {
+    border: 1px solid var(--navy);
     background: var(--navy);
     color: var(--white);
-
-    border: 1px solid var(--navy);
 }
 
-
-.result-label {
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 10px;
-    letter-spacing: 0.18em;
-
-    opacity: 0.75;
+.primary-button:hover {
+    background: var(--navy-light);
 }
 
+.primary-button:active {
+    background: #0B2033;
+    transform: translateY(2px);
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.22);
+}
 
-.result-type {
-    margin: 8px 0;
+.secondary-button {
+    border: 1px solid var(--line-dark);
+    background: #FFFFFF;
+    color: var(--text);
+}
 
-    font-size: clamp(34px, 7vw, 58px);
+.secondary-button:hover {
+    background: #F2F5F7;
+}
+
+.secondary-button:active {
+    background: #E7EDF1;
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+/* ==============================
+   RESULT / REPORT
+============================== */
+
+.report-header {
+    margin-bottom: 30px;
+}
+
+.report-header h1 {
+    margin: 0;
+
+    color: var(--navy);
+    font-size: 30px;
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.08em;
 }
-
-
-.result-description {
-    font-size: 12px;
-    opacity: 0.8;
-}
-
 
 .result-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 14px;
 }
-
 
 .result-card {
-    padding: 18px;
-
-    background: #FBFCFD;
+    padding: 22px;
 
     border: 1px solid var(--line);
+    background: #FFFFFF;
 }
-
-
-.result-card span {
-    display: block;
-
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 9px;
-    letter-spacing: 0.16em;
-}
-
 
 .result-card strong {
     display: block;
 
+    color: var(--navy);
+    font-size: 17px;
+}
+
+.result-card span {
+    display: block;
     margin-top: 5px;
 
-    color: var(--navy);
+    color: var(--muted);
+    font-size: 13px;
+}
 
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.analysis-card {
+    padding: 20px;
+
+    border: 1px solid var(--line);
+    background: #FFFFFF;
+}
+
+.analysis-card h3 {
+    margin: 0;
+
+    color: var(--navy);
     font-size: 16px;
 }
 
+.analysis-card p {
+    margin: 8px 0 0;
 
-.research-text {
     color: var(--text);
-    font-size: 14px;
+    font-size: 13px;
 }
 
-
-.research-text p {
-    margin: 0 0 15px;
-}
-
-
-.large-result {
-    text-align: center;
-    padding: 25px;
-
-    border: 1px solid var(--line);
-    background: #FBFCFD;
-}
-
-
-.large-result-label {
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 10px;
-    letter-spacing: 0.15em;
-}
-
-
-.large-result-value {
-    margin-top: 4px;
-
-    color: var(--navy);
-
-    font-size: 42px;
-    font-weight: 600;
-}
-
+/* ==============================
+   RECORD
+============================== */
 
 .record-list {
     border-top: 1px solid var(--line);
 }
-
 
 .record-list div {
     display: flex;
     justify-content: space-between;
     gap: 20px;
 
-    padding: 14px 5px;
+    padding: 13px 0;
 
-    border-bottom: 1px solid #E1E8ED;
+    border-bottom: 1px solid var(--line);
 }
-
 
 .record-list span {
     color: var(--muted);
     font-size: 13px;
 }
 
-
 .record-list strong {
     color: var(--navy);
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
     text-align: right;
 }
 
-
-.analysis-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-
-.analysis-card {
-    min-height: 130px;
-
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    background: #FBFCFD;
-
-    border: 1px solid var(--line);
-}
-
-
-.analysis-card span {
-    color: var(--muted);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 9px;
-    letter-spacing: 0.15em;
-}
-
-
-.analysis-card strong {
-    color: var(--navy);
-
-    font-size: 18px;
-}
-
-
-.analysis-card small {
-    color: var(--muted);
-    font-size: 10px;
-}
-
+/* ==============================
+   NAVIGATION
+============================== */
 
 .navigation-buttons {
     display: flex;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 15px;
 
     margin-top: 30px;
 }
 
-
-.primary-button,
-.secondary-button {
-    flex: 1;
-
-    min-height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px 15px;
-
-    border: 1px solid var(--navy);
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 11px;
-    letter-spacing: 0.1em;
-}
-
-
-.primary-button {
-    color: var(--white);
-    background: var(--navy);
-}
-
-
-.secondary-button {
-    color: var(--navy);
-    background: var(--white);
-}
-
-
-.notice-panel {
-    background: rgba(255,255,255,0.8);
-}
-
+/* ==============================
+   FOOTER
+============================== */
 
 .site-footer {
-    padding: 25px 16px;
-
-    text-align: center;
-
-    color: var(--muted);
+    padding: 30px 20px;
 
     border-top: 1px solid var(--line);
 
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-    font-size: 9px;
-    letter-spacing: 0.12em;
-
-    line-height: 2;
+    color: var(--muted);
+    text-align: center;
 }
 
+.site-footer .footer-jp {
+    font-size: 11px;
+}
 
-/* Tablet */
+.site-footer .footer-en {
+    margin-top: 3px;
+
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 800px) {
+
+    .header-inner {
+        padding: 13px 20px;
+    }
+
+    .page {
+        width: min(100% - 30px, 1060px);
+        padding-top: 30px;
+    }
+
+    .panel {
+        padding: 25px 22px;
+    }
+
+    .choice-grid.four {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
 
 @media (max-width: 700px) {
 
-    .page {
-        width: min(100% - 22px, 1000px);
-        padding-top: 25px;
-    }
-
-
     .header-inner {
-        width: calc(100% - 22px);
+        min-height: 76px;
     }
 
-
-    .panel {
-        padding: 22px 18px;
+    .emblem {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
     }
 
-
-    .choice-grid.three {
-        grid-template-columns: repeat(2, 1fr);
+    .institute-name .jp-name {
+        font-size: 15px;
     }
 
+    .institute-name .en-name {
+        font-size: 8px;
+    }
 
     .numeric-row {
         grid-template-columns: 1fr;
-        gap: 0;
     }
 
-
-    .numeric-question {
-        padding: 25px 0;
-        border-bottom: 1px solid #E1E8ED;
+    /* 縦線はスマホでは不要 */
+    .numeric-row::after {
+        display: none;
     }
 
-
-    .numeric-question:last-child {
-        border-bottom: none;
+    .diagnosis-list,
+    .result-grid,
+    .analysis-grid {
+        grid-template-columns: 1fr;
     }
-
 
     .flow {
-        flex-direction: column;
-    }
-
-
-    .flow-line {
-        width: 1px;
-        height: 22px;
-    }
-
-
-    .flow-item {
-        width: 100%;
-    }
-
-
-    .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .flow-item:nth-child(2) {
+        border-right: none;
+    }
+
 }
-
-
-/* Smartphone */
 
 @media (max-width: 480px) {
 
@@ -942,49 +871,41 @@ select:focus {
         gap: 10px;
     }
 
-
     .emblem {
         width: 40px;
         height: 40px;
+        flex-basis: 40px;
         font-size: 17px;
     }
-
 
     .institute-name .jp-name {
         font-size: 13px;
     }
 
-
     .institute-name .en-name {
         font-size: 8px;
     }
 
-
     .document-heading {
         font-size: 8px;
     }
-
 
     .system-title h1,
     .report-header h1 {
         font-size: 24px;
     }
 
-
     .panel {
         padding: 20px 14px;
     }
-
 
     .section-heading {
         gap: 10px;
     }
 
-
     .section-heading h2 {
         font-size: 19px;
     }
-
 
     .choice-grid.two,
     .choice-grid.three,
@@ -992,32 +913,26 @@ select:focus {
         grid-template-columns: 1fr 1fr;
     }
 
-
     .choice-grid label span {
         min-height: 48px;
         font-size: 12px;
     }
 
-
     .diagnosis-list {
         grid-template-columns: 1fr;
     }
-
 
     .result-grid {
         grid-template-columns: 1fr;
     }
 
-
     .analysis-grid {
         grid-template-columns: 1fr;
     }
 
-
     .record-list div {
         display: block;
     }
-
 
     .record-list strong {
         display: block;
@@ -1025,10 +940,8 @@ select:focus {
         text-align: left;
     }
 
-
     .navigation-buttons {
         flex-direction: column;
     }
 
 }
-
