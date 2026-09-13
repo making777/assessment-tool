@@ -256,16 +256,34 @@ main {
 }
 
 /* =========================
-   数値入力 7・8
-   ここに7と8の間の縦線を設定
+   07・08 数値入力
 ========================= */
 
 .numeric-row {
+    position: relative;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     gap: 0;
+
     padding: 25px 0;
+
     border-bottom: 1px solid var(--line-light);
+}
+
+/* 7と8の中央に縦線を表示 */
+.numeric-row::after {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    width: 1px;
+
+    background: var(--line);
 }
 
 .numeric-question {
@@ -279,7 +297,6 @@ main {
 
 .numeric-question:last-child {
     padding-right: 0;
-    border-left: 1px solid var(--line);
 }
 
 .numeric-input-wrap {
@@ -292,11 +309,15 @@ main {
     width: 120px;
     height: 48px;
     padding: 8px 12px;
+
     border: 1px solid var(--line);
     background: var(--white);
+
     color: var(--text);
+
     font-family: inherit;
     font-size: 16px;
+
     text-align: center;
 }
 
@@ -391,16 +412,21 @@ main {
     width: 100%;
     max-width: 500px;
     margin: 35px auto 0;
+
     padding: 17px 20px;
+
     border: 1px solid var(--navy);
     background: var(--navy);
     color: var(--white);
+
     font-family: inherit;
     font-size: 16px;
     letter-spacing: 0.08em;
+
     text-align: center;
     cursor: pointer;
     text-decoration: none;
+
     transition: 0.2s;
 }
 
@@ -412,9 +438,11 @@ main {
 .button-en {
     display: block;
     margin-top: 3px;
+
     font-family: Georgia, serif;
     font-size: 9px;
     letter-spacing: 0.16em;
+
     opacity: 0.75;
 }
 
@@ -495,7 +523,9 @@ main {
 .detail-item {
     display: grid;
     grid-template-columns: 180px 1fr;
+
     padding: 14px 0;
+
     border-bottom: 1px solid var(--line-light);
 }
 
@@ -519,9 +549,12 @@ main {
 
 .site-footer {
     padding: 30px 20px;
+
     border-top: 1px solid var(--line);
+
     background: var(--navy);
     color: var(--white);
+
     text-align: center;
 }
 
@@ -538,7 +571,7 @@ main {
 }
 
 /* =========================
-   タブレット・スマートフォン
+   タブレット
 ========================= */
 
 @media (max-width: 800px) {
@@ -595,13 +628,17 @@ main {
         padding: 18px;
     }
 
-    /* 7・8を縦並びにする */
+    /* 7・8を縦並び */
     .numeric-row {
         grid-template-columns: 1fr;
         gap: 0;
     }
 
-    /* スマホでは7と8の縦線を消す */
+    /* スマホでは中央の縦線を消す */
+    .numeric-row::after {
+        display: none;
+    }
+
     .numeric-question {
         padding: 25px 0;
         border-bottom: 1px solid var(--line-light);
@@ -613,7 +650,6 @@ main {
 
     .numeric-question:last-child {
         padding-right: 0;
-        border-left: none;
         border-bottom: none;
     }
 
