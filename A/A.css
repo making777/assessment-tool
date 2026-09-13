@@ -1032,26 +1032,3 @@ select:focus {
 
 }
 
-/* 07・08の間に区切り線を追加 */
-.numeric-row {
-    position: relative;
-}
-
-.numeric-row::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 1px;
-    background: var(--line);
-    pointer-events: none;
-}
-
-/* スマートフォンでは7・8が縦並びになるため線を表示しない */
-@media (max-width: 700px) {
-    .numeric-row::after {
-        display: none;
-    }
-}
-
