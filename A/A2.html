@@ -1,211 +1,225 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+    <title>A.M.D.S.｜解析結果</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>解析結果 | 星詠み研究所</title>
-
-  <link rel="stylesheet" href="A.css">
-
+    <link rel="stylesheet" href="A.css">
 </head>
-
 
 <body>
 
-
 <header class="site-header">
+    <div class="header-inner">
 
-  <div class="header-mark">
-    S.R.I.
-  </div>
+        <div class="institute-mark">
+            <div class="emblem">✦</div>
 
-  <div>
+            <div class="institute-name">
+                <div class="jp-name">
+                    アーデルハイト・クロイツ学術機構
+                </div>
 
-    <h1>
-      星詠み研究所
-    </h1>
+                <div class="en-name">
+                    ADELHEID KREUZ INSTITUTE
+                </div>
+            </div>
+        </div>
 
-    <p>
-      SEIYOMI RESEARCH INSTITUTE
-    </p>
-
-  </div>
-
+    </div>
 </header>
 
 
-<main class="container">
+<main class="page">
 
-
-  <section class="hero">
-
-    <span class="label">
-      AMDS / ANALYSIS REPORT
-    </span>
-
-    <h2>
-      解析結果
-    </h2>
-
-    <p>
-      入力された情報を基にしたA系統の暫定解析結果です。
-    </p>
-
-  </section>
-
-
-  <section class="result-card">
-
-
-    <div class="report-top">
-
-      <span>
-        ANALYSIS REPORT
-      </span>
-
-      <span id="reportId">
-        AMDS-------
-      </span>
-
+    <div class="document-heading">
+        <span>ADELHEID KREUZ INSTITUTE</span>
+        <span>/</span>
+        <span>A.M.D.S.</span>
+        <span>/</span>
+        <span>ANALYSIS REPORT</span>
     </div>
 
 
-    <div class="grade-area">
+    <section class="report-header">
 
-
-      <div>
-
-        <div class="small-label">
-          APTITUDE GRADE
+        <div class="system-code">
+            A.M.D.S.
         </div>
 
-        <div
-          id="grade"
-          class="grade"
-        >
-          --
-        </div>
+        <h1>解析結果</h1>
 
-      </div>
-
-
-      <div class="result-copy">
-
-        <div class="small-label">
-          PRIMARY TYPE
-        </div>
-
-        <h2 id="type">
-          --
-        </h2>
-
-        <p id="message">
-          解析中...
+        <p>
+            ANALYSIS REPORT
         </p>
 
-      </div>
+        <div class="report-id">
+            REPORT ID :
+            <span id="reportId">—</span>
+        </div>
+
+    </section>
+
+
+    <section class="result-panel">
+
+        <div class="result-label">
+            DIAGNOSTIC CLASSIFICATION
+        </div>
+
+        <div class="result-type">
+            <span id="grade">—</span>
+        </div>
+
+        <div class="result-description">
+            現在の入力情報に基づく総合判定
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="section-heading">
+
+            <div class="section-number">
+                SECTION 01
+            </div>
+
+            <div>
+                <h2>解析概要</h2>
+                <span>ANALYSIS SUMMARY</span>
+            </div>
+
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-card">
+                <span>TYPE</span>
+                <strong id="type">—</strong>
+            </div>
+
+            <div class="result-card">
+                <span>BLOOD</span>
+                <strong id="blood">—</strong>
+            </div>
+
+            <div class="result-card">
+                <span>ZODIAC</span>
+                <strong id="zodiac">—</strong>
+            </div>
+
+            <div class="result-card">
+                <span>LINEAGE</span>
+                <strong id="lineage">—</strong>
+            </div>
+
+            <div class="result-card">
+                <span>ORIGIN</span>
+                <strong id="origin">—</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="section-heading">
+
+            <div class="section-number">
+                SECTION 02
+            </div>
+
+            <div>
+                <h2>総合評価</h2>
+                <span>GENERAL EVALUATION</span>
+            </div>
+
+        </div>
+
+
+        <div class="research-text">
+
+            <p>
+                入力された基礎情報をもとに、A.M.D.S.による
+                総合的な解析処理を実施しました。
+            </p>
+
+            <p>
+                本結果は対象情報から算出された診断結果を
+                研究記録として提示するものです。
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="section-heading">
+
+            <div class="section-number">
+                SECTION 03
+            </div>
+
+            <div>
+                <h2>解析対象項目</h2>
+                <span>ANALYSIS TARGETS</span>
+            </div>
+
+        </div>
+
+
+        <div class="diagnosis-list">
+
+            <div>異能</div>
+            <div>魔法</div>
+            <div>血統</div>
+            <div>適性</div>
+            <div>能力傾向</div>
+            <div>詳細解析</div>
+
+        </div>
+
+    </section>
+
+
+    <div class="navigation-buttons">
+
+        <a href="A1.html" class="secondary-button">
+            ← INPUT FORM
+        </a>
+
+        <a href="A3.html" class="primary-button">
+            詳細解析 →
+        </a>
 
     </div>
-
-
-    <div class="result-grid">
-
-
-      <div>
-
-        <span>
-          星座
-        </span>
-
-        <strong id="rZodiac">
-          --
-        </strong>
-
-      </div>
-
-
-      <div>
-
-        <span>
-          血液型
-        </span>
-
-        <strong id="rBlood">
-          --
-        </strong>
-
-      </div>
-
-
-      <div>
-
-        <span>
-          特殊血統
-        </span>
-
-        <strong id="rLineage">
-          --
-        </strong>
-
-      </div>
-
-
-      <div>
-
-        <span>
-          出生環境
-        </span>
-
-        <strong id="rOrigin">
-          --
-        </strong>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <div class="button-row">
-
-
-    <a
-      href="A1.html"
-      class="secondary-button"
-    >
-      入力画面へ戻る
-    </a>
-
-
-    <a
-      href="A3.html"
-      class="primary-button"
-    >
-      詳細解析を見る
-    </a>
-
-
-  </div>
-
 
 </main>
 
 
-<footer>
-  SEIYOMI RESEARCH INSTITUTE / AMDS
+<footer class="site-footer">
+
+    <div>
+        A.M.D.S. / ABILITY &amp; MAGIC DIAGNOSTIC SYSTEM
+    </div>
+
+    <div>
+        ADELHEID KREUZ INSTITUTE
+    </div>
+
 </footer>
 
 
 <script src="A.js"></script>
-
 
 </body>
 </html>
