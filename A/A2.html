@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>異能力解析結果 | 星詠み研究所</title>
+  <title>解析結果 | アーデルハイト・クロイツ学術機構</title>
 
   <!-- A2専用CSS -->
   <link rel="stylesheet" href="A2.css">
@@ -21,7 +21,7 @@
       <div class="header-left">
         <p class="institution-name">アーデルハイト・クロイツ学術機構</p>
         <p class="institution-subtitle">
-          応用研究部門 / データ解析部
+          応用研究部門 / データ研究部
         </p>
       </div>
 
@@ -40,22 +40,26 @@
 
       <div>
         <span class="meta-label">解析区分</span>
-        <strong>異能力適性解析</strong>
+        <strong>Important, but Not Urgent</strong>
       </div>
 
       <div>
         <span class="meta-label">閲覧権限</span>
-        <strong>研究員限定</strong>
+        <strong>LEVEL-3 研究員限定</strong>
+        <p>
+        本書は極めて重要な個人情報のため第三者による無許可の持ち出しを禁ずる。
+        診断対象者本人による診断結果およびその他の関連情報の開示については任意とする。
+      </p>
       </div>
     </section>
 
     <!-- タイトル -->
     <section class="report-title">
       <p class="eyebrow">CONFIDENTIAL RESEARCH DOCUMENT</p>
-      <h1>異能力解析結果報告書</h1>
+      <h1>解析結果報告書</h1>
       <p>
         本書は入力された基礎情報をもとに算出された、
-        個体の異能力傾向および適性に関する研究記録です。
+        診断対象者の異能力傾向および魔法適性に関する研究記録です。
       </p>
     </section>
 
@@ -67,46 +71,89 @@
       </div>
 
       <div class="basic-information">
-        <div class="info-item">
-          <span>登録名</span>
-          <strong id="subjectName">未登録</strong>
-        </div>
-
-        <div class="info-item">
-          <span>生年月日</span>
-          <strong id="birthDate">----</strong>
-        </div>
-
-        <div class="info-item">
-          <span>血液型</span>
-          <strong id="bloodType">未解析</strong>
-        </div>
-
-        <div class="info-item">
-          <span>出身傾向</span>
-          <strong id="originType">未解析</strong>
-        </div>
-
-        <div class="info-item">
-          <span>星座</span>
-          <strong id="zodiac">未解析</strong>
-        </div>
-
-        <div class="info-item">
-          <span>家族関係</span>
-          <strong id="familyType">未解析</strong>
-        </div>
-
-        <div class="info-item">
-          <span>利き手</span>
-          <strong id="handedness">未解析</strong>
-        </div>
-
-        <div class="info-item">
-          <span>出生時間</span>
-          <strong id="birthTime">未解析</strong>
-        </div>
-      </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>登録名</span>
+      <small>NAME</small>
+    </div>
+    <div class="official-value" id="subjectName">
+      未登録
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>解析対象者番号</span>
+      <small>SUBJECT ID</small>
+    </div>
+    <div class="official-value" id="analysisSubjectId">
+      A-000000
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>生年月日</span>
+      <small>BIRTH DATE</small>
+    </div>
+    <div class="official-value" id="birthDate">
+      ----
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>血液型</span>
+      <small>BLOOD TYPE</small>
+    </div>
+    <div class="official-value" id="bloodType">
+      未解析
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>出身傾向</span>
+      <small>ORIGIN</small>
+    </div>
+    <div class="official-value" id="originType">
+      未解析
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>星座</span>
+      <small>ZODIAC SIGN</small>
+    </div>
+    <div class="official-value" id="zodiac">
+      未解析
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>家族関係</span>
+      <small>FAMILY RELATION</small>
+    </div>
+    <div class="official-value" id="familyType">
+      未解析
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>利き手</span>
+      <small>DOMINANT HAND</small>
+    </div>
+    <div class="official-value" id="handedness">
+      未解析
+    </div>
+  </div>
+  <div class="official-row">
+    <div class="official-label">
+      <span>出生時間</span>
+      <small>BIRTH TIME</small>
+    </div>
+    <div class="official-value" id="birthTime">
+      未解析
+    </div>
+  </div>
+</div>
+      
     </section>
 
     <!-- 総合評価 -->
@@ -378,7 +425,7 @@
         <ul id="recommendationList">
           <li>解析結果を確認してください。</li>
           <li>能力の過剰使用には注意してください。</li>
-          <li>定期的な再解析を推奨します。</li>
+          <li>定期的な詳細診断を推奨します。</li>
         </ul>
       </div>
     </section>
@@ -392,20 +439,35 @@
         </div>
 
         <div>
-          <span>担当研究員</span>
-          <strong id="researcherName">星詠み研究所解析部</strong>
+          <span>運営</span>
+          <strong id="researcherName">応用研究部門 / データ研究部 / 解析課</strong>
         </div>
       </div>
 
       <div class="signature-area">
         <div class="research-seal">
-          <span>星詠み</span>
-          <strong>研究所</strong>
-          <small>SEIMEI INSTITUTE</small>
+          <span>機密書類</span>
+          <strong>承認</strong>
+          <small>
+<script>
+ // 今日の日付情報を取得し変数dTodayに格納する
+var dToday = new Date(); 
+
+// 取得した日付情報から年・月・日・曜日を取得する
+var year = dToday.getFullYear();
+var month = dToday.getMonth()+1;
+var day = dToday.getDate();
+
+// 取得した日付情報を表示する
+document.write( year + "." + month + "." + day );
+</script>
+          </small>
+
+           
         </div>
 
         <div class="signature">
-          <span>解析担当署名</span>
+          <span>解析担当者</span>
           <strong id="researcherSignature">________________</strong>
         </div>
       </div>
