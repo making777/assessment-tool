@@ -4,17 +4,23 @@
    基本設定
 ========================= */
 
-:root {
-  --paper: #f4f3ee;
-  --paper-dark: #e9e7df;
-  --ink: #263b4b;
-  --ink-light: #52616b;
-  --line: #c7c8c2;
-  --gold: #9c8250;
-  --gold-light: #d6c59e;
-  --red: #914b48;
-  --white: #ffffff;
-  --shadow: rgba(38, 59, 75, 0.12);
+:root{
+    --paper:#f5f7f9;
+    --paper-dark:#e8edf2;
+
+    --ink:#162941;
+    --ink-light:#52677d;
+
+    --line:#b9c7d4;
+
+    --gold:#7f96ad;
+    --gold-light:#c6d3df;
+
+    --red:#647b91;
+
+    --white:#ffffff;
+
+    --shadow:rgba(22,41,65,0.12);
 }
 
 * {
