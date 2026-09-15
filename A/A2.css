@@ -224,34 +224,89 @@ body {
 }
 
 /* =========================
-   基本情報
+   基本情報・公的書類風表組み
 ========================= */
-
 .basic-information {
+  width: 100%;
+  border: 1px solid var(--ink);
+  background: rgba(255, 255, 255, 0.18);
+}
+.official-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-
-.info-item {
-  min-height: 82px;
-  padding: 13px 15px;
-  border-right: 1px solid var(--line);
+  grid-template-columns: 190px 1fr;
+  min-height: 76px;
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.2);
 }
-
-.info-item span {
-  display: block;
+.official-row:last-child {
+  border-bottom: none;
+}
+.official-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 18px;
+  border-right: 1px solid var(--line);
+  background: rgba(38, 59, 75, 0.07);
+}
+.official-label span {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+}
+.official-label small {
+  margin-top: 2px;
   color: var(--ink-light);
-  font-size: 11px;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
 }
-
-.info-item strong {
-  display: block;
-  margin-top: 4px;
-  font-size: 15px;
+.official-value {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 12px 22px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.12);
+}
+/* 公的書類らしい記入欄の下線 */
+.official-value::after {
+  content: "";
+  flex: 1;
+  align-self: flex-end;
+  min-width: 20px;
+  margin-left: 18px;
+  border-bottom: 1px dotted rgba(38, 59, 75, 0.25);
+}
+/* =========================
+   スマートフォン用
+========================= */
+@media (max-width: 760px) {
+  .official-row {
+    grid-template-columns: 125px 1fr;
+    min-height: 72px;
+  }
+  .official-label {
+    padding: 10px 12px;
+  }
+  .official-label span {
+    font-size: 12px;
+    letter-spacing: 0.03em;
+  }
+  .official-label small {
+    font-size: 8px;
+    letter-spacing: 0.04em;
+  }
+  .official-value {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+  .official-value::after {
+    margin-left: 10px;
+  }
 }
 
 /* =========================
