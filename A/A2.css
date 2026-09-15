@@ -69,18 +69,6 @@ body {
   pointer-events: none;
 }
 
-.result-page::after {
-  content: "CLASSIFIED";
-  position: absolute;
-  top: 40px;
-  right: 52px;
-  color: rgba(145, 75, 72, 0.13);
-  font-family: Georgia, serif;
-  font-size: 38px;
-  letter-spacing: 5px;
-  transform: rotate(-12deg);
-  pointer-events: none;
-}
 
 /* =========================
    ヘッダー
@@ -161,6 +149,12 @@ body {
   font-weight: normal;
 }
 
+.document-meta > div:last-child p {
+  margin: 7px 0 0;
+  color: var(--ink-light);
+  font-size: 13px;
+  line-height: 1.45;
+}
 /* =========================
    タイトル
 ========================= */
@@ -226,88 +220,116 @@ body {
 /* =========================
    基本情報・公的書類風表組み
 ========================= */
+
+/* =========================
+   基本情報・公的書類風表組み
+========================= */
+
 .basic-information {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
   border: 1px solid var(--ink);
   background: rgba(255, 255, 255, 0.18);
 }
+
 .official-row {
-  display: grid;
-  grid-template-columns: 190px 1fr;
-  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 105px;
   border-bottom: 1px solid var(--line);
 }
-.official-row:last-child {
-  border-bottom: none;
+
+.official-row:nth-child(odd) {
+  border-right: 1px solid var(--line);
 }
+
 .official-label {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 12px 18px;
-  border-right: 1px solid var(--line);
+  padding: 10px 16px 6px;
   background: rgba(38, 59, 75, 0.07);
 }
+
 .official-label span {
   color: var(--ink);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   letter-spacing: 0.08em;
 }
+
 .official-label small {
-  margin-top: 2px;
+  margin-top: 1px;
   color: var(--ink-light);
   font-family: Georgia, serif;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 0.12em;
 }
+
 .official-value {
   display: flex;
   align-items: center;
+  flex: 1;
   min-width: 0;
-  padding: 12px 22px;
+  padding: 6px 16px 12px;
   color: var(--ink);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.05em;
   background: rgba(255, 255, 255, 0.12);
 }
-/* 公的書類らしい記入欄の下線 */
+
 .official-value::after {
   content: "";
   flex: 1;
   align-self: flex-end;
   min-width: 20px;
-  margin-left: 18px;
+  margin-left: 14px;
   border-bottom: 1px dotted rgba(38, 59, 75, 0.25);
 }
+
+/* 最後の項目が1つだけになった場合 */
+.official-row:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  border-right: none;
+}
+
 /* =========================
    スマートフォン用
 ========================= */
-@media (max-width: 760px) {
+
+  .basic-information {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .official-row {
-    grid-template-columns: 125px 1fr;
-    min-height: 72px;
+    min-height: 92px;
   }
+
   .official-label {
-    padding: 10px 12px;
+    padding: 8px 10px 4px;
   }
+
   .official-label span {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.03em;
   }
+
   .official-label small {
-    font-size: 8px;
+    font-size: 7px;
     letter-spacing: 0.04em;
   }
+
   .official-value {
-    padding: 10px 14px;
-    font-size: 15px;
+    padding: 5px 10px 9px;
+    font-size: 13px;
   }
+
   .official-value::after {
-    margin-left: 10px;
+    margin-left: 8px;
   }
-}
 
 /* =========================
    総合評価
@@ -594,27 +616,49 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   width: 105px;
   height: 105px;
+
+  padding: 12px;
   border: 2px solid var(--red);
   border-radius: 50%;
+
   color: var(--red);
   text-align: center;
+
   transform: rotate(-8deg);
 }
 
 .research-seal span {
-  font-size: 13px;
+  display: block;
+  margin-bottom: 2px;
+
+  font-family: Georgia, serif;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .research-seal strong {
-  font-size: 20px;
+  display: block;
+
+  font-size: 18px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .research-seal small {
+  display: block;
+  margin-top: 5px;
+
   font-family: Georgia, serif;
-  font-size: 7px;
+  font-size: 10px;
+  line-height: 1.2;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .signature {
@@ -624,10 +668,18 @@ body {
 
 .signature strong {
   display: block;
-  margin-top: 12px;
-  font-family: cursive;
-  font-size: 18px;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 15px;
   font-weight: normal;
+  letter-spacing: 0.08em;
+}
+
+.signature-line {
+  width: 220px;
+  max-width: 100%;
+  margin: 4px 0 0 auto;
+  border-bottom: 1px solid var(--ink);
 }
 
 .barcode-area {
@@ -738,12 +790,6 @@ body {
     inset: 7px;
   }
 
-  .result-page::after {
-    top: 25px;
-    right: 22px;
-    font-size: 20px;
-  }
-
   .document-header {
     display: block;
   }
@@ -841,10 +887,24 @@ body {
     align-items: flex-start;
   }
 
-  .research-seal {
-    width: 88px;
-    height: 88px;
-  }
+.research-seal {
+  width: 92px;
+  height: 92px;
+  padding: 9px;
+}
+
+.research-seal span {
+  font-size: 9px;
+}
+
+.research-seal strong {
+  font-size: 16px;
+}
+
+.research-seal small {
+  margin-top: 4px;
+  font-size: 9px;
+}
 
   .signature {
     padding-top: 10px;
