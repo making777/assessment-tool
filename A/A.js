@@ -119,12 +119,12 @@ function generateAnalysisId(data) {
 
    出生月によって担当者を決定。
 
-   1・2月 → A
-   3・4月 → B
-   5・6月 → C
-   7・8月 → D
-   9・10月 → E
-   11・12月 → F
+   1・2月 → グレタ・ウェーバー
+   3・4月 → 鈴木明
+   5・6月 → ジェルマン・モレル
+   7・8月 → アドニス・ランベール
+   9・10月 → 李昕玥リー・シンユエLi Xīnyuè
+   11・12月 → オリバー・スミス
 --------------------------------------------------------- */
 
 function getResearcherName(birthMonth) {
@@ -135,12 +135,12 @@ function getResearcherName(birthMonth) {
 
     const researchers = {
 
-        A: "久世 恒一",
-        B: "神崎 玲奈",
-        C: "水城 恒一",
-        D: "白石 由良",
-        E: "橘 恒一",
-        F: "御影 朱音"
+        A: "Greta・Weber",
+        B: "Mei Suzuki",
+        C: "Germain・Morel",
+        D: "Lambert・Lambert",
+        E: "Li Xīnyuè",
+        F: "Oliver・Smith"
 
     };
 
