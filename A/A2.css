@@ -734,8 +734,10 @@ strong {
 
 .signature {
   width: 260px;
-  max-width: 100%;
+  max-width: 260px;
+  margin-left: auto;
   text-align: right;
+  flex: 0 0 260px;
 }
 
 .signature > span {
