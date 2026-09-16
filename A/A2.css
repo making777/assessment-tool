@@ -1,28 +1,51 @@
-@charset "UTF-8";
+/* =========================================================
+   A2.css
+   解析結果報告書専用デザイン
+   アーデルハイト・クロイツ学術機構
+========================================================= */
 
-/* =========================
+
+/* =========================================================
    基本設定
-========================= */
+========================================================= */
 
-:root{
-    --paper:#f5f7f9;
-    --paper-dark:#e8edf2;
+:root {
+  --navy: #102a43;
+  --navy-light: #173b5c;
+  --blue-gray: #7892aa;
+  --line: #e1e8ed;
+  --line-dark: #91a9bd;
+  --paper: #ffffff;
+  --background: #f5f7f9;
+  --text: #30465b;
+  --muted: #7890a5;
+  --white: #ffffff;
 
-    --ink:#162941;
-    --ink-light:#52677d;
+  --danger: #8b4545;
+  --danger-light: #f8eeee;
 
-    --line:#b9c7d4;
+  --shadow-small: 0 2px 8px rgba(16, 42, 67, 0.04);
+  --shadow-medium: 0 8px 28px rgba(16, 42, 67, 0.08);
 
-    --gold:#7f96ad;
-    --gold-light:#c6d3df;
+  --serif: "Times New Roman",
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro",
+    serif;
 
-    --red:#647b91;
-
-    --white:#ffffff;
-
-    --shadow:rgba(22,41,65,0.12);
+  --sans: -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
 }
 
+
+/* =========================================================
+   リセット
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -34,75 +57,84 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(
-      rgba(245, 247, 249, 0.94),
-      rgba(245, 247, 249, 0.94)
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba(22, 41, 65, 0.025) 4px
-    );
-  color: var(--ink);
-  font-family:
-    "Noto Serif JP",
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    serif;
+  padding: 40px 20px 60px;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--sans);
   line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   全体
-========================= */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   メイン用紙
+========================================================= */
 
 .result-page {
-  width: min(100% - 32px, 1080px);
-  margin: 32px auto;
-  padding: 44px;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 54px 64px 64px;
   background: var(--paper);
   border: 1px solid var(--line);
-  box-shadow: 0 12px 40px var(--shadow);
-  position: relative;
-}
-
-.result-page::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1px solid rgba(185, 199, 212, 0.65);
-  pointer-events: none;
+  box-shadow: var(--shadow-medium);
 }
 
 
-/* =========================
+/* =========================================================
    ヘッダー
-========================= */
+========================================================= */
 
 .document-header {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 22px;
-  border-bottom: 2px solid var(--ink);
-  position: relative;
-  z-index: 1;
+  gap: 30px;
+  padding-bottom: 28px;
+  border-bottom: 3px solid var(--navy);
+}
+
+.header-left,
+.header-right {
+  min-width: 0;
 }
 
 .institution-name {
-  margin: 0;
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
 }
 
 .institution-subtitle {
-  margin: 4px 0 0;
-  color: var(--ink-light);
+  margin-bottom: 0;
+  color: var(--muted);
   font-size: 12px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 }
 
 .header-right {
@@ -110,461 +142,499 @@ body {
 }
 
 .document-type {
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .document-status {
   display: inline-block;
-  margin: 6px 0 0;
+  margin-bottom: 0;
   padding: 2px 10px;
-  border: 1px solid var(--red);
-  color: var(--red);
+  border: 1px solid var(--line-dark);
+  color: var(--blue-gray);
   font-size: 11px;
   letter-spacing: 0.12em;
 }
 
-/* =========================
+
+/* =========================================================
    文書メタ情報
-========================= */
+========================================================= */
 
 .document-meta {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 24px 0 40px;
-  padding: 14px 0;
+  grid-template-columns: 1fr 1fr 1.6fr;
+  gap: 24px;
+  padding: 22px 0;
   border-bottom: 1px solid var(--line);
 }
 
 .document-meta > div {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  min-width: 0;
 }
 
 .meta-label {
-  color: var(--ink-light);
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
   font-size: 11px;
   letter-spacing: 0.1em;
 }
 
 .document-meta strong {
-  font-size: 14px;
-  font-weight: normal;
+  display: block;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
-.document-meta > div:last-child p {
-  margin: 7px 0 0;
-  color: var(--ink-light);
-  font-size: 13px;
-  line-height: 1.45;
+.document-meta p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
 }
-/* =========================
+
+
+/* =========================================================
    タイトル
-========================= */
+========================================================= */
 
 .report-title {
-  max-width: 760px;
-  margin: 0 auto 44px;
+  padding: 58px 0 42px;
   text-align: center;
 }
 
 .eyebrow {
-  margin: 0 0 10px;
-  color: var(--gold);
-  font-family: Georgia, serif;
+  margin-bottom: 12px;
+  color: var(--blue-gray);
+  font-family: var(--serif);
   font-size: 11px;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.18em;
 }
 
 .report-title h1 {
-  margin: 0;
-  font-size: clamp(25px, 4vw, 40px);
-  letter-spacing: 0.12em;
-  line-height: 1.5;
+  margin-bottom: 18px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
 }
 
-.report-title p:last-child {
-  margin: 18px auto 0;
-  color: var(--ink-light);
+.report-title > p:last-child {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
   font-size: 13px;
+  line-height: 2;
 }
 
-/* =========================
-   セクション
-========================= */
+
+/* =========================================================
+   各セクション
+========================================================= */
 
 .report-section {
-  margin-top: 42px;
+  margin-top: 48px;
 }
 
 .section-heading {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--ink);
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-dark);
 }
 
 .section-number {
-  color: var(--gold);
-  font-family: Georgia, serif;
-  font-size: 17px;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 30px;
+  flex: 0 0 auto;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 0.05em;
 }
 
 .section-heading h2 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
+  margin-bottom: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
-/* =========================
-   基本情報・公的書類風表組み
-========================= */
+
+/* =========================================================
+   基本情報
+========================================================= */
 
 .basic-information {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-  border: 1px solid var(--ink);
-  background: rgba(255, 255, 255, 0.18);
+  border-top: 1px solid var(--line);
 }
 
 .official-row {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 105px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  min-height: 64px;
   border-bottom: 1px solid var(--line);
-}
-
-.official-row:nth-child(odd) {
-  border-right: 1px solid var(--line);
 }
 
 .official-label {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 16px 6px;
-  background: rgba(22, 41, 65, 0.07);
+  gap: 2px;
+  padding: 12px 20px;
+  background: #f8fafb;
+  border-right: 1px solid var(--line);
 }
 
 .official-label span {
-  color: var(--ink);
+  color: var(--navy);
   font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 0.08em;
+  font-weight: 700;
 }
 
 .official-label small {
-  margin-top: 1px;
-  color: var(--ink-light);
-  font-family: Georgia, serif;
-  font-size: 8px;
+  color: var(--muted);
+  font-size: 10px;
   letter-spacing: 0.12em;
 }
 
 .official-value {
   display: flex;
   align-items: center;
-  flex: 1;
   min-width: 0;
-  padding: 6px 16px 12px;
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  background: rgba(255, 255, 255, 0.12);
+  padding: 12px 20px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
-.official-value::after {
-  content: "";
-  flex: 1;
-  align-self: flex-end;
-  min-width: 20px;
-  margin-left: 14px;
-  border-bottom: 1px dotted rgba(22, 41, 65, 0.25);
-}
 
-/* 最後の項目が1つだけになった場合 */
-.official-row:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  border-right: none;
-}
-
-/* =========================
-   スマートフォン用
-========================= */
-
-  .basic-information {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .official-row {
-    min-height: 92px;
-  }
-
-  .official-label {
-    padding: 8px 10px 4px;
-  }
-
-  .official-label span {
-    font-size: 11px;
-    letter-spacing: 0.03em;
-  }
-
-  .official-label small {
-    font-size: 7px;
-    letter-spacing: 0.04em;
-  }
-
-  .official-value {
-    padding: 5px 10px 9px;
-    font-size: 13px;
-  }
-
-  .official-value::after {
-    margin-left: 8px;
-  }
-
-/* =========================
+/* =========================================================
    総合評価
-========================= */
+========================================================= */
 
 .overall-evaluation {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 24px;
-  padding: 26px;
-  border: 1px solid var(--line);
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+  gap: 30px;
+  padding: 32px;
+  border: 1px solid var(--line-dark);
   background:
     linear-gradient(
       135deg,
-      rgba(198, 211, 223, 0.18),
-      rgba(255, 255, 255, 0.15)
+      rgba(245, 247, 249, 0.8),
+      rgba(255, 255, 255, 1)
     );
 }
 
-.evaluation-label,
-.classification-label {
-  display: block;
-  color: var(--ink-light);
-  font-size: 12px;
-  letter-spacing: 0.12em;
+.evaluation-main {
+  min-width: 0;
 }
 
-.evaluation-main strong {
+.evaluation-label {
   display: block;
-  margin-top: 8px;
-  color: var(--gold);
-  font-size: 44px;
-  line-height: 1.3;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.evaluation-main > strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
 }
 
 .evaluation-main p {
-  margin: 12px 0 0;
-  color: var(--ink-light);
+  max-width: 540px;
+  margin-bottom: 0;
+  color: var(--text);
   font-size: 13px;
+  line-height: 2;
 }
 
 .evaluation-sub {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 18px;
   align-items: center;
 }
 
-.evaluation-sub div {
-  padding-left: 18px;
-  border-left: 1px solid var(--line);
+.evaluation-sub > div {
+  padding-left: 20px;
+  border-left: 1px solid var(--line-dark);
 }
 
 .evaluation-sub span {
   display: block;
-  color: var(--ink-light);
-  font-size: 11px;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .evaluation-sub strong {
   display: block;
-  margin-top: 5px;
-  font-family: Georgia, serif;
-  font-size: 28px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.3;
 }
 
-/* =========================
+
+/* =========================================================
    能力値
-========================= */
+========================================================= */
 
 .ability-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 34px;
 }
 
 .ability-item {
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
+  min-width: 0;
 }
 
 .ability-top {
   display: grid;
-  grid-template-columns: 60px 1fr auto;
-  gap: 10px;
-  align-items: baseline;
+  grid-template-columns: 58px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
 }
 
 .ability-code {
-  color: var(--gold);
-  font-family: Georgia, serif;
-  font-size: 17px;
-  font-weight: bold;
+  color: var(--blue-gray);
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 0.08em;
 }
 
 .ability-name {
-  color: var(--ink-light);
+  min-width: 0;
+  color: var(--text);
   font-size: 13px;
+  overflow-wrap: anywhere;
 }
 
 .ability-top strong {
-  font-family: Georgia, serif;
-  font-size: 20px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .ability-bar {
-  height: 7px;
-  margin-top: 8px;
+  position: relative;
+  width: 100%;
+  height: 8px;
   overflow: hidden;
-  background: var(--paper-dark);
+  background: #edf1f4;
+  border: 1px solid #e0e7ec;
 }
 
 .ability-bar span {
   display: block;
-  width: 0%;
+  width: 0;
   height: 100%;
-  background: var(--ink);
-  transition: width 0.6s ease;
+  background: linear-gradient(
+    90deg,
+    var(--navy),
+    var(--blue-gray)
+  );
+  transition: width 0.8s ease;
 }
 
-/* =========================
+
+/* =========================================================
    危険度・属性
-========================= */
+========================================================= */
 
 .classification-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .classification-card {
-  min-height: 160px;
-  padding: 24px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.22);
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--line-dark);
+  background: var(--paper);
+}
+
+.classification-card.danger-card {
+  background: var(--danger-light);
+  border-color: #d8b7b7;
+}
+
+.classification-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .classification-card strong {
   display: block;
-  margin-top: 12px;
-  font-size: 28px;
-  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.classification-card.danger-card strong {
+  color: var(--danger);
 }
 
 .classification-card p {
-  margin: 8px 0 0;
-  color: var(--ink-light);
+  margin-bottom: 0;
+  color: var(--text);
   font-size: 13px;
+  line-height: 2;
+  overflow-wrap: anywhere;
 }
 
-.danger-card {
-  border-top: 4px solid var(--red);
-}
 
-.danger-card strong {
-  color: var(--red);
-}
-
-/* =========================
+/* =========================================================
    固有能力
-========================= */
+========================================================= */
 
 .unique-ability {
-  padding: 28px;
-  border: 1px solid var(--gold);
+  padding: 34px;
+  border: 1px solid var(--line-dark);
   background:
     linear-gradient(
       135deg,
-      rgba(198, 211, 223, 0.2),
-      rgba(255, 255, 255, 0.2)
+      #ffffff 0%,
+      #f5f8fa 100%
     );
 }
 
 .unique-ability h3 {
-  margin: 10px 0;
-  font-size: 28px;
-  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
 }
 
 .unique-ability p {
-  margin: 0;
-  color: var(--ink-light);
+  max-width: 780px;
+  margin-bottom: 0;
+  color: var(--text);
   font-size: 14px;
+  line-height: 2.1;
+  overflow-wrap: anywhere;
 }
 
-/* =========================
+
+/* =========================================================
    8つの本質
-========================= */
+========================================================= */
 
 .essence-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .essence-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: 95px;
-  padding: 15px;
+  justify-content: space-between;
+  min-height: 105px;
+  padding: 18px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.2);
+  background: #fbfcfd;
 }
 
-.essence-item span {
-  color: var(--gold);
-  font-family: Georgia, serif;
+.essence-item > span {
+  margin-bottom: 12px;
+  color: var(--blue-gray);
+  font-family: var(--serif);
   font-size: 12px;
+  letter-spacing: 0.08em;
 }
 
 .essence-item strong {
-  margin-top: 5px;
+  color: var(--navy);
   font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-/* =========================
-   コメント・推奨事項
-========================= */
 
-.comment-box,
-.recommendation-box {
-  padding: 24px;
-  border-left: 3px solid var(--gold);
-  background: rgba(255, 255, 255, 0.28);
+/* =========================================================
+   総合コメント
+========================================================= */
+
+.comment-box {
+  position: relative;
+  padding: 30px 34px;
+  border-left: 4px solid var(--navy);
+  background: #f8fafb;
+}
+
+.comment-box::before {
+  content: "“";
+  position: absolute;
+  top: 8px;
+  left: 14px;
+  color: #dbe3e9;
+  font-family: Georgia, serif;
+  font-size: 54px;
+  line-height: 1;
 }
 
 .comment-box p {
-  margin: 0;
+  position: relative;
+  margin-bottom: 0;
+  color: var(--text);
   font-size: 14px;
-  white-space: pre-line;
+  line-height: 2.2;
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   推奨事項
+========================================================= */
+
+.recommendation-box {
+  padding: 26px 30px;
+  border: 1px solid var(--line);
+  background: #fbfcfd;
 }
 
 .recommendation-box ul {
@@ -573,134 +643,152 @@ body {
 }
 
 .recommendation-box li {
-  margin-bottom: 8px;
-  font-size: 14px;
+  margin-bottom: 10px;
+  padding-left: 6px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.9;
 }
 
-/* =========================
-   フッター
-========================= */
+.recommendation-box li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   発行情報
+========================================================= */
 
 .document-footer {
-  margin-top: 48px;
-  padding-top: 26px;
-  border-top: 2px solid var(--ink);
+  margin-top: 60px;
+  padding-top: 28px;
+  border-top: 3px solid var(--navy);
 }
 
 .footer-information {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
 }
 
-.footer-information span,
-.signature span {
+.footer-information > div {
+  min-width: 0;
+}
+
+.footer-information span {
   display: block;
-  color: var(--ink-light);
+  margin-bottom: 4px;
+  color: var(--muted);
   font-size: 11px;
+  letter-spacing: 0.1em;
 }
 
 .footer-information strong {
   display: block;
-  margin-top: 5px;
-  font-size: 14px;
+  color: var(--navy);
+  font-size: 13px;
+  overflow-wrap: anywhere;
 }
 
 .signature-area {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  margin-top: 30px;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px 0;
 }
 
 .research-seal {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  width: 105px;
-  height: 105px;
-
-  padding: 12px;
-  border: 2px solid var(--red);
+  justify-content: center;
+  width: 125px;
+  height: 125px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line-dark);
   border-radius: 50%;
-
-  color: var(--red);
+  color: var(--navy);
   text-align: center;
-
   transform: rotate(-8deg);
 }
 
 .research-seal span {
-  display: block;
-  margin-bottom: 2px;
-
-  font-family: Georgia, serif;
+  font-family: var(--serif);
   font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+  letter-spacing: 0.05em;
 }
 
 .research-seal strong {
-  display: block;
-
-  font-size: 18px;
-  line-height: 1.25;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
+  margin: 5px 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  letter-spacing: 0.12em;
 }
 
 .research-seal small {
-  display: block;
-  margin-top: 5px;
-
-  font-family: Georgia, serif;
+  color: var(--muted);
   font-size: 10px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
 }
 
 .signature {
-  flex: 1;
-  text-align: right;
+  width: 260px;
+  max-width: 100%;
+  text-align: left;
 }
 
-.signature strong {
+.signature > span {
   display: block;
-  margin-top: 8px;
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: normal;
-  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.signature > strong {
+  display: block;
+  min-height: 28px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 17px;
+  overflow-wrap: anywhere;
 }
 
 .signature-line {
-  width: 220px;
-  max-width: 100%;
-  margin: 4px 0 0 auto;
-  border-bottom: 1px solid var(--ink);
+  width: 100%;
+  height: 1px;
+  margin-top: 12px;
+  background: var(--line-dark);
 }
 
+
+/* =========================================================
+   バーコード
+========================================================= */
+
 .barcode-area {
-  margin-top: 28px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .barcode {
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
-  gap: 2px;
-  height: 42px;
+  gap: 3px;
+  height: 46px;
+  overflow: hidden;
 }
 
 .barcode span {
   display: block;
   width: 3px;
-  background: var(--ink);
+  height: 100%;
+  background: var(--navy);
 }
 
 .barcode span:nth-child(2n) {
@@ -711,249 +799,473 @@ body {
   width: 5px;
 }
 
-.barcode span:nth-child(4n) {
+.barcode span:nth-child(5n) {
   width: 2px;
 }
 
 .barcode-area p {
-  margin: 2px 0 0;
-  font-family: monospace;
-  font-size: 11px;
-  letter-spacing: 0.15em;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  overflow-wrap: anywhere;
 }
 
 .confidential-note {
-  margin: 30px 0 0;
-  color: var(--ink-light);
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 11px;
   text-align: center;
-  font-size: 10px;
+  letter-spacing: 0.08em;
 }
 
-/* =========================
+
+/* =========================================================
    操作ボタン
-========================= */
+========================================================= */
 
 .result-actions {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 36px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
+  gap: 16px;
+  margin-top: 42px;
 }
 
 .action-button {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  min-width: 210px;
-  padding: 13px 22px;
-  border: 1px solid var(--ink);
-  text-decoration: none;
+  justify-content: center;
+  min-height: 52px;
+  padding: 13px 28px;
+  border: 1px solid var(--navy);
   font-size: 13px;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .primary-button {
-  background: var(--ink);
+  background: var(--navy);
   color: var(--white);
 }
 
 .secondary-button {
-  background: transparent;
-  color: var(--ink);
+  background: var(--white);
+  color: var(--navy);
+}
+
+.action-button:hover {
+  transform: translateY(-2px);
 }
 
 .primary-button:hover {
-  background: var(--gold);
-  border-color: var(--gold);
+  background: var(--navy-light);
+  border-color: var(--navy-light);
 }
 
 .secondary-button:hover {
-  background: var(--ink);
-  color: var(--white);
+  background: #edf2f6;
 }
 
-/* =========================
-   スマートフォン
-========================= */
 
-@media (max-width: 760px) {
+/* =========================================================
+   ページフッター
+========================================================= */
+
+.page-footer {
+  max-width: 1080px;
+  margin: 24px auto 0;
+  text-align: center;
+}
+
+.page-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   タブレット対応
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+  body {
+    padding: 24px 14px 40px;
+  }
+
   .result-page {
-    width: calc(100% - 18px);
-    margin: 9px auto;
-    padding: 25px 18px;
-  }
-
-  .result-page::before {
-    inset: 7px;
-  }
-
-  .document-header {
-    display: block;
-  }
-
-  .header-right {
-    margin-top: 15px;
-    text-align: left;
-  }
-
-  .institution-name {
-    font-size: 21px;
+    padding: 40px 34px 46px;
   }
 
   .document-meta {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .report-title {
-    margin-bottom: 32px;
+  .document-meta > div:last-child {
+    grid-column: 1 / -1;
   }
 
-  .report-title h1 {
-    font-size: 26px;
-    letter-spacing: 0.07em;
-  }
-
-  .section-heading h2 {
-    font-size: 17px;
-  }
-
-  .basic-information {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .info-item {
-    min-height: 75px;
-    padding: 10px;
-  }
-
-  .info-item strong {
-    font-size: 13px;
+  .official-row {
+    grid-template-columns: 180px minmax(0, 1fr);
   }
 
   .overall-evaluation {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 20px;
-  }
-
-  .evaluation-main strong {
-    font-size: 38px;
   }
 
   .evaluation-sub {
-    gap: 10px;
-  }
-
-  .evaluation-sub div {
-    padding-left: 10px;
-  }
-
-  .ability-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .classification-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .classification-card {
-    min-height: auto;
-  }
-
-  .unique-ability {
-    padding: 20px;
-  }
-
-  .unique-ability h3 {
-    font-size: 23px;
+    grid-template-columns: 1fr 1fr;
   }
 
   .essence-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .footer-information {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .signature-area {
-    align-items: flex-start;
-  }
-
-.research-seal {
-  width: 92px;
-  height: 92px;
-  padding: 9px;
 }
 
-.research-seal span {
-  font-size: 9px;
-}
 
-.research-seal strong {
-  font-size: 16px;
-}
+/* =========================================================
+   スマートフォン対応
+========================================================= */
 
-.research-seal small {
-  margin-top: 4px;
-  font-size: 9px;
-}
-
-  .signature {
-    padding-top: 10px;
-  }
-
-  .result-actions {
-    flex-direction: column;
-  }
-
-  .action-button {
-    width: 100%;
-    min-width: 0;
-  }
-}
-
-/* =========================
-   印刷・PDF保存
-========================= */
-
-@media print {
-  @page {
-    size: A4;
-    margin: 10mm;
-  }
+@media screen and (max-width: 600px) {
 
   body {
+    padding: 0;
     background: var(--paper);
   }
 
   .result-page {
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    border: none;
+    max-width: none;
+    padding: 26px 18px 36px;
+    border: 0;
     box-shadow: none;
   }
 
-  .result-page::after {
-    display: none;
+  .document-header {
+    display: block;
+    padding-bottom: 20px;
+  }
+
+  .institution-name {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .institution-subtitle {
+    font-size: 10px;
+  }
+
+  .header-right {
+    margin-top: 18px;
+    text-align: left;
+  }
+
+  .document-type {
+    font-size: 15px;
+  }
+
+  .document-meta {
+    display: block;
+    padding: 18px 0;
+  }
+
+  .document-meta > div {
+    margin-bottom: 16px;
+  }
+
+  .document-meta > div:last-child {
+    margin-bottom: 0;
+  }
+
+  .document-meta p {
+    font-size: 10px;
+  }
+
+  .report-title {
+    padding: 38px 0 24px;
+  }
+
+  .report-title h1 {
+    font-size: 29px;
+    letter-spacing: 0.08em;
+  }
+
+  .report-title > p:last-child {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .report-section {
+    margin-top: 36px;
+  }
+
+  .section-heading {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .section-number {
+    width: 32px;
+    height: 27px;
+    font-size: 11px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
+    letter-spacing: 0.04em;
+  }
+
+  .official-row {
+    display: block;
+    min-height: auto;
+  }
+
+  .official-label {
+    display: block;
+    padding: 10px 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .official-label span {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+
+  .official-label small {
+    font-size: 9px;
+  }
+
+  .official-value {
+    min-height: 48px;
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+
+  .overall-evaluation {
+    gap: 26px;
+    padding: 22px 18px;
+  }
+
+  .evaluation-main > strong {
+    font-size: 42px;
+  }
+
+  .evaluation-main p {
+    font-size: 12px;
+  }
+
+  .evaluation-sub {
+    gap: 12px;
+  }
+
+  .evaluation-sub > div {
+    padding-left: 12px;
+  }
+
+  .evaluation-sub strong {
+    font-size: 25px;
+  }
+
+  .ability-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .ability-top {
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .ability-name {
+    font-size: 12px;
+  }
+
+  .ability-top strong {
+    font-size: 17px;
+  }
+
+  .classification-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .classification-card {
+    padding: 22px 18px;
+  }
+
+  .classification-card strong {
+    font-size: 26px;
+  }
+
+  .classification-card p {
+    font-size: 12px;
+  }
+
+  .unique-ability {
+    padding: 24px 18px;
+  }
+
+  .unique-ability h3 {
+    font-size: 25px;
+  }
+
+  .unique-ability p {
+    font-size: 12px;
+  }
+
+  .essence-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .essence-item {
+    min-height: 92px;
+    padding: 13px;
+  }
+
+  .essence-item strong {
+    font-size: 12px;
+  }
+
+  .comment-box {
+    padding: 24px 20px;
+  }
+
+  .comment-box p {
+    font-size: 12px;
+  }
+
+  .recommendation-box {
+    padding: 20px 18px;
+  }
+
+  .recommendation-box li {
+    font-size: 12px;
+  }
+
+  .footer-information {
+    display: block;
+  }
+
+  .footer-information > div {
+    margin-bottom: 18px;
+  }
+
+  .footer-information > div:last-child {
+    margin-bottom: 0;
+  }
+
+  .signature-area {
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .research-seal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .research-seal strong {
+    font-size: 12px;
+  }
+
+  .research-seal span {
+    font-size: 9px;
+  }
+
+  .research-seal small {
+    font-size: 9px;
+  }
+
+  .signature {
+    flex: 1;
+    width: auto;
+  }
+
+  .signature > strong {
+    font-size: 14px;
+  }
+
+  .barcode-area {
+    display: block;
+  }
+
+  .barcode {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .barcode-area p {
+    text-align: center;
   }
 
   .result-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .action-button {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 18px;
+  }
+
+  .page-footer {
+    padding: 0 18px 28px;
+  }
+
+}
+
+
+/* =========================================================
+   印刷対応
+========================================================= */
+
+@media print {
+
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  body {
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .result-page {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .result-actions,
+  .page-footer {
     display: none;
   }
 
-  .report-section,
+  .report-section {
+    break-inside: avoid;
+  }
+
+  .document-header,
+  .document-meta,
+  .report-title,
   .document-footer {
     break-inside: avoid;
   }
@@ -962,4 +1274,12 @@ body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+
+  .section-number,
+  .primary-button,
+  .classification-card.danger-card {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
 }
