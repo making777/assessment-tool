@@ -660,16 +660,16 @@ strong {
 ========================================================= */
 
 .document-footer {
-  margin-top: 60px;
-  padding-top: 28px;
+  margin-top: 42px;
+  padding-top: 20px;
   border-top: 3px solid var(--navy);
 }
 
 .footer-information {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  padding-bottom: 28px;
+  gap: 24px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -697,7 +697,7 @@ strong {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 .research-seal {
@@ -705,12 +705,12 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 125px;
-  height: 125px;
+  width: 115px;
+  height: 115px;
   flex: 0 0 auto;
-  border: 1px solid var(--line-dark);
+  border: 1px solid #b33a2b;
   border-radius: 50%;
-  color: var(--navy);
+  color: #b33a2b;
   text-align: center;
   transform: rotate(-8deg);
 }
@@ -729,7 +729,7 @@ strong {
 }
 
 .research-seal small {
-  color: var(--muted);
+  color: #b33a2b;
   font-size: 10px;
 }
 
@@ -737,6 +737,7 @@ strong {
   width: 260px;
   max-width: 100%;
   text-align: left;
+  transform: translateX(24px);
 }
 
 .signature > span {
@@ -769,10 +770,11 @@ strong {
 
 .barcode-area {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-top: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
@@ -813,7 +815,7 @@ strong {
 }
 
 .confidential-note {
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   color: var(--muted);
   font-size: 11px;
   text-align: center;
@@ -826,10 +828,14 @@ strong {
 ========================================================= */
 
 .result-actions {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  bottom: -82px;
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 42px;
+  margin-top: 0;
 }
 
 .action-button {
@@ -880,7 +886,7 @@ strong {
 
 .page-footer {
   max-width: 1080px;
-  margin: 24px auto 0;
+  margin: 105px auto 0;
   text-align: center;
 }
 
@@ -903,7 +909,9 @@ strong {
   }
 
   .result-page {
+    position: relative;
     padding: 40px 34px 46px;
+    margin-bottom: 105px;
   }
 
   .document-meta {
@@ -930,6 +938,11 @@ strong {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .result-actions {
+    left: 34px;
+    right: 34px;
+  }
+
 }
 
 
@@ -947,6 +960,7 @@ strong {
   .result-page {
     max-width: none;
     padding: 26px 18px 36px;
+    margin-bottom: 0;
     border: 0;
     box-shadow: none;
   }
@@ -1213,6 +1227,7 @@ strong {
   }
 
   .result-actions {
+    position: static;
     flex-direction: column;
     gap: 10px;
     margin-top: 30px;
@@ -1226,6 +1241,7 @@ strong {
 
   .page-footer {
     padding: 0 18px 28px;
+    margin-top: 24px;
   }
 
 }
