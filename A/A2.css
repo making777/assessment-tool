@@ -1203,10 +1203,13 @@ strong {
     font-size: 9px;
   }
 
-  .signature {
-    flex: 1;
-    width: auto;
-  }
+.signature {
+  flex: 0 0 260px;
+  width: 260px;
+  max-width: 260px;
+  margin-left: auto;
+  text-align: right;
+}
 
   .signature > strong {
     font-size: 14px;
