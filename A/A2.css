@@ -152,13 +152,15 @@ strong {
 }
 
 .document-status {
+  display: inline-block;
+  width: fit-content;
   color: #b33a2b;
   border: 1px solid #b33a2b;
   font-family: var(--serif);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  padding: 8px 14px;
+  padding: 6px 10px;
   white-space: nowrap;
 }
 
