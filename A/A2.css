@@ -152,15 +152,18 @@ strong {
 }
 
 .document-status {
-  display: inline-block;
-  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 52px;
+  box-sizing: border-box;
   color: #b33a2b;
-  border: 1px solid #b33a2b;
+  border: 2px solid #b33a2b;
   font-family: var(--serif);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 6px 10px;
   white-space: nowrap;
 }
 
