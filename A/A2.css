@@ -707,8 +707,8 @@ strong {
   justify-content: center;
 
   /* ハンコを小さく */
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
 
   flex: 0 0 auto;
   border: 1px solid #b33a2b;
