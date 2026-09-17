@@ -155,7 +155,7 @@ strong {
   margin-bottom: 0;
   padding: 2px 10px;
   border: 1px solid var(--line-dark);
-  color: var(--blue-gray);
+  color: #b33a2b;
   font-size: 11px;
   letter-spacing: 0.12em;
 }
@@ -753,7 +753,7 @@ strong {
   margin-bottom: 5px;
   color: var(--muted);
   font-size: 11px;
-  text-align: left;
+  text-align: right;
 }
 
 .signature > strong {
@@ -1223,7 +1223,7 @@ strong {
   }
 
   .signature > span {
-    text-align: left;
+    text-align: right;
   }
 
   .signature > strong {
