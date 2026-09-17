@@ -705,8 +705,11 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 85px;
-  height: 85px;
+
+  /* ハンコを小さく */
+  width: 70px;
+  height: 70px;
+
   flex: 0 0 auto;
   border: 1px solid #b33a2b;
   border-radius: 50%;
@@ -714,30 +717,35 @@ strong {
   text-align: center;
   transform: rotate(-8deg);
 }
+
 .research-seal span {
   font-family: var(--serif);
-  font-size: 11px;
+  font-size: 9px;
   letter-spacing: 0.05em;
 }
 
 .research-seal strong {
-  margin: 5px 0;
+  margin: 4px 0;
   font-family: var(--serif);
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.12em;
 }
 
 .research-seal small {
   color: #b33a2b;
-  font-size: 10px;
+  font-size: 9px;
 }
 
+
+/* =========================================================
+   解析担当者
+========================================================= */
+
 .signature {
-  width: 260px;
-  max-width: 260px;
+  width: 220px;
+  max-width: 220px;
   margin-left: auto;
-  text-align: right;
-  flex: 0 0 260px;
+  flex: 0 0 220px;
 }
 
 .signature > span {
@@ -745,6 +753,7 @@ strong {
   margin-bottom: 5px;
   color: var(--muted);
   font-size: 11px;
+  text-align: left;
 }
 
 .signature > strong {
@@ -754,13 +763,14 @@ strong {
   font-family: var(--serif);
   font-size: 17px;
   overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .signature-line {
-  width: 100%;
+  width: 220px;
   height: 1px;
   margin-top: 12px;
-  background: var(--line-dark);
+  background: var(--line);
 }
 
 
@@ -1186,33 +1196,44 @@ strong {
     gap: 24px;
   }
 
+  /* スマホでもハンコを小さく */
   .research-seal {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
   }
 
   .research-seal strong {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .research-seal span {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .research-seal small {
-    font-size: 9px;
+    font-size: 8px;
   }
 
-.signature {
-  flex: 0 0 260px;
-  width: 260px;
-  max-width: 260px;
-  margin-left: auto;
-  text-align: right;
-}
+  /* 解析担当者 */
+  .signature {
+    flex: 0 0 220px;
+    width: 220px;
+    max-width: 220px;
+    margin-left: auto;
+  }
+
+  .signature > span {
+    text-align: left;
+  }
 
   .signature > strong {
     font-size: 14px;
+    text-align: right;
+  }
+
+  .signature-line {
+    width: 220px;
+    background: var(--line);
   }
 
   .barcode-area {
@@ -1253,7 +1274,6 @@ strong {
 /* =========================================================
    印刷対応
 ========================================================= */
-
 
 @media print {
 
