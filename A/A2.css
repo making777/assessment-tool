@@ -749,10 +749,10 @@ strong {
 ========================================================= */
 
 .signature {
-  width: 220px;
-  max-width: 220px;
+  width: 190px;
+  max-width: 190px;
   margin-left: auto;
-  flex: 0 0 220px;
+  flex: 0 0 190px;
 }
 
 .signature > span {
@@ -760,7 +760,7 @@ strong {
   margin-bottom: 5px;
   color: var(--muted);
   font-size: 11px;
-  text-align: right;
+  text-align: left;
 }
 
 .signature > strong {
@@ -770,11 +770,11 @@ strong {
   font-family: var(--serif);
   font-size: 17px;
   overflow-wrap: anywhere;
-  text-align: right;
+  text-align: left;
 }
 
 .signature-line {
-  width: 220px;
+  width: 190px;
   height: 1px;
   margin-top: 12px;
   background: var(--line);
@@ -1223,23 +1223,23 @@ strong {
 
   /* 解析担当者 */
   .signature {
-    flex: 0 0 220px;
-    width: 220px;
-    max-width: 220px;
+    flex: 0 0 190px;
+    width: 190px;
+    max-width: 190px;
     margin-left: auto;
   }
 
   .signature > span {
-    text-align: right;
+    text-align: left;
   }
 
   .signature > strong {
     font-size: 14px;
-    text-align: right;
+    text-align: left;
   }
 
   .signature-line {
-    width: 220px;
+    width: 190px;
     background: var(--line);
   }
 
