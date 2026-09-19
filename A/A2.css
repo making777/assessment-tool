@@ -1282,51 +1282,166 @@ strong {
    印刷対応
 ========================================================= */
 
+/* =========================================================
+   印刷対応
+========================================================= */
+
 @media print {
 
+  /* -----------------------------------------
+     A4用紙設定
+  ----------------------------------------- */
+
   @page {
-    size: A4;
+    size: A4 portrait;
     margin: 12mm;
   }
 
+
+  /* -----------------------------------------
+     印刷時の基本設定
+  ----------------------------------------- */
+
+  html,
   body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
     padding: 0;
     background: #ffffff;
   }
 
+  body {
+    color: var(--text);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+
+  /* -----------------------------------------
+     メイン用紙
+  ----------------------------------------- */
+
   .result-page {
+    width: 100%;
     max-width: none;
+    margin: 0;
     padding: 0;
     border: 0;
     box-shadow: none;
+    background: #ffffff;
   }
+
+
+  /* -----------------------------------------
+     画面専用要素を非表示
+  ----------------------------------------- */
 
   .result-actions,
   .page-footer {
-    display: none;
+    display: none !important;
   }
 
-  .report-section {
-    break-inside: avoid;
-  }
+
+  /* -----------------------------------------
+     ページ内での分割を防止
+  ----------------------------------------- */
 
   .document-header,
   .document-meta,
   .report-title,
-  .document-footer {
+  .report-section,
+  .document-footer,
+  .overall-evaluation,
+  .classification-card,
+  .unique-ability,
+  .essence-item,
+  .comment-box,
+  .recommendation-box {
     break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .ability-bar span {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
+
+  /* -----------------------------------------
+     見出しがページ末尾に孤立するのを防止
+  ----------------------------------------- */
+
+  .section-heading {
+    break-after: avoid;
+    page-break-after: avoid;
   }
+
+
+  /* -----------------------------------------
+     表示色を印刷時にも維持
+  ----------------------------------------- */
 
   .section-number,
-  .primary-button,
-  .classification-card.danger-card {
+  .ability-bar span,
+  .classification-card.danger-card,
+  .research-seal {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+  }
+
+
+  /* -----------------------------------------
+     背景・枠線を印刷時にも維持
+  ----------------------------------------- */
+
+  .overall-evaluation,
+  .classification-card,
+  .classification-card.danger-card,
+  .unique-ability,
+  .essence-item,
+  .comment-box,
+  .recommendation-box,
+  .official-label {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+
+  /* -----------------------------------------
+     ハンコ
+  ----------------------------------------- */
+
+  .research-seal {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+
+  /* -----------------------------------------
+     能力バー
+  ----------------------------------------- */
+
+  .ability-bar {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+
+  /* -----------------------------------------
+     リンク・ボタンの装飾を除去
+  ----------------------------------------- */
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+
+  /* -----------------------------------------
+     印刷時のアニメーション停止
+  ----------------------------------------- */
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
   }
 
 }
