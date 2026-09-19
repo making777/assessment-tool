@@ -478,6 +478,45 @@ strong {
 
 
 /* =========================================================
+   能力値サマリー
+========================================================= */
+
+.ability-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.ability-summary-item {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  background: #fbfcfd;
+}
+
+.ability-summary-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.ability-summary-item strong {
+  display: block;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
    危険度・属性
 ========================================================= */
 
@@ -1127,6 +1166,21 @@ strong {
     font-size: 17px;
   }
 
+  .ability-summary {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .ability-summary-item {
+    padding: 14px 16px;
+  }
+
+  .ability-summary-item strong {
+    font-size: 20px;
+  }
+
   .classification-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1357,7 +1411,8 @@ strong {
   .unique-ability,
   .essence-item,
   .comment-box,
-  .recommendation-box {
+  .recommendation-box,
+  .ability-summary-item {
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -1397,7 +1452,8 @@ strong {
   .essence-item,
   .comment-box,
   .recommendation-box,
-  .official-label {
+  .official-label,
+  .ability-summary-item {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
