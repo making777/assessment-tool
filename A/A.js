@@ -1,1742 +1,1254 @@
 /* =========================================================
-   A2.css
-   解析結果報告書専用デザイン
-   アーデルハイト・クロイツ学術機構
-========================================================= */
-
-
-
-/* =========================================================
-   基本設定
-========================================================= */
-
-:root {
-  --navy: #102a43;
-  --navy-light: #173b5c;
-  --blue-gray: #7892aa;
-  --line: #e1e8ed;
-  --line-dark: #91a9bd;
-  --paper: #ffffff;
-  --background: #f5f7f9;
-  --text: #30465b;
-  --muted: #7890a5;
-  --white: #ffffff;
-
-  --danger: #8b4545;
-  --danger-light: #f8eeee;
-
-  --shadow-small: 0 2px 8px rgba(16, 42, 67, 0.04);
-  --shadow-medium: 0 8px 28px rgba(16, 42, 67, 0.08);
-
-  --serif: "Times New Roman",
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    "Hiragino Mincho Pro",
-    serif;
-
-  --sans: -apple-system,
-    BlinkMacSystemFont,
-    "Helvetica Neue",
-    "Yu Gothic",
-    "Hiragino Kaku Gothic ProN",
-    Meiryo,
-    sans-serif;
-}
-
-
-/* =========================================================
-   リセット
-========================================================= */
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  padding: 40px 20px 60px;
-  background: var(--background);
-  color: var(--text);
-  font-family: var(--sans);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-p,
-h1,
-h2,
-h3 {
-  margin-top: 0;
-}
-
-strong {
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   メイン用紙
-========================================================= */
-
-.result-page {
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 54px 64px 64px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-medium);
-}
-
-
-/* =========================================================
-   ヘッダー
-========================================================= */
-
-.document-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 30px;
-  padding-bottom: 8px;
-  border-bottom: 3px solid var(--navy);
-}
-
-.header-left,
-.header-right {
-  min-width: 0;
-}
-
-.institution-name {
-  margin-bottom: 4px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.5;
-}
-
-.institution-subtitle {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-}
-
-.header-right {
-  text-align: right;
-}
-
-.document-type {
-  margin-bottom: 4px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.document-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 130px;
-  height: 40px;
-  box-sizing: border-box;
-  color: #b33a2b;
-  border: 2px solid #b33a2b;
-  font-family: var(--serif);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-}
-
-
-/* =========================================================
-   文書メタ情報
-========================================================= */
-
-.document-meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.6fr;
-  gap: 24px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.document-meta > div {
-  min-width: 0;
-}
-
-.meta-label {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-}
-
-.document-meta strong {
-  display: block;
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-
-.document-meta p {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.8;
-}
-
-
-/* =========================================================
-   タイトル
-========================================================= */
-
-.report-title {
-  padding: 16px 0 10px;
-  text-align: center;
-}
-
-.eyebrow {
-  margin-bottom: 12px;
-  color: var(--blue-gray);
-  font-family: var(--serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-
-.report-title h1 {
-  margin-bottom: 18px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.4;
-}
-
-.report-title > p:last-child {
-  max-width: 680px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
-}
-
-
-/* =========================================================
-   大区分
-========================================================= */
-
-.report-group {
-  margin-top: 38px;
-  padding-top: 8px;
-  border-top: 3px solid var(--navy);
-}
-
-.report-group:first-of-type {
-  margin-top: 24px;
-}
-
-.report-group-heading {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 30px;
-  padding: 12px 0 14px;
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.report-group-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 42px;
-  flex: 0 0 auto;
-  color: var(--navy);
-  border: 1px solid var(--navy);
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.report-group-label {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--blue-gray);
-  font-family: var(--serif);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  line-height: 1.4;
-}
-
-.report-group-heading h2 {
-  margin-bottom: 0;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-}
-
-
-/* =========================================================
-   各セクション
-========================================================= */
-
-.report-section {
-  margin-top: 24px;
-}
-
-.report-group-heading + .report-section {
-  margin-top: 0;
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.section-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 30px;
-  flex: 0 0 auto;
-  background: var(--navy);
-  color: var(--white);
-  font-family: var(--serif);
-  font-size: 13px;
-  letter-spacing: 0.05em;
-}
-
-.section-heading h2 {
-  margin-bottom: 0;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   基本情報
-========================================================= */
-
-.basic-information {
-  border-top: 1px solid var(--line);
-}
-
-.official-row {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  min-height: 64px;
-  border-bottom: 1px solid var(--line);
-}
-
-.official-label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2px;
-  padding: 12px 20px;
-  background: #f8fafb;
-  border-right: 1px solid var(--line);
-}
-
-.official-label span {
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.official-label small {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-}
-
-.official-value {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  padding: 12px 20px;
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   総合評価
-========================================================= */
-
-.overall-evaluation {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
-  gap: 30px;
-  padding: 32px;
-  border: 1px solid var(--line-dark);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(245, 247, 249, 0.8),
-      rgba(255, 255, 255, 1)
-    );
-}
-
-.evaluation-main {
-  min-width: 0;
-}
-
-.evaluation-label {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-}
-
-.evaluation-main > strong {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: clamp(34px, 5vw, 58px);
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-}
-
-.evaluation-main p {
-  max-width: 540px;
-  margin-bottom: 0;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 2;
-}
-
-.evaluation-sub {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  align-items: center;
-}
-
-.evaluation-sub > div {
-  padding-left: 20px;
-  border-left: 1px solid var(--line-dark);
-}
-
-.evaluation-sub span {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.evaluation-sub strong {
-  display: block;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 30px;
-  line-height: 1.3;
-}
-
-
-/* =========================================================
-   能力値
-========================================================= */
-
-.ability-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px 34px;
-}
-
-.ability-item {
-  min-width: 0;
-}
-
-.ability-top {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 9px;
-}
-
-.ability-code {
-  color: var(--blue-gray);
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.ability-name {
-  min-width: 0;
-  color: var(--text);
-  font-size: 13px;
-  overflow-wrap: anywhere;
-}
-
-.ability-top strong {
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 700;
-}
-
-.ability-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  overflow: hidden;
-  background: #edf1f4;
-  border: 1px solid #e0e7ec;
-}
-
-.ability-bar span {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--navy),
-    var(--blue-gray)
-  );
-  transition: width 0.8s ease;
-}
-
-
-/* =========================================================
-   能力値サマリー
-========================================================= */
-
-.ability-summary {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 26px;
-  padding: 20px 0;
-  border-top: 1px solid var(--line-dark);
-  border-bottom: 1px solid var(--line-dark);
-}
-
-.ability-summary-item {
-  min-width: 0;
-  padding: 4px 28px;
-}
-
-.ability-summary-item + .ability-summary-item {
-  border-left: 1px solid var(--line-dark);
-}
-
-.ability-summary-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-family: var(--serif);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
-
-.ability-summary-item strong {
-  display: block;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 23px;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   危険度・属性適性
-========================================================= */
-
-.classification-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.classification-card {
-  min-width: 0;
-  padding: 28px;
-  border: 1px solid var(--line-dark);
-  background: var(--paper);
-}
-
-.classification-card.danger-card {
-  background: var(--danger-light);
-  border-color: #d8b7b7;
-}
-
-.classification-label {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.classification-card strong {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 30px;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-
-.classification-card.danger-card strong {
-  color: var(--danger);
-}
-
-.classification-card p {
-  margin-bottom: 0;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 2;
-  overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   魔法属性
-========================================================= */
-
-.magic-attribute-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.magic-main-card {
-  border-color: var(--line-dark);
-}
-
-.magic-ban-card {
-  background: #f8fafb;
-}
-
-.magic-detail {
-  margin-top: 24px;
-  padding: 26px 28px;
-  border: 1px solid var(--line);
-  background: #fbfcfd;
-}
+   A.M.D.S.
+   Ability & Magic Diagnostic System
 
-.subsection-heading {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
-}
-
-.subsection-heading > span {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--blue-gray);
-  font-family: var(--serif);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.subsection-heading h3 {
-  margin-bottom: 0;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.magic-detail-content {
-  min-width: 0;
-}
-
-.detail-line {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
-
-.detail-line span {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.detail-line strong {
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 18px;
-}
+   Adelheid Kreuz Institute
+   ========================================================= */
 
-.magic-detail-content > p {
-  margin: 14px 0 0;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 2;
-}
 
+/* ---------------------------------------------------------
+   共通データ取得
+--------------------------------------------------------- */
 
-/* =========================================================
-   固有能力
-========================================================= */
-
-.unique-ability {
-  padding: 34px;
-  border: 1px solid var(--line-dark);
-  background:
-    linear-gradient(
-      135deg,
-      #ffffff 0%,
-      #f5f8fa 100%
-    );
-}
+function getDiagnosisData() {
 
-.unique-ability h3 {
-  margin-bottom: 14px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 30px;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
-  overflow-wrap: anywhere;
-}
+    const saved =
+        sessionStorage.getItem("A_diagnosis");
 
-.unique-ability p {
-  max-width: 780px;
-  margin-bottom: 0;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 2.1;
-  overflow-wrap: anywhere;
-}
+    if (!saved) {
+        return null;
+    }
 
-.ability-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 24px;
-}
+    try {
 
-.ability-detail-grid .classification-card {
-  padding: 24px;
-}
+        return JSON.parse(saved);
 
+    } catch (error) {
 
-/* =========================================================
-   異能力 その他詳細
-========================================================= */
+        return null;
 
-.ability-essence-details {
-  margin-top: 30px;
-}
+    }
 
-.ability-essence-details .subsection-heading {
-  margin-bottom: 20px;
 }
 
 
-/* =========================================================
-   8つの本質
-========================================================= */
-
-.essence-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
+/* ---------------------------------------------------------
+   共通テキスト表示
+--------------------------------------------------------- */
 
-.essence-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 105px;
-  padding: 18px;
-  border: 1px solid var(--line);
-  background: #fbfcfd;
-}
+function setText(id, value) {
 
-.essence-item > span {
-  margin-bottom: 12px;
-  color: var(--blue-gray);
-  font-family: var(--serif);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-}
+    const element =
+        document.getElementById(id);
 
-.essence-item strong {
-  color: var(--navy);
-  font-size: 14px;
-  line-height: 1.7;
-  overflow-wrap: anywhere;
-}
+    if (element) {
 
+        element.textContent =
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+                ? value
+                : "—";
 
-/* =========================================================
-   総合コメント
-========================================================= */
+    }
 
-.comment-box {
-  position: relative;
-  padding: 30px 34px;
-  border-left: 4px solid var(--navy);
-  background: #f8fafb;
 }
 
-.comment-box::before {
-  content: "“";
-  position: absolute;
-  top: 8px;
-  left: 14px;
-  color: #dbe3e9;
-  font-family: Georgia, serif;
-  font-size: 54px;
-  line-height: 1;
-}
 
-.comment-box p {
-  position: relative;
-  margin-bottom: 0;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 2.2;
-  overflow-wrap: anywhere;
-}
+/* ---------------------------------------------------------
+   解析ID生成
+---------------------------------------------------------
 
+   現在は正式仕様未確定のため、
+   「入力情報から同じIDを再現する」
+   ための暫定方式。
 
-/* =========================================================
-   推奨事項
-========================================================= */
+   ※ Date.now() は使用しない。
+--------------------------------------------------------- */
 
-.recommendation-box {
-  padding: 26px 30px;
-  border: 1px solid var(--line);
-  background: #fbfcfd;
-}
+function generateAnalysisId(data) {
 
-.recommendation-box ul {
-  margin: 0;
-  padding-left: 22px;
-}
+    const source =
+        [
+            data.birthYear,
+            data.birthMonth,
+            data.birthDay,
+            data.hand,
+            data.zodiac,
+            data.family,
+            data.blood,
+            data.origin,
+            data.phonetic,
+            data.nameNumber,
+            data.time,
+            data.lineage
+        ].join("|");
 
-.recommendation-box li {
-  margin-bottom: 10px;
-  padding-left: 6px;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 1.9;
-}
 
-.recommendation-box li:last-child {
-  margin-bottom: 0;
-}
+    let hash = 0;
 
 
-/* =========================================================
-   発行情報
-========================================================= */
+    for (let i = 0; i < source.length; i++) {
 
-.document-footer {
-  margin-top: 32px;
-  padding-top: 14px;
-  border-top: 3px solid var(--navy);
-}
+        hash =
+            ((hash << 5) - hash) +
+            source.charCodeAt(i);
 
-.footer-information {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
-}
+        hash |= 0;
 
-.footer-information > div {
-  min-width: 0;
-}
+    }
 
-.footer-information span {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-}
 
-.footer-information strong {
-  display: block;
-  color: var(--navy);
-  font-size: 13px;
-  overflow-wrap: anywhere;
-}
+    hash =
+        Math.abs(hash);
 
-.signature-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 14px 0;
-}
 
-.research-seal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  /* ハンコを小さく */
-  width: 75px;
-  height: 75px;
-
-  flex: 0 0 auto;
-  border: 1px solid #b33a2b;
-  border-radius: 50%;
-  color: #b33a2b;
-  text-align: center;
-  transform: rotate(-8deg);
-}
+    const number =
+        String(hash % 1000000)
+            .padStart(6, "0");
 
-.research-seal span {
-  font-family: var(--serif);
-  font-size: 9px;
-  letter-spacing: 0.05em;
-}
 
-.research-seal strong {
-  margin: 4px 0;
-  font-family: var(--serif);
-  font-size: 13px;
-  letter-spacing: 0.12em;
-}
+    return "AMDS-" + number;
 
-.research-seal small {
-  color: #b33a2b;
-  font-size: 9px;
 }
 
 
-/* =========================================================
+/* ---------------------------------------------------------
    解析担当者
-========================================================= */
+--------------------------------------------------------- */
 
-.signature {
-  width: 190px;
-  max-width: 190px;
-  margin-left: auto;
-  flex: 0 0 190px;
-}
+function getResearcherName(birthMonth) {
 
-.signature > span {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--muted);
-  font-size: 11px;
-  text-align: left;
-}
-
-.signature > strong {
-  display: block;
-  min-height: 28px;
-  color: var(--navy);
-  font-family: var(--serif);
-  font-size: 17px;
-  overflow-wrap: anywhere;
-  text-align: left;
-}
-
-.signature-line {
-  width: 190px;
-  height: 1px;
-  margin-top: 12px;
-  background: var(--line);
-}
+    const month =
+        Number(birthMonth);
 
 
-/* =========================================================
-   バーコード
-========================================================= */
+    const researchers = {
 
-.barcode-area {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 6px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-}
+        A: "Greta・Weber",
+        B: "Mei Suzuki",
+        C: "Germain・Morel",
+        D: "Lambert・Lambert",
+        E: "Li Xīnyuè",
+        F: "Oliver・Smith"
 
-.barcode {
-  display: flex;
-  align-items: stretch;
-  gap: 3px;
-  height: 46px;
-  overflow: hidden;
-}
-
-.barcode span {
-  display: block;
-  width: 3px;
-  height: 100%;
-  background: var(--navy);
-}
-
-.barcode span:nth-child(2n) {
-  width: 1px;
-}
-
-.barcode span:nth-child(3n) {
-  width: 5px;
-}
-
-.barcode span:nth-child(5n) {
-  width: 2px;
-}
-
-.barcode-area p {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-family: "Courier New", monospace;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  overflow-wrap: anywhere;
-}
-
-.confidential-note {
-  margin: 10px 0 0;
-  color: var(--muted);
-  font-size: 11px;
-  text-align: center;
-  letter-spacing: 0.08em;
-}
+    };
 
 
-/* =========================================================
-   操作ボタン
-========================================================= */
+    if (month === 1 || month === 2) {
 
-.result-actions {
-  position: absolute;
-  left: 64px;
-  right: 64px;
-  bottom: -82px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 0;
-}
+        return researchers.A;
 
-.action-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 13px 28px;
-  border: 1px solid var(--navy);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-align: center;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
+    }
 
-.primary-button {
-  background: var(--navy);
-  color: var(--white);
-}
+    if (month === 3 || month === 4) {
 
-.secondary-button {
-  background: var(--white);
-  color: var(--navy);
-}
+        return researchers.B;
 
-.action-button:hover {
-  transform: translateY(-2px);
-}
+    }
 
-.primary-button:hover {
-  background: var(--navy-light);
-  border-color: var(--navy-light);
-}
+    if (month === 5 || month === 6) {
 
-.secondary-button:hover {
-  background: #edf2f6;
-}
+        return researchers.C;
+
+    }
+
+    if (month === 7 || month === 8) {
+
+        return researchers.D;
+
+    }
+
+    if (month === 9 || month === 10) {
+
+        return researchers.E;
+
+    }
+
+    if (month === 11 || month === 12) {
+
+        return researchers.F;
+
+    }
 
 
-/* =========================================================
-   ページフッター
-========================================================= */
-
-.page-footer {
-  max-width: 1080px;
-  margin: 105px auto 0;
-  text-align: center;
-}
-
-.page-footer p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-}
-
-
-/* =========================================================
-   タブレット対応
-========================================================= */
-
-@media screen and (max-width: 900px) {
-
-  body {
-    padding: 24px 14px 40px;
-  }
-
-  .result-page {
-    position: relative;
-    padding: 40px 34px 20px;
-    margin-bottom: 105px;
-  }
-
-  .document-meta {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .document-meta > div:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .official-row {
-    grid-template-columns: 180px minmax(0, 1fr);
-  }
-
-  .overall-evaluation {
-    grid-template-columns: 1fr;
-  }
-
-  .evaluation-sub {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .essence-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .ability-detail-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .magic-attribute-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .result-actions {
-    left: 34px;
-    right: 34px;
-  }
+    return "未割当";
 
 }
 
 
-/* =========================================================
-   スマートフォン対応
-========================================================= */
-
-@media screen and (max-width: 600px) {
-
-  body {
-    padding: 0;
-    background: var(--paper);
-  }
-
-  .result-page {
-    max-width: none;
-    padding: 26px 18px 20px;
-    margin-bottom: 0;
-    border: 0;
-    box-shadow: none;
-  }
-
-  .document-header {
-    display: block;
-    padding-bottom: 8px;
-  }
-
-  .institution-name {
-    font-size: 18px;
-    letter-spacing: 0.04em;
-  }
-
-  .institution-subtitle {
-    font-size: 10px;
-  }
-
-  .header-right {
-    margin-top: 18px;
-    text-align: left;
-  }
-
-  .document-type {
-    font-size: 15px;
-  }
-
-  .document-meta {
-    display: block;
-    padding: 8px 0;
-  }
-
-  .document-meta > div {
-    margin-bottom: 16px;
-  }
-
-  .document-meta > div:last-child {
-    margin-bottom: 0;
-  }
-
-  .document-meta p {
-    font-size: 10px;
-  }
-
-  .report-title {
-    padding: 16px 0 10px;
-  }
-
-  .report-title h1 {
-    font-size: 29px;
-    letter-spacing: 0.08em;
-  }
-
-  .report-title > p:last-child {
-    font-size: 12px;
-    text-align: left;
-  }
-
-  .report-group {
-    margin-top: 30px;
-  }
-
-  .report-group:first-of-type {
-    margin-top: 20px;
-  }
-
-  .report-group-heading {
-    gap: 12px;
-    margin-bottom: 24px;
-    padding: 10px 0 12px;
-  }
-
-  .report-group-number {
-    width: 40px;
-    height: 36px;
-    font-size: 18px;
-  }
-
-  .report-group-label {
-    font-size: 8px;
-  }
-
-  .report-group-heading h2 {
-    font-size: 20px;
-  }
-
-  .report-section {
-    margin-top: 24px;
-  }
-
-  .section-heading {
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-
-  .section-number {
-    width: 32px;
-    height: 27px;
-    font-size: 11px;
-  }
-
-  .section-heading h2 {
-    font-size: 18px;
-    letter-spacing: 0.04em;
-  }
-
-  .official-row {
-    display: block;
-    min-height: auto;
-  }
-
-  .official-label {
-    display: block;
-    padding: 10px 14px;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .official-label span {
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 12px;
-  }
-
-  .official-label small {
-    font-size: 9px;
-  }
-
-  .official-value {
-    min-height: 48px;
-    padding: 11px 14px;
-    font-size: 13px;
-  }
-
-  .overall-evaluation {
-    gap: 26px;
-    padding: 22px 18px;
-  }
-
-  .evaluation-main > strong {
-    font-size: 42px;
-  }
-
-  .evaluation-main p {
-    font-size: 12px;
-  }
-
-  .evaluation-sub {
-    gap: 12px;
-  }
-
-  .evaluation-sub > div {
-    padding-left: 12px;
-  }
-
-  .evaluation-sub strong {
-    font-size: 25px;
-  }
-
-  .ability-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .ability-top {
-    grid-template-columns: 52px minmax(0, 1fr) auto;
-    gap: 8px;
-  }
-
-  .ability-name {
-    font-size: 12px;
-  }
-
-  .ability-top strong {
-    font-size: 17px;
-  }
-
-  .ability-summary {
-    grid-template-columns: 1fr;
-    gap: 0;
-    margin-top: 20px;
-    padding: 16px 0;
-  }
-
-  .ability-summary-item {
-    padding: 14px 16px;
-  }
-
-  .ability-summary-item + .ability-summary-item {
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
-
-  .ability-summary-item strong {
-    font-size: 20px;
-  }
-
-  .classification-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .classification-card {
-    padding: 22px 18px;
-  }
-
-  .classification-card strong {
-    font-size: 26px;
-  }
-
-  .classification-card p {
-    font-size: 12px;
-  }
-
-  .magic-attribute-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .magic-detail {
-    padding: 22px 18px;
-  }
-
-  .detail-line {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .ability-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .unique-ability {
-    padding: 24px 18px;
-  }
-
-  .unique-ability h3 {
-    font-size: 25px;
-  }
-
-  .unique-ability p {
-    font-size: 12px;
-  }
-
-  .essence-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .essence-item {
-    min-height: 92px;
-    padding: 13px;
-  }
-
-  .essence-item strong {
-    font-size: 12px;
-  }
-
-  .comment-box {
-    padding: 24px 20px;
-  }
-
-  .comment-box p {
-    font-size: 12px;
-  }
-
-  .recommendation-box {
-    padding: 20px 18px;
-  }
-
-  .recommendation-box li {
-    font-size: 12px;
-  }
-
-  .footer-information {
-    display: block;
-  }
-
-  .footer-information > div {
-    margin-bottom: 18px;
-  }
-
-  .footer-information > div:last-child {
-    margin-bottom: 0;
-  }
-
-  .signature-area {
-    align-items: flex-start;
-    gap: 24px;
-  }
-
-  /* スマホでもハンコを小さく */
-  .research-seal {
-    width: 70px;
-    height: 70px;
-  }
-
-  .research-seal strong {
-    font-size: 11px;
-  }
-
-  .research-seal span {
-    font-size: 8px;
-  }
-
-  .research-seal small {
-    font-size: 8px;
-  }
-
-  /* 解析担当者 */
-  .signature {
-    flex: 0 0 190px;
-    width: 190px;
-    max-width: 190px;
-    margin-left: auto;
-  }
-
-  .signature > span {
-    text-align: left;
-  }
-
-  .signature > strong {
-    font-size: 14px;
-    text-align: left;
-  }
-
-  .signature-line {
-    width: 190px;
-    background: var(--line);
-  }
-
-  .barcode-area {
-    display: block;
-  }
-
-  .barcode {
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 12px;
-  }
-
-  .barcode-area p {
-    text-align: center;
-  }
-
-  .result-actions {
-    position: static;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 16px;
-  }
-
-  .action-button {
-    width: 100%;
-    min-height: 50px;
-    padding: 13px 18px;
-  }
-
-  .page-footer {
-    padding: 0 18px 28px;
-    margin-top: 24px;
-  }
+/* ---------------------------------------------------------
+   A1 : INPUT FORM
+--------------------------------------------------------- */
+
+const diagnosisForm =
+    document.getElementById("diagnosisForm");
+
+
+if (diagnosisForm) {
+
+    diagnosisForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const hand =
+                document.querySelector(
+                    'input[name="hand"]:checked'
+                )?.value || "";
+
+
+            const family =
+                document.querySelector(
+                    'input[name="family"]:checked'
+                )?.value || "";
+
+
+            const blood =
+                document.querySelector(
+                    'input[name="blood"]:checked'
+                )?.value || "";
+
+
+            const origin =
+                document.querySelector(
+                    'input[name="origin"]:checked'
+                )?.value || "";
+
+
+            const time =
+                document.querySelector(
+                    'input[name="time"]:checked'
+                )?.value || "";
+
+
+            const lineage =
+                document.querySelector(
+                    'input[name="lineage"]:checked'
+                )?.value || "";
+
+
+            const birthYear =
+                document.getElementById(
+                    "birthYear"
+                )?.value || "";
+
+
+            const birthMonth =
+                document.getElementById(
+                    "birthMonth"
+                )?.value || "";
+
+
+            const birthDay =
+                document.getElementById(
+                    "birthDay"
+                )?.value || "";
+
+
+            const zodiac =
+                document.getElementById(
+                    "zodiac"
+                )?.value || "";
+
+
+            const data = {
+
+                birthYear:
+                    birthYear,
+
+                birthMonth:
+                    birthMonth,
+
+                birthDay:
+                    birthDay,
+
+                hand:
+                    hand,
+
+                zodiac:
+                    zodiac,
+
+                family:
+                    family,
+
+                blood:
+                    blood,
+
+                origin:
+                    origin,
+
+                phonetic:
+                    document.getElementById(
+                        "phonetic"
+                    )?.value || "",
+
+                nameNumber:
+                    document.getElementById(
+                        "nameNumber"
+                    )?.value || "",
+
+                time:
+                    time,
+
+                lineage:
+                    lineage
+
+            };
+
+
+            sessionStorage.setItem(
+                "A_diagnosis",
+                JSON.stringify(data)
+            );
+
+
+            window.location.href =
+                "A2.html";
+
+        }
+    );
 
 }
 
 
-/* =========================================================
-   印刷対応
-========================================================= */
+/* ---------------------------------------------------------
+   A2 : ANALYSIS REPORT
+--------------------------------------------------------- */
 
-@media print {
+if (
+    document.getElementById("analysisId") ||
+    document.getElementById("analysisSubjectId")
+) {
 
-  /* -----------------------------------------
-     A4用紙設定
-  ----------------------------------------- */
-
-  @page {
-    size: A4 portrait;
-    margin: 12mm;
-  }
+    const data =
+        getDiagnosisData();
 
 
-  /* -----------------------------------------
-     印刷時の基本設定
-  ----------------------------------------- */
+    if (!data) {
 
-  html,
-  body {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-  }
+        window.location.href =
+            "A1.html";
 
-  body {
-    color: var(--text);
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+    } else {
+
+        const analysisId =
+            generateAnalysisId(data);
 
 
-  /* -----------------------------------------
-     メイン用紙
-  ----------------------------------------- */
+        /* ---------------------------------------------
+           暫定スコア
+           
+           ※能力値の正式計算式が未確定のため、
+             現在の暫定処理を維持。
+        --------------------------------------------- */
 
-  .result-page {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-shadow: none;
-    background: #ffffff;
-  }
+        let score = 70;
 
 
-  /* -----------------------------------------
-     画面専用要素を非表示
-  ----------------------------------------- */
-
-  .result-actions,
-  .page-footer {
-    display: none !important;
-  }
+        score +=
+            Number(data.phonetic || 0) % 15;
 
 
-  /* -----------------------------------------
-     ページ内での分割を防止
-  ----------------------------------------- */
-
-  .document-header,
-  .document-meta,
-  .report-title,
-  .report-group,
-  .report-section,
-  .document-footer,
-  .overall-evaluation,
-  .classification-card,
-  .unique-ability,
-  .magic-detail,
-  .ability-detail-grid,
-  .essence-item,
-  .comment-box,
-  .recommendation-box,
-  .ability-summary,
-  .ability-summary-item {
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+        score +=
+            Number(data.nameNumber || 0) % 10;
 
 
-  /* -----------------------------------------
-     見出しがページ末尾に孤立するのを防止
-  ----------------------------------------- */
+        if (score > 99) {
 
-  .section-heading,
-  .report-group-heading,
-  .subsection-heading {
-    break-after: avoid;
-    page-break-after: avoid;
-  }
+            score = 99;
+
+        }
 
 
-  /* -----------------------------------------
-     表示色を印刷時にも維持
-  ----------------------------------------- */
+        /* ---------------------------------------------
+           ランク
+        --------------------------------------------- */
 
-  .section-number,
-  .report-group-number,
-  .ability-bar span,
-  .classification-card.danger-card,
-  .research-seal {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+        let grade;
 
 
-  /* -----------------------------------------
-     背景・枠線を印刷時にも維持
-  ----------------------------------------- */
+        if (score >= 90) {
 
-  .overall-evaluation,
-  .classification-card,
-  .classification-card.danger-card,
-  .unique-ability,
-  .magic-detail,
-  .essence-item,
-  .comment-box,
-  .recommendation-box,
-  .official-label,
-  .ability-summary,
-  .ability-summary-item {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+            grade = "S";
 
+        } else if (score >= 80) {
 
-  /* -----------------------------------------
-     ハンコ
-  ----------------------------------------- */
+            grade = "A";
 
-  .research-seal {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+        } else if (score >= 70) {
+
+            grade = "B";
+
+        } else {
+
+            grade = "C";
+
+        }
 
 
-  /* -----------------------------------------
-     能力バー
-  ----------------------------------------- */
+        /* ---------------------------------------------
+           結果保存
+        --------------------------------------------- */
 
-  .ability-bar {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
+        const result = {
 
+            score:
+                score,
 
-  /* -----------------------------------------
-     リンク・ボタンの装飾を除去
-  ----------------------------------------- */
+            grade:
+                grade,
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+            reportId:
+                analysisId
+
+        };
 
 
-  /* -----------------------------------------
-     印刷時のアニメーション停止
-  ----------------------------------------- */
+        /*
+         * 将来的に正式な解析処理が決定した場合は、
+         * ここへ解析結果を追加できる。
+         *
+         * 例：
+         *
+         * attributeType:
+         * "放出型"
+         *
+         * primaryMagicAttribute:
+         * "炎"
+         *
+         * forbiddenMagicAttribute:
+         * "水"
+         *
+         * など。
+         *
+         * 現時点では正式判定式未確定のため、
+         * 勝手に計算しない。
+         */
 
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+
+        sessionStorage.setItem(
+            "A_result",
+            JSON.stringify(result)
+        );
+
+
+        /* ---------------------------------------------
+           解析ID
+        --------------------------------------------- */
+
+        setText(
+            "analysisId",
+            analysisId
+        );
+
+
+        setText(
+            "analysisSubjectId",
+            analysisId
+        );
+
+
+        setText(
+            "barcodeText",
+            analysisId
+        );
+
+
+        /* ---------------------------------------------
+           総合評価
+        --------------------------------------------- */
+
+        setText(
+            "overallRank",
+            grade
+        );
+
+
+        setText(
+            "overallScore",
+            score
+        );
+
+
+        /* ---------------------------------------------
+           基本情報
+        --------------------------------------------- */
+
+        setText(
+            "birthDate",
+
+            data.birthYear +
+            "年" +
+            data.birthMonth +
+            "月" +
+            data.birthDay +
+            "日"
+        );
+
+
+        setText(
+            "bloodType",
+            data.blood
+        );
+
+
+        setText(
+            "originType",
+            data.origin
+        );
+
+
+        setText(
+            "zodiac",
+            data.zodiac
+        );
+
+
+        setText(
+            "familyType",
+            data.family
+        );
+
+
+        setText(
+            "handedness",
+            data.hand
+        );
+
+
+        setText(
+            "birthTime",
+            data.time
+        );
+
+
+        /* ---------------------------------------------
+           属性適性
+           
+           正式な判定結果が存在する場合のみ表示。
+           それ以外は「未判定」。
+        --------------------------------------------- */
+
+        setText(
+            "magicAttribute",
+            data.attributeType ||
+            "未判定"
+        );
+
+
+        /* ---------------------------------------------
+           魔法属性
+        --------------------------------------------- */
+
+        setText(
+            "primaryMagicAttribute",
+            data.primaryMagicAttribute ||
+            "未判定"
+        );
+
+
+        setText(
+            "forbiddenMagicAttribute",
+            data.forbiddenMagicAttribute ||
+            "未判定"
+        );
+
+
+        setText(
+            "magicAttributeDetails",
+            data.magicAttributeDetails ||
+            "魔法属性に関する詳細情報は未判定です。"
+        );
+
+
+        /* ---------------------------------------------
+           固有能力
+        --------------------------------------------- */
+
+        setText(
+            "uniqueAbilityName",
+            data.uniqueAbilityName ||
+            "未判定"
+        );
+
+
+        setText(
+            "uniqueAbilityDescription",
+            data.uniqueAbilityDescription ||
+            "固有能力の詳細は解析後に表示されます。"
+        );
+
+
+        setText(
+            "activationMethod",
+            data.activationMethod ||
+            "未判定"
+        );
+
+
+        setText(
+            "abilityDanger",
+            data.abilityDanger ||
+            "未判定"
+        );
+
+
+        setText(
+            "abilityStability",
+            data.abilityStability ||
+            "未判定"
+        );
+
+
+        setText(
+            "abilityDetails",
+            data.abilityDetails ||
+            "固有能力に関する詳細情報は未判定です。"
+        );
+
+
+        /* ---------------------------------------------
+           8つの本質
+        --------------------------------------------- */
+
+        const essences = [
+            data.essence1,
+            data.essence2,
+            data.essence3,
+            data.essence4,
+            data.essence5,
+            data.essence6,
+            data.essence7,
+            data.essence8
+        ];
+
+
+        essences.forEach(
+            function (value, index) {
+
+                setText(
+                    "essence" + (index + 1),
+                    value || "未判定"
+                );
+
+            }
+        );
+
+
+        /* ---------------------------------------------
+           総合所見
+        --------------------------------------------- */
+
+        setText(
+            "overallComment",
+            data.overallComment ||
+            "総合所見は解析後に表示されます。"
+        );
+
+
+        /* ---------------------------------------------
+           推奨事項
+        --------------------------------------------- */
+
+        const recommendationList =
+            document.getElementById(
+                "recommendationList"
+            );
+
+
+        if (
+            recommendationList &&
+            Array.isArray(data.recommendations)
+        ) {
+
+            recommendationList.innerHTML = "";
+
+
+            data.recommendations.forEach(
+                function (recommendation) {
+
+                    const li =
+                        document.createElement("li");
+
+                    li.textContent =
+                        recommendation;
+
+                    recommendationList.appendChild(li);
+
+                }
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           解析担当者
+        --------------------------------------------- */
+
+        const researcher =
+            getResearcherName(
+                data.birthMonth
+            );
+
+
+        setText(
+            "researcherSignature",
+            researcher
+        );
+
+
+        /* ---------------------------------------------
+           暫定解析信頼度
+        --------------------------------------------- */
+
+        let reliability = 100;
+
+
+        const requiredValues = [
+
+            data.birthYear,
+            data.birthMonth,
+            data.birthDay,
+            data.hand,
+            data.zodiac,
+            data.family,
+            data.blood,
+            data.origin,
+            data.phonetic,
+            data.nameNumber,
+            data.time,
+            data.lineage
+
+        ];
+
+
+        const missingCount =
+            requiredValues.filter(
+                value =>
+                    value === undefined ||
+                    value === null ||
+                    value === ""
+            ).length;
+
+
+        reliability =
+            Math.max(
+                0,
+                100 - missingCount * 5
+            );
+
+
+        setText(
+            "analysisReliability",
+            reliability + "%"
+        );
+
+
+        /* ---------------------------------------------
+           暫定説明
+        --------------------------------------------- */
+
+        setText(
+            "overallDescription",
+            "入力された基礎情報をもとに暫定解析を実施しています。"
+        );
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   A2 : 能力値サマリー
+--------------------------------------------------------- */
+
+function updateAbilitySummary() {
+
+    const abilityDefinitions = [
+
+        {
+            code: "POW",
+            id: "powValue"
+        },
+
+        {
+            code: "MAG",
+            id: "magValue"
+        },
+
+        {
+            code: "CON",
+            id: "conValue"
+        },
+
+        {
+            code: "SPD",
+            id: "spdValue"
+        },
+
+        {
+            code: "RGE",
+            id: "rgeValue"
+        },
+
+        {
+            code: "DUR",
+            id: "durValue"
+        },
+
+        {
+            code: "RES",
+            id: "resValue"
+        },
+
+        {
+            code: "SEN",
+            id: "senValue"
+        },
+
+        {
+            code: "STA",
+            id: "staValue"
+        },
+
+        {
+            code: "SYN",
+            id: "synValue"
+        }
+
+    ];
+
+
+    const values = [];
+
+
+    abilityDefinitions.forEach(
+        function (ability) {
+
+            const element =
+                document.getElementById(
+                    ability.id
+                );
+
+
+            if (!element) {
+                return;
+            }
+
+
+            const rawValue =
+                element.textContent
+                    .trim()
+                    .replace(
+                        /,/g,
+                        ""
+                    );
+
+
+            if (
+                rawValue === "" ||
+                rawValue === "—" ||
+                rawValue === "--"
+            ) {
+                return;
+            }
+
+
+            const value =
+                Number(rawValue);
+
+
+            if (!Number.isFinite(value)) {
+                return;
+            }
+
+
+            values.push({
+
+                code:
+                    ability.code,
+
+                value:
+                    value
+
+            });
+
+        }
+    );
+
+
+    const averageElement =
+        document.getElementById(
+            "abilityAverage"
+        );
+
+
+    const maximumElement =
+        document.getElementById(
+            "abilityMaximum"
+        );
+
+
+    const minimumElement =
+        document.getElementById(
+            "abilityMinimum"
+        );
+
+
+    if (
+        !averageElement ||
+        !maximumElement ||
+        !minimumElement
+    ) {
+        return;
+    }
+
+
+    if (values.length === 0) {
+
+        averageElement.textContent = "—";
+        maximumElement.textContent = "—";
+        minimumElement.textContent = "—";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       平均値
+    --------------------------------------------- */
+
+    const total =
+        values.reduce(
+            function (sum, item) {
+
+                return sum + item.value;
+
+            },
+            0
+        );
+
+
+    const average =
+        total / values.length;
+
+
+    averageElement.textContent =
+        average.toFixed(1);
+
+
+    /* ---------------------------------------------
+       最高値
+    --------------------------------------------- */
+
+    const maximumValue =
+        Math.max(
+            ...values.map(
+                function (item) {
+                    return item.value;
+                }
+            )
+        );
+
+
+    const maximumAbilities =
+        values
+            .filter(
+                function (item) {
+
+                    return item.value ===
+                        maximumValue;
+
+                }
+            )
+            .map(
+                function (item) {
+
+                    return item.code;
+
+                }
+            );
+
+
+    maximumElement.textContent =
+        maximumAbilities.join(" / ") +
+        " " +
+        maximumValue;
+
+
+    /* ---------------------------------------------
+       最低値
+    --------------------------------------------- */
+
+    const minimumValue =
+        Math.min(
+            ...values.map(
+                function (item) {
+                    return item.value;
+                }
+            )
+        );
+
+
+    const minimumAbilities =
+        values
+            .filter(
+                function (item) {
+
+                    return item.value ===
+                        minimumValue;
+
+                }
+            )
+            .map(
+                function (item) {
+
+                    return item.code;
+
+                }
+            );
+
+
+    minimumElement.textContent =
+        minimumAbilities.join(" / ") +
+        " " +
+        minimumValue;
+
+}
+
+
+/* ---------------------------------------------------------
+   能力値変更監視
+--------------------------------------------------------- */
+
+if (
+    document.getElementById("abilityAverage") ||
+    document.getElementById("abilityMaximum") ||
+    document.getElementById("abilityMinimum")
+) {
+
+    const abilityValueIds = [
+
+        "powValue",
+        "magValue",
+        "conValue",
+        "spdValue",
+        "rgeValue",
+        "durValue",
+        "resValue",
+        "senValue",
+        "staValue",
+        "synValue"
+
+    ];
+
+
+    updateAbilitySummary();
+
+
+    const abilityObservers = [];
+
+
+    abilityValueIds.forEach(
+        function (id) {
+
+            const element =
+                document.getElementById(id);
+
+
+            if (!element) {
+                return;
+            }
+
+
+            const observer =
+                new MutationObserver(
+                    function () {
+
+                        updateAbilitySummary();
+
+                    }
+                );
+
+
+            observer.observe(
+                element,
+                {
+                    childList: true,
+                    characterData: true,
+                    subtree: true
+                }
+            );
+
+
+            abilityObservers.push(
+                observer
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
+   A3 : DETAILED ANALYSIS
+--------------------------------------------------------- */
+
+const detailGrade =
+    document.getElementById(
+        "detailGrade"
+    );
+
+
+if (detailGrade) {
+
+    const data =
+        getDiagnosisData();
+
+
+    const savedResult =
+        sessionStorage.getItem(
+            "A_result"
+        );
+
+
+    if (!data || !savedResult) {
+
+        window.location.href =
+            "A1.html";
+
+    } else {
+
+        let result;
+
+
+        try {
+
+            result =
+                JSON.parse(savedResult);
+
+        } catch (error) {
+
+            window.location.href =
+                "A1.html";
+
+            result = null;
+
+        }
+
+
+        if (result) {
+
+            /* -----------------------------------------
+               ランク
+            ----------------------------------------- */
+
+            setText(
+                "detailGrade",
+                result.grade
+            );
+
+
+            /* -----------------------------------------
+               解析ID
+            ----------------------------------------- */
+
+            setText(
+                "detailReportId",
+                result.reportId
+            );
+
+
+            /* -----------------------------------------
+               生年月日
+            ----------------------------------------- */
+
+            setText(
+                "detailDate",
+
+                data.birthYear +
+                "年" +
+                data.birthMonth +
+                "月" +
+                data.birthDay +
+                "日"
+            );
+
+
+            /* -----------------------------------------
+               その他の基本情報
+            ----------------------------------------- */
+
+            setText(
+                "detailHand",
+                data.hand
+            );
+
+
+            setText(
+                "detailZodiac",
+                data.zodiac
+            );
+
+
+            setText(
+                "detailFamily",
+                data.family
+            );
+
+
+            setText(
+                "detailBlood",
+                data.blood
+            );
+
+
+            setText(
+                "detailOrigin",
+                data.origin
+            );
+
+
+            /* -----------------------------------------
+               数値入力
+            ----------------------------------------- */
+
+            setText(
+                "detailPhonetic",
+                data.phonetic
+                    ? data.phonetic + " 音"
+                    : "—"
+            );
+
+
+            setText(
+                "detailNameNumber",
+                data.nameNumber
+            );
+
+
+            /* -----------------------------------------
+               その他
+            ----------------------------------------- */
+
+            setText(
+                "detailTime",
+                data.time
+            );
+
+
+            setText(
+                "detailLineage",
+                data.lineage
+            );
+
+        }
+
+    }
 
 }
