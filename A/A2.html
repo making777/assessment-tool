@@ -102,793 +102,1083 @@
     </section>
 
 
-    <!-- 基本情報 -->
-    <section class="report-section">
+    <!-- =====================================================
+         Ⅰ 登録情報・基礎データ
+    ====================================================== -->
 
-      <div class="section-heading">
-        <span class="section-number">
-          01
+    <div class="report-group report-group-01">
+
+      <div class="report-group-heading">
+        <span class="report-group-number">
+          Ⅰ
         </span>
 
-        <h2>
-          基本情報
-        </h2>
-      </div>
-
-
-      <div class="basic-information">
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              登録名
-            </span>
-
-            <small>
-              NAME
-            </small>
-          </div>
-
-          <div class="official-value" id="subjectName">
-            未登録
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              解析対象者番号
-            </span>
-
-            <small>
-              SUBJECT ID
-            </small>
-          </div>
-
-          <div class="official-value" id="analysisSubjectId">
-            A-000000
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              生年月日
-            </span>
-
-            <small>
-              BIRTH DATE
-            </small>
-          </div>
-
-          <div class="official-value" id="birthDate">
-            ----
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              血液型
-            </span>
-
-            <small>
-              BLOOD TYPE
-            </small>
-          </div>
-
-          <div class="official-value" id="bloodType">
-            未解析
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              出身傾向
-            </span>
-
-            <small>
-              ORIGIN
-            </small>
-          </div>
-
-          <div class="official-value" id="originType">
-            未解析
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              星座
-            </span>
-
-            <small>
-              ZODIAC SIGN
-            </small>
-          </div>
-
-          <div class="official-value" id="zodiac">
-            未解析
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              家族関係
-            </span>
-
-            <small>
-              FAMILY RELATION
-            </small>
-          </div>
-
-          <div class="official-value" id="familyType">
-            未解析
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              利き手
-            </span>
-
-            <small>
-              DOMINANT HAND
-            </small>
-          </div>
-
-          <div class="official-value" id="handedness">
-            未解析
-          </div>
-        </div>
-
-
-        <div class="official-row">
-          <div class="official-label">
-            <span>
-              出生時間
-            </span>
-
-            <small>
-              BIRTH TIME
-            </small>
-          </div>
-
-          <div class="official-value" id="birthTime">
-            未解析
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- 総合評価 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          02
-        </span>
-
-        <h2>
-          総合評価
-        </h2>
-      </div>
-
-
-      <div class="overall-evaluation">
-
-        <div class="evaluation-main">
-
-          <span class="evaluation-label">
-            総合適性評価
+        <div>
+          <span class="report-group-label">
+            REGISTRATION / BASIC DATA
           </span>
 
-          <strong id="overallRank">
-            未判定
-          </strong>
-
-          <p id="overallDescription">
-            解析データを確認しています。
-          </p>
-
+          <h2>
+            登録情報・基礎データ
+          </h2>
         </div>
-
-
-        <div class="evaluation-sub">
-
-          <div>
-            <span>
-              総合スコア
-            </span>
-
-            <strong id="overallScore">
-              --
-            </strong>
-          </div>
-
-
-          <div>
-            <span>
-              解析信頼度
-            </span>
-
-            <strong id="analysisReliability">
-              --%
-            </strong>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- 能力値 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          03
-        </span>
-
-        <h2>
-          基礎能力値
-        </h2>
       </div>
 
 
-      <div class="ability-grid">
-
-        <!-- POW -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              POW
-            </span>
-
-            <span class="ability-name">
-              出力強度
-            </span>
-
-            <strong id="powValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="powBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- MAG -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              MAG
-            </span>
-
-            <span class="ability-name">
-              魔力容量
-            </span>
-
-            <strong id="magValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="magBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- CON -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              CON
-            </span>
-
-            <span class="ability-name">
-              制御性能
-            </span>
-
-            <strong id="conValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="conBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- SPD -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              SPD
-            </span>
-
-            <span class="ability-name">
-              発動速度
-            </span>
-
-            <strong id="spdValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="spdBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- RGE -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              RGE
-            </span>
-
-            <span class="ability-name">
-              作用範囲
-            </span>
-
-            <strong id="rgeValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="rgeBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- DUR -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              DUR
-            </span>
-
-            <span class="ability-name">
-              持続性能
-            </span>
-
-            <strong id="durValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="durBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- RES -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              RES
-            </span>
-
-            <span class="ability-name">
-              耐性強度
-            </span>
-
-            <strong id="resValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="resBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- SEN -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              SEN
-            </span>
-
-            <span class="ability-name">
-              感知能力
-            </span>
-
-            <strong id="senValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="senBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- STA -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              STA
-            </span>
-
-            <span class="ability-name">
-              安定性
-            </span>
-
-            <strong id="staValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="staBar"></span>
-          </div>
-
-        </div>
-
-
-        <!-- SYN -->
-        <div class="ability-item">
-
-          <div class="ability-top">
-            <span class="ability-code">
-              SYN
-            </span>
-
-            <span class="ability-name">
-              同調性
-            </span>
-
-            <strong id="synValue">
-              --
-            </strong>
-          </div>
-
-          <div class="ability-bar">
-            <span id="synBar"></span>
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- 能力値サマリー -->
-      <div class="ability-summary">
-
-        <div class="ability-summary-item">
-          <span class="ability-summary-label">
-            平均値
-          </span>
-
-          <strong id="abilityAverage">
-            —
-          </strong>
-        </div>
-
-
-        <div class="ability-summary-item">
-          <span class="ability-summary-label">
-            最高値
-          </span>
-
-          <strong id="abilityMaximum">
-            —
-          </strong>
-        </div>
-
-
-        <div class="ability-summary-item">
-          <span class="ability-summary-label">
-            最低値
-          </span>
-
-          <strong id="abilityMinimum">
-            —
-          </strong>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- 危険度・属性 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          04
-        </span>
-
-        <h2>
-          危険度および特性
-        </h2>
-      </div>
-
-
-      <div class="classification-grid">
-
-        <div class="classification-card danger-card">
-
-          <span class="classification-label">
-            危険度
-          </span>
-
-          <strong id="dangerLevel">
-            未判定
-          </strong>
-
-          <p id="dangerDescription">
-            解析結果に基づき判定されます。
-          </p>
-
-        </div>
-
-
-        <div class="classification-card">
-
-          <span class="classification-label">
-            能力値特性
-          </span>
-
-          <strong id="magicAttribute">
-            未判定
-          </strong>
-
-          <p id="magicDescription">
-            基礎能力値の特性を解析中です。
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- 固有能力 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          05
-        </span>
-
-        <h2>
-          固有能力
-        </h2>
-      </div>
-
-
-      <div class="unique-ability">
-
-        <span class="classification-label">
-          識別された固有能力
-        </span>
-
-        <h3 id="uniqueAbilityName">
-          未判定
-        </h3>
-
-        <p id="uniqueAbilityDescription">
-          固有能力に関する解析情報はまだありません。
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- 8つの本質 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          06
-        </span>
-
-        <h2>
-          8つの本質
-        </h2>
-      </div>
-
-
-      <div class="essence-grid">
-
-        <div class="essence-item">
-          <span>
+      <!-- 基本情報 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             01
           </span>
 
-          <strong id="essence1">
-            未解析
-          </strong>
+          <h2>
+            基本情報
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="basic-information">
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                登録名
+              </span>
+
+              <small>
+                NAME
+              </small>
+            </div>
+
+            <div class="official-value" id="subjectName">
+              未登録
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                解析対象者番号
+              </span>
+
+              <small>
+                SUBJECT ID
+              </small>
+            </div>
+
+            <div class="official-value" id="analysisSubjectId">
+              A-000000
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                生年月日
+              </span>
+
+              <small>
+                BIRTH DATE
+              </small>
+            </div>
+
+            <div class="official-value" id="birthDate">
+              ----
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                血液型
+              </span>
+
+              <small>
+                BLOOD TYPE
+              </small>
+            </div>
+
+            <div class="official-value" id="bloodType">
+              未解析
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                出身傾向
+              </span>
+
+              <small>
+                ORIGIN
+              </small>
+            </div>
+
+            <div class="official-value" id="originType">
+              未解析
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                星座
+              </span>
+
+              <small>
+                ZODIAC SIGN
+              </small>
+            </div>
+
+            <div class="official-value" id="zodiac">
+              未解析
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                家族関係
+              </span>
+
+              <small>
+                FAMILY RELATION
+              </small>
+            </div>
+
+            <div class="official-value" id="familyType">
+              未解析
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                利き手
+              </span>
+
+              <small>
+                DOMINANT HAND
+              </small>
+            </div>
+
+            <div class="official-value" id="handedness">
+              未解析
+            </div>
+          </div>
+
+
+          <div class="official-row">
+            <div class="official-label">
+              <span>
+                出生時間
+              </span>
+
+              <small>
+                BIRTH TIME
+              </small>
+            </div>
+
+            <div class="official-value" id="birthTime">
+              未解析
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         Ⅱ 総合解析
+    ====================================================== -->
+
+    <div class="report-group report-group-02">
+
+      <div class="report-group-heading">
+        <span class="report-group-number">
+          Ⅱ
+        </span>
+
+        <div>
+          <span class="report-group-label">
+            GENERAL ANALYSIS
+          </span>
+
+          <h2>
+            総合解析
+          </h2>
+        </div>
+      </div>
+
+
+      <!-- 総合評価 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             02
           </span>
 
-          <strong id="essence2">
-            未解析
-          </strong>
+          <h2>
+            総合評価
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="overall-evaluation">
+
+          <div class="evaluation-main">
+
+            <span class="evaluation-label">
+              総合適性評価
+            </span>
+
+            <strong id="overallRank">
+              未判定
+            </strong>
+
+            <p id="overallDescription">
+              解析データを確認しています。
+            </p>
+
+          </div>
+
+
+          <div class="evaluation-sub">
+
+            <div>
+              <span>
+                総合スコア
+              </span>
+
+              <strong id="overallScore">
+                --
+              </strong>
+            </div>
+
+
+            <div>
+              <span>
+                解析信頼度
+              </span>
+
+              <strong id="analysisReliability">
+                --%
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- 能力値 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             03
           </span>
 
-          <strong id="essence3">
-            未解析
-          </strong>
+          <h2>
+            基礎能力値
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="ability-grid">
+
+          <!-- POW -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                POW
+              </span>
+
+              <span class="ability-name">
+                出力強度
+              </span>
+
+              <strong id="powValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="powBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- MAG -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                MAG
+              </span>
+
+              <span class="ability-name">
+                魔力容量
+              </span>
+
+              <strong id="magValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="magBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- CON -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                CON
+              </span>
+
+              <span class="ability-name">
+                制御性能
+              </span>
+
+              <strong id="conValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="conBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- SPD -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                SPD
+              </span>
+
+              <span class="ability-name">
+                発動速度
+              </span>
+
+              <strong id="spdValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="spdBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- RGE -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                RGE
+              </span>
+
+              <span class="ability-name">
+                作用範囲
+              </span>
+
+              <strong id="rgeValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="rgeBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- DUR -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                DUR
+              </span>
+
+              <span class="ability-name">
+                持続性能
+              </span>
+
+              <strong id="durValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="durBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- RES -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                RES
+              </span>
+
+              <span class="ability-name">
+                耐性強度
+              </span>
+
+              <strong id="resValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="resBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- SEN -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                SEN
+              </span>
+
+              <span class="ability-name">
+                感知能力
+              </span>
+
+              <strong id="senValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="senBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- STA -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                STA
+              </span>
+
+              <span class="ability-name">
+                安定性
+              </span>
+
+              <strong id="staValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="staBar"></span>
+            </div>
+
+          </div>
+
+
+          <!-- SYN -->
+          <div class="ability-item">
+
+            <div class="ability-top">
+              <span class="ability-code">
+                SYN
+              </span>
+
+              <span class="ability-name">
+                同調性
+              </span>
+
+              <strong id="synValue">
+                --
+              </strong>
+            </div>
+
+            <div class="ability-bar">
+              <span id="synBar"></span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 能力値サマリー -->
+        <div class="ability-summary">
+
+          <div class="ability-summary-item">
+            <span class="ability-summary-label">
+              平均値
+            </span>
+
+            <strong id="abilityAverage">
+              —
+            </strong>
+          </div>
+
+
+          <div class="ability-summary-item">
+            <span class="ability-summary-label">
+              最高値
+            </span>
+
+            <strong id="abilityMaximum">
+              —
+            </strong>
+          </div>
+
+
+          <div class="ability-summary-item">
+            <span class="ability-summary-label">
+              最低値
+            </span>
+
+            <strong id="abilityMinimum">
+              —
+            </strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- 危険度・属性適性 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             04
           </span>
 
-          <strong id="essence4">
-            未解析
-          </strong>
+          <h2>
+            危険度および属性適性
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="classification-grid">
+
+          <!-- 危険度 -->
+          <div class="classification-card danger-card">
+
+            <span class="classification-label">
+              危険度
+            </span>
+
+            <strong id="dangerLevel">
+              未判定
+            </strong>
+
+            <p id="dangerDescription">
+              解析結果に基づき判定されます。
+            </p>
+
+          </div>
+
+
+          <!-- 範囲型 -->
+          <div class="classification-card">
+
+            <span class="classification-label">
+              範囲型
+            </span>
+
+            <strong id="rangeType">
+              未判定
+            </strong>
+
+            <p id="rangeDescription">
+              属性適性に基づき判定されます。
+            </p>
+
+          </div>
+
+
+          <!-- 放出型 -->
+          <div class="classification-card">
+
+            <span class="classification-label">
+              放出型
+            </span>
+
+            <strong id="releaseType">
+              未判定
+            </strong>
+
+            <p id="releaseDescription">
+              属性適性に基づき判定されます。
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         Ⅲ 魔法解析
+    ====================================================== -->
+
+    <div class="report-group report-group-03">
+
+      <div class="report-group-heading">
+        <span class="report-group-number">
+          Ⅲ
+        </span>
+
+        <div>
+          <span class="report-group-label">
+            MAGIC ANALYSIS
+          </span>
+
+          <h2>
+            魔法解析
+          </h2>
+        </div>
+      </div>
+
+
+      <!-- 魔法属性 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             05
           </span>
 
-          <strong id="essence5">
-            未解析
-          </strong>
+          <h2>
+            魔法属性
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="magic-attribute-grid">
+
+          <div class="classification-card magic-main-card">
+
+            <span class="classification-label">
+              主属性
+            </span>
+
+            <strong id="mainMagicAttribute">
+              未判定
+            </strong>
+
+            <p id="mainMagicDescription">
+              魔法属性の解析結果がここに表示されます。
+            </p>
+
+          </div>
+
+
+          <div class="classification-card magic-ban-card">
+
+            <span class="classification-label">
+              禁属性
+            </span>
+
+            <strong id="forbiddenMagicAttribute">
+              未判定
+            </strong>
+
+            <p id="forbiddenMagicDescription">
+              禁属性の解析結果がここに表示されます。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="magic-detail">
+
+          <div class="subsection-heading">
+            <span>
+              MAGIC ATTRIBUTE DETAILS
+            </span>
+
+            <h3>
+              その他詳細
+            </h3>
+          </div>
+
+
+          <div class="magic-detail-content">
+
+            <div class="detail-line">
+              <span>
+                属性適性詳細
+              </span>
+
+              <strong id="magicAttribute">
+                未判定
+              </strong>
+            </div>
+
+
+            <p id="magicDescription">
+              魔法属性に関する詳細情報がここに表示されます。
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         Ⅳ 異能力解析
+    ====================================================== -->
+
+    <div class="report-group report-group-04">
+
+      <div class="report-group-heading">
+        <span class="report-group-number">
+          Ⅳ
+        </span>
+
+        <div>
+          <span class="report-group-label">
+            ABILITY ANALYSIS
+          </span>
+
+          <h2>
+            異能力解析
+          </h2>
+        </div>
+      </div>
+
+
+      <!-- 固有能力 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             06
           </span>
 
-          <strong id="essence6">
-            未解析
-          </strong>
+          <h2>
+            固有能力
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="unique-ability">
+
+          <span class="classification-label">
+            識別された固有能力
+          </span>
+
+          <h3 id="uniqueAbilityName">
+            未判定
+          </h3>
+
+          <p id="uniqueAbilityDescription">
+            固有能力に関する解析情報はまだありません。
+          </p>
+
+        </div>
+
+
+        <!-- 発動方式 -->
+        <div class="ability-detail-grid">
+
+          <div class="classification-card">
+
+            <span class="classification-label">
+              発動方式
+            </span>
+
+            <strong id="abilityActivationMethod">
+              未判定
+            </strong>
+
+            <p id="abilityActivationDescription">
+              固有能力の発動方式がここに表示されます。
+            </p>
+
+          </div>
+
+
+          <div class="classification-card danger-card">
+
+            <span class="classification-label">
+              能力危険度
+            </span>
+
+            <strong id="abilityDangerLevel">
+              未判定
+            </strong>
+
+            <p id="abilityDangerDescription">
+              固有能力そのものの危険度がここに表示されます。
+            </p>
+
+          </div>
+
+
+          <div class="classification-card">
+
+            <span class="classification-label">
+              能力安定度
+            </span>
+
+            <strong id="abilityStabilityLevel">
+              未判定
+            </strong>
+
+            <p id="abilityStabilityDescription">
+              固有能力の安定性がここに表示されます。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- その他詳細 / 8つの本質 -->
+        <div class="ability-essence-details">
+
+          <div class="subsection-heading">
+            <span>
+              ADDITIONAL ANALYSIS
+            </span>
+
+            <h3>
+              その他詳細
+            </h3>
+          </div>
+
+
+          <div class="essence-grid">
+
+            <div class="essence-item">
+              <span>
+                01
+              </span>
+
+              <strong id="essence1">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                02
+              </span>
+
+              <strong id="essence2">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                03
+              </span>
+
+              <strong id="essence3">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                04
+              </span>
+
+              <strong id="essence4">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                05
+              </span>
+
+              <strong id="essence5">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                06
+              </span>
+
+              <strong id="essence6">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                07
+              </span>
+
+              <strong id="essence7">
+                未解析
+              </strong>
+            </div>
+
+
+            <div class="essence-item">
+              <span>
+                08
+              </span>
+
+              <strong id="essence8">
+                未解析
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- =====================================================
+         Ⅴ 総合所見・指針
+    ====================================================== -->
+
+    <div class="report-group report-group-05">
+
+      <div class="report-group-heading">
+        <span class="report-group-number">
+          Ⅴ
+        </span>
+
+        <div>
+          <span class="report-group-label">
+            GENERAL FINDINGS / RECOMMENDATIONS
+          </span>
+
+          <h2>
+            総合所見・指針
+          </h2>
+        </div>
+      </div>
+
+
+      <!-- 総合所見 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             07
           </span>
 
-          <strong id="essence7">
-            未解析
-          </strong>
+          <h2>
+            総合所見
+          </h2>
         </div>
 
 
-        <div class="essence-item">
-          <span>
+        <div class="comment-box">
+
+          <p id="overallComment">
+            解析結果に基づくコメントがここに表示されます。
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- 推奨事項 -->
+      <section class="report-section">
+
+        <div class="section-heading">
+          <span class="section-number">
             08
           </span>
 
-          <strong id="essence8">
-            未解析
-          </strong>
+          <h2>
+            推奨事項
+          </h2>
         </div>
 
-      </div>
 
-    </section>
+        <div class="recommendation-box">
 
+          <ul id="recommendationList">
+            <li>
+              解析結果を確認してください。
+            </li>
 
-    <!-- 総合コメント -->
-    <section class="report-section">
+            <li>
+              能力の過剰使用には注意してください。
+            </li>
 
-      <div class="section-heading">
-        <span class="section-number">
-          07
-        </span>
+            <li>
+              定期的な詳細診断を推奨します。
+            </li>
+          </ul>
 
-        <h2>
-          総評
-        </h2>
-      </div>
+        </div>
 
+      </section>
 
-      <div class="comment-box">
-
-        <p id="overallComment">
-          解析結果に基づくコメントがここに表示されます。
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- 推奨事項 -->
-    <section class="report-section">
-
-      <div class="section-heading">
-        <span class="section-number">
-          08
-        </span>
-
-        <h2>
-          推奨事項
-        </h2>
-      </div>
-
-
-      <div class="recommendation-box">
-
-        <ul id="recommendationList">
-          <li>
-            解析結果を確認してください。
-          </li>
-
-          <li>
-            能力の過剰使用には注意してください。
-          </li>
-
-          <li>
-            定期的な詳細診断を推奨します。
-          </li>
-        </ul>
-
-      </div>
-
-    </section>
+    </div>
 
 
     <!-- 発行情報 -->
@@ -1036,7 +1326,6 @@
           <span></span>
           <span></span>
           <span></span>
-          <span></span>
         </div>
 
 
@@ -1085,3 +1374,4 @@
   </footer>
 
 </body>
+</html>
