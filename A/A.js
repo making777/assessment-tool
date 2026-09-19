@@ -624,6 +624,354 @@ if (
 
 
 /* ---------------------------------------------------------
+   A2 : 能力値サマリー
+---------------------------------------------------------
+
+   A2に表示されている10能力値を取得し、
+   平均・最高値・最低値を表示する。
+
+   ※能力値そのものの計算式はここでは定義しない。
+   ※数値が未設定の場合は集計対象から除外する。
+--------------------------------------------------------- */
+
+function updateAbilitySummary() {
+
+    const abilityDefinitions = [
+
+        {
+            code: "POW",
+            id: "powValue"
+        },
+
+        {
+            code: "MAG",
+            id: "magValue"
+        },
+
+        {
+            code: "CON",
+            id: "conValue"
+        },
+
+        {
+            code: "SPD",
+            id: "spdValue"
+        },
+
+        {
+            code: "RGE",
+            id: "rgeValue"
+        },
+
+        {
+            code: "DUR",
+            id: "durValue"
+        },
+
+        {
+            code: "RES",
+            id: "resValue"
+        },
+
+        {
+            code: "SEN",
+            id: "senValue"
+        },
+
+        {
+            code: "STA",
+            id: "staValue"
+        },
+
+        {
+            code: "SYN",
+            id: "synValue"
+        }
+
+    ];
+
+
+    const values = [];
+
+
+    abilityDefinitions.forEach(
+        function (ability) {
+
+            const element =
+                document.getElementById(
+                    ability.id
+                );
+
+
+            if (!element) {
+                return;
+            }
+
+
+            const rawValue =
+                element.textContent
+                    .trim()
+                    .replace(
+                        /,/g,
+                        ""
+                    );
+
+
+            if (
+                rawValue === "" ||
+                rawValue === "—" ||
+                rawValue === "--"
+            ) {
+                return;
+            }
+
+
+            const value =
+                Number(rawValue);
+
+
+            if (!Number.isFinite(value)) {
+                return;
+            }
+
+
+            values.push({
+
+                code:
+                    ability.code,
+
+                value:
+                    value
+
+            });
+
+        }
+    );
+
+
+    const averageElement =
+        document.getElementById(
+            "abilityAverage"
+        );
+
+
+    const maximumElement =
+        document.getElementById(
+            "abilityMaximum"
+        );
+
+
+    const minimumElement =
+        document.getElementById(
+            "abilityMinimum"
+        );
+
+
+    if (
+        !averageElement ||
+        !maximumElement ||
+        !minimumElement
+    ) {
+        return;
+    }
+
+
+    if (values.length === 0) {
+
+        averageElement.textContent = "—";
+        maximumElement.textContent = "—";
+        minimumElement.textContent = "—";
+
+        return;
+
+    }
+
+
+    /* ---------------------------------------------
+       平均値
+    --------------------------------------------- */
+
+    const total =
+        values.reduce(
+            function (sum, item) {
+
+                return sum + item.value;
+
+            },
+            0
+        );
+
+
+    const average =
+        total / values.length;
+
+
+    averageElement.textContent =
+        average.toFixed(1);
+
+
+    /* ---------------------------------------------
+       最高値
+    --------------------------------------------- */
+
+    const maximumValue =
+        Math.max(
+            ...values.map(
+                function (item) {
+                    return item.value;
+                }
+            )
+        );
+
+
+    const maximumAbilities =
+        values
+            .filter(
+                function (item) {
+
+                    return item.value ===
+                        maximumValue;
+
+                }
+            )
+            .map(
+                function (item) {
+
+                    return item.code;
+
+                }
+            );
+
+
+    maximumElement.textContent =
+        maximumAbilities.join(" / ") +
+        " " +
+        maximumValue;
+
+
+    /* ---------------------------------------------
+       最低値
+    --------------------------------------------- */
+
+    const minimumValue =
+        Math.min(
+            ...values.map(
+                function (item) {
+                    return item.value;
+                }
+            )
+        );
+
+
+    const minimumAbilities =
+        values
+            .filter(
+                function (item) {
+
+                    return item.value ===
+                        minimumValue;
+
+                }
+            )
+            .map(
+                function (item) {
+
+                    return item.code;
+
+                }
+            );
+
+
+    minimumElement.textContent =
+        minimumAbilities.join(" / ") +
+        " " +
+        minimumValue;
+
+}
+
+
+/* ---------------------------------------------------------
+   能力値変更監視
+---------------------------------------------------------
+
+   A.js内の別処理によって能力値が設定された場合でも、
+   能力値サマリーを自動更新する。
+
+   現在は正式な能力値計算式が未確定のため、
+   この処理は「表示された数値の集計」のみを行う。
+--------------------------------------------------------- */
+
+if (
+    document.getElementById("abilityAverage") ||
+    document.getElementById("abilityMaximum") ||
+    document.getElementById("abilityMinimum")
+) {
+
+    const abilityValueIds = [
+
+        "powValue",
+        "magValue",
+        "conValue",
+        "spdValue",
+        "rgeValue",
+        "durValue",
+        "resValue",
+        "senValue",
+        "staValue",
+        "synValue"
+
+    ];
+
+
+    updateAbilitySummary();
+
+
+    const abilityObservers = [];
+
+
+    abilityValueIds.forEach(
+        function (id) {
+
+            const element =
+                document.getElementById(id);
+
+
+            if (!element) {
+                return;
+            }
+
+
+            const observer =
+                new MutationObserver(
+                    function () {
+
+                        updateAbilitySummary();
+
+                    }
+                );
+
+
+            observer.observe(
+                element,
+                {
+                    childList: true,
+                    characterData: true,
+                    subtree: true
+                }
+            );
+
+
+            abilityObservers.push(
+                observer
+            );
+
+        }
+    );
+
+}
+
+
+/* ---------------------------------------------------------
    A3 : DETAILED ANALYSIS
 --------------------------------------------------------- */
 
