@@ -5,6 +5,7 @@
 ========================================================= */
 
 
+
 /* =========================================================
    基本設定
 ========================================================= */
@@ -111,7 +112,7 @@ strong {
   align-items: flex-start;
   justify-content: space-between;
   gap: 30px;
-  padding-bottom: 18px;
+  padding-bottom: 8px;
   border-bottom: 3px solid var(--navy);
 }
 
@@ -175,7 +176,7 @@ strong {
   display: grid;
   grid-template-columns: 1fr 1fr 1.6fr;
   gap: 24px;
-  padding: 14px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -212,7 +213,7 @@ strong {
 ========================================================= */
 
 .report-title {
-  padding: 32px 0 24px;
+  padding: 16px 0 10px;
   text-align: center;
 }
 
@@ -249,7 +250,7 @@ strong {
 ========================================================= */
 
 .report-section {
-  margin-top: 48px;
+  margin-top: 24px;
 }
 
 .section-heading {
@@ -926,7 +927,7 @@ strong {
 
   .result-page {
     position: relative;
-    padding: 40px 34px 46px;
+    padding: 40px 34px 20px;
     margin-bottom: 105px;
   }
 
@@ -975,7 +976,7 @@ strong {
 
   .result-page {
     max-width: none;
-    padding: 26px 18px 36px;
+    padding: 26px 18px 20px;
     margin-bottom: 0;
     border: 0;
     box-shadow: none;
@@ -983,7 +984,7 @@ strong {
 
   .document-header {
     display: block;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
   }
 
   .institution-name {
@@ -1006,7 +1007,7 @@ strong {
 
   .document-meta {
     display: block;
-    padding: 18px 0;
+    padding: 8px 0;
   }
 
   .document-meta > div {
@@ -1022,7 +1023,7 @@ strong {
   }
 
   .report-title {
-    padding: 38px 0 24px;
+    padding: 16px 0 10px;
   }
 
   .report-title h1 {
@@ -1036,7 +1037,7 @@ strong {
   }
 
   .report-section {
-    margin-top: 36px;
+    margin-top: 24px;
   }
 
   .section-heading {
@@ -1260,7 +1261,7 @@ strong {
     position: static;
     flex-direction: column;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 16px;
   }
 
   .action-button {
