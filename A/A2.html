@@ -85,18 +85,6 @@
 
     </div>
 
-      <div>
-
-        <span>
-          文書管理番号
-        </span>
-
-        <strong id="documentNumber">
-          —
-        </strong>
-
-      </div>
-
 
     <div>
 
@@ -148,6 +136,10 @@
     <p>
       A.M.D.S. による異能・魔力総合解析結果を記録する。
     </p>
+
+    <div class="document-number">
+      文書管理番号　A-000000
+    </div>
 
   </section>
 
@@ -1407,15 +1399,15 @@
 
       </div>
 
-        <div>
-          <span>
-            運営
-          </span>
+      <div>
 
-          <strong id="researcherName">
-            応用研究部門 / データ研究部 / 解析課
-          </strong>
-        </div>
+        <span>
+          運営
+        </span>
+
+        <strong id="researcherName">
+          応用研究部門 / データ研究部 / 解析課
+        </strong>
 
       </div>
 
@@ -1436,23 +1428,23 @@
         </strong>
 
         <small>
-          
-                      <script>
-              const sealToday = new Date();
 
-              const sealYear = sealToday.getFullYear();
-              const sealMonth = sealToday.getMonth() + 1;
-              const sealDay = sealToday.getDate();
+          <script>
+            const sealToday = new Date();
 
-              document.write(
-                sealYear +
-                "/" +
-                sealMonth +
-                "/" +
-                sealDay
-              );
-            </script>
-          
+            const sealYear = sealToday.getFullYear();
+            const sealMonth = sealToday.getMonth() + 1;
+            const sealDay = sealToday.getDate();
+
+            document.write(
+              sealYear +
+              "/" +
+              sealMonth +
+              "/" +
+              sealDay
+            );
+          </script>
+
         </small>
 
       </div>
@@ -1510,7 +1502,6 @@
         <span></span>
         <span></span>
         <span></span>
-        <span></span>
 
       </div>
 
@@ -1524,7 +1515,7 @@
 
 
     <p class="confidential-note">
-            本資料は架空の解析記録です。  </dr>
+      本資料は架空の解析記録です。  </dr>
       A.M.D.S. / Adelheid Kreuz Institute / CONFIDENTIAL
     </p>
 
@@ -1583,23 +1574,6 @@
       "月" +
       String(today.getDate()) +
       "日";
-
-  }
-
-
-  const documentNumber =
-    document.getElementById("documentNumber");
-
-  const analysisId =
-    document.getElementById("analysisId");
-
-  if (
-    documentNumber &&
-    analysisId
-  ) {
-
-    documentNumber.textContent =
-      analysisId.textContent;
 
   }
 
