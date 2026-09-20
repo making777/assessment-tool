@@ -263,7 +263,7 @@ strong {
 }
 
 .report-group:first-of-type {
-  margin-top: 10px;
+  margin-top: 3px;
 }
 
 .report-group-heading {
@@ -934,15 +934,15 @@ strong {
 
 .research-seal span {
   font-family: var(--serif);
-  font-size: 6px;
-  letter-spacing: 0.03em;
+  font-size: 7px;
+  letter-spacing: 0.02em;
 }
 
 .research-seal strong {
   margin: 4px 0;
   font-family: var(--serif);
   font-size: 15px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .research-seal small {
