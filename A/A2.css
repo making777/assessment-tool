@@ -934,8 +934,8 @@ strong {
 
 .research-seal span {
   font-family: var(--serif);
-  font-size: 7px;
-  letter-spacing: 0.05em;
+  font-size: 6px;
+  letter-spacing: 0.03em;
 }
 
 .research-seal strong {
