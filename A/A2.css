@@ -919,14 +919,14 @@ strong {
 
 .research-seal span {
   font-family: var(--serif);
-  font-size: 9px;
+  font-size: 7px;
   letter-spacing: 0.05em;
 }
 
 .research-seal strong {
   margin: 4px 0;
   font-family: var(--serif);
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.12em;
 }
 
