@@ -206,6 +206,7 @@ strong {
 ========================================================= */
 
 .report-title {
+  position: relative;
   padding: 16px 0 10px;
   text-align: center;
 }
@@ -235,6 +236,20 @@ strong {
   color: var(--muted);
   font-size: 13px;
   line-height: 2;
+}
+
+/* =========================================================
+   文書管理番号
+========================================================= */
+
+.document-number {
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: right;
 }
 
 /* =========================================================
@@ -1228,6 +1243,12 @@ strong {
   .report-title > p:last-child {
     font-size: 12px;
     text-align: left;
+  }
+
+  .document-number {
+    margin-top: 10px;
+    font-size: 11px;
+    text-align: right;
   }
 
   .report-group {
