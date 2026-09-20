@@ -935,14 +935,14 @@ strong {
 .research-seal span {
   font-family: var(--serif);
   font-size: 7px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.005em;
 }
 
 .research-seal strong {
   margin: 4px 0;
   font-family: var(--serif);
   font-size: 15px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
 }
 
 .research-seal small {
