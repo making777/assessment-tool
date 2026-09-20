@@ -262,8 +262,8 @@ strong {
   border-top: 3px solid var(--navy);
 }
 
-.report-group:first-of-type {
-  margin-top: 3px;
+.report-title + .report-group {
+  margin-top: 5px;
 }
 
 .report-group-heading {
