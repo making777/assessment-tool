@@ -526,6 +526,66 @@ if (
 
 
         /* ---------------------------------------------
+           危険度
+           
+           正式な判定結果が存在する場合のみ表示。
+           75以上の場合はCSSクラスを付与。
+           正式判定値がない場合は「未判定」。
+        --------------------------------------------- */
+
+        setText(
+            "dangerLevel",
+            data.dangerLevel ||
+            "未判定"
+        );
+
+
+        setText(
+            "dangerDescription",
+            data.dangerDescription ||
+            "異能力・魔法が周囲へ及ぼす危険性を解析します。"
+        );
+
+
+        setText(
+            "rampageRate",
+            data.rampageRate ||
+            "未判定"
+        );
+
+
+        const dangerCard =
+            document.querySelector(
+                ".classification-card.danger-card"
+            );
+
+
+        if (dangerCard) {
+
+            dangerCard.classList.remove(
+                "is-high-risk"
+            );
+
+
+            const dangerValue =
+                Number(data.dangerLevel);
+
+
+            if (
+                Number.isFinite(dangerValue) &&
+                dangerValue >= 75
+            ) {
+
+                dangerCard.classList.add(
+                    "is-high-risk"
+                );
+
+            }
+
+        }
+
+
+        /* ---------------------------------------------
            属性適性
            
            正式な判定結果が存在する場合のみ表示。
