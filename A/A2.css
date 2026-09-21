@@ -626,8 +626,49 @@ strong {
   overflow-wrap: anywhere;
 }
 
-.classification-card.danger-card strong {
+/* 危険度は75以上の場合のみ赤色 */
+
+.classification-card.danger-card > .danger-result > #dangerLevel {
+  color: var(--navy);
+}
+
+.classification-card.danger-card.is-high-risk > .danger-result > #dangerLevel {
   color: var(--danger);
+}
+
+/* 危険度と暴走率を横並びにする */
+
+.danger-result {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.danger-result > #dangerLevel {
+  margin-bottom: 0;
+}
+
+.rampage-rate {
+  padding-left: 20px;
+  border-left: 1px solid #d8b7b7;
+}
+
+.rampage-rate span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.rampage-rate strong {
+  margin-bottom: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.4;
 }
 
 .classification-card p {
@@ -1165,11 +1206,6 @@ strong {
     grid-template-columns: 1fr 1fr;
   }
 
-  .result-actions {
-    left: 34px;
-    right: 34px;
-  }
-
 }
 
 /* =========================================================
@@ -1405,6 +1441,18 @@ strong {
 
   .classification-card p {
     font-size: 12px;
+  }
+
+  .danger-result {
+    gap: 16px;
+  }
+
+  .rampage-rate {
+    padding-left: 14px;
+  }
+
+  .rampage-rate strong {
+    font-size: 18px;
   }
 
   .magic-attribute-grid {
