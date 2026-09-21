@@ -586,18 +586,18 @@ strong {
 }
 
 /* =========================================================
-   危険度・属性適性
+   危険度
 ========================================================= */
 
 .classification-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .classification-card {
   min-width: 0;
-  padding: 28px;
+  padding: 32px;
   border: 1px solid var(--line-dark);
   background: var(--paper);
 }
@@ -636,13 +636,11 @@ strong {
   color: var(--danger);
 }
 
-/* 危険度と暴走率を横並びにする */
+/* 危険度結果 */
 
 .danger-result {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 12px;
+  display: block;
+  margin-bottom: 22px;
 }
 
 .danger-value {
@@ -650,28 +648,72 @@ strong {
 }
 
 .danger-value > span {
+  display: none;
+}
+
+.danger-result > .danger-value > #dangerLevel {
+  margin-bottom: 16px;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.2;
+}
+
+/* 危険度コメント */
+
+.classification-card p {
+  margin-bottom: 24px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+/* 危険度スコア・暴走率 */
+
+.danger-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid #d8b7b7;
+}
+
+.danger-metric {
+  min-width: 0;
+  padding: 18px 20px 4px;
+}
+
+.danger-metric + .danger-metric {
+  border-left: 1px solid #d8b7b7;
+}
+
+.danger-metric span {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
 
-.danger-result > .danger-value > #dangerLevel {
+.danger-metric strong {
   margin-bottom: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.4;
 }
 
 .rampage-rate {
-  padding-left: 20px;
-  border-left: 1px solid #d8b7b7;
+  padding-left: 0;
+  border-left: 0;
 }
 
 .rampage-rate span {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
@@ -680,16 +722,8 @@ strong {
   margin-bottom: 0;
   color: var(--navy);
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: 28px;
   line-height: 1.4;
-}
-
-.classification-card p {
-  margin-bottom: 0;
-  color: var(--text);
-  font-size: 13px;
-  line-height: 2;
-  overflow-wrap: anywhere;
 }
 
 /* =========================================================
@@ -1452,25 +1486,31 @@ strong {
     font-size: 26px;
   }
 
+  .danger-result > .danger-value > #dangerLevel {
+    font-size: 40px;
+  }
+
   .classification-card p {
     font-size: 12px;
+    margin-bottom: 20px;
   }
 
-  .danger-result {
-    gap: 16px;
+  .danger-metrics {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .danger-value > span,
+  .danger-metric {
+    padding: 15px 14px 2px;
+  }
+
+  .danger-metric span,
   .rampage-rate span {
     font-size: 9px;
   }
 
-  .rampage-rate {
-    padding-left: 14px;
-  }
-
+  .danger-metric strong,
   .rampage-rate strong {
-    font-size: 18px;
+    font-size: 21px;
   }
 
   .magic-attribute-grid {
