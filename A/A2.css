@@ -628,11 +628,11 @@ strong {
 
 /* 危険度は75以上の場合のみ赤色 */
 
-.classification-card.danger-card > .danger-result > #dangerLevel {
+.classification-card.danger-card > .danger-result > .danger-value > #dangerLevel {
   color: var(--navy);
 }
 
-.classification-card.danger-card.is-high-risk > .danger-result > #dangerLevel {
+.classification-card.danger-card.is-high-risk > .danger-result > .danger-value > #dangerLevel {
   color: var(--danger);
 }
 
@@ -640,12 +640,25 @@ strong {
 
 .danger-result {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 24px;
   margin-bottom: 12px;
 }
 
-.danger-result > #dangerLevel {
+.danger-value {
+  min-width: 0;
+}
+
+.danger-value > span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.danger-result > .danger-value > #dangerLevel {
   margin-bottom: 0;
 }
 
@@ -1445,6 +1458,11 @@ strong {
 
   .danger-result {
     gap: 16px;
+  }
+
+  .danger-value > span,
+  .rampage-rate span {
+    font-size: 9px;
   }
 
   .rampage-rate {
