@@ -626,23 +626,28 @@ strong {
   overflow-wrap: anywhere;
 }
 
+/* =========================================================
+   危険度
+========================================================= */
+
 /* 危険度は75以上の場合のみ赤色 */
 
-.classification-card.danger-card > .danger-result > .danger-metric > #dangerLevel {
+.classification-card.danger-card > #dangerLevel {
   color: var(--navy);
 }
 
-.classification-card.danger-card.is-high-risk > .danger-result > .danger-metric > #dangerLevel {
+.classification-card.danger-card.is-high-risk > #dangerLevel {
   color: var(--danger);
 }
 
-/* 危険度と暴走率を横並びにする */
+/* 危険度・暴走率を説明文の下に横並びで表示 */
 
 .danger-result {
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  margin-bottom: 12px;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
 .danger-metric {
@@ -658,8 +663,14 @@ strong {
   letter-spacing: 0.1em;
 }
 
-.danger-result > .danger-metric > #dangerLevel {
+.danger-metric > strong {
+  display: block;
   margin-bottom: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .rampage-rate {
@@ -1456,17 +1467,29 @@ strong {
     font-size: 12px;
   }
 
+  /* =======================================================
+     危険度・暴走率
+  ======================================================= */
+
   .danger-result {
     gap: 16px;
+    margin-top: 18px;
   }
 
-  .danger-metric > span,
-  .rampage-rate span {
+  .danger-metric > span {
     font-size: 9px;
+  }
+
+  .danger-metric > strong {
+    font-size: 18px;
   }
 
   .rampage-rate {
     padding-left: 14px;
+  }
+
+  .rampage-rate span {
+    font-size: 9px;
   }
 
   .rampage-rate strong {
