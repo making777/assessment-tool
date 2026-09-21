@@ -602,9 +602,12 @@ strong {
   background: var(--paper);
 }
 
+/* 危険度カードは横幅いっぱい */
+
 .classification-card.danger-card {
-  background: var(--danger-light);
-  border-color: #d8b7b7;
+  grid-column: 1 / -1;
+  background: #f5f8fb;
+  border-color: var(--line-dark);
 }
 
 .classification-label {
@@ -623,6 +626,13 @@ strong {
 .classification-card.danger-card {
   display: flex;
   flex-direction: column;
+}
+
+/* 危険度75以上の場合は赤系背景 */
+
+.classification-card.danger-card.is-high-risk {
+  background: var(--danger-light);
+  border-color: #d8b7b7;
 }
 
 /* 大きく表示する危険度ランク */
