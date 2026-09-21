@@ -616,37 +616,53 @@ strong {
   letter-spacing: 0.12em;
 }
 
-.classification-card strong {
+/* =========================================================
+   危険度カード
+========================================================= */
+
+.classification-card.danger-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 大きく表示する危険度ランク */
+
+.danger-rank {
   display: block;
   margin-bottom: 12px;
   color: var(--navy);
   font-family: var(--serif);
   font-size: 30px;
+  font-weight: 700;
   line-height: 1.4;
   overflow-wrap: anywhere;
 }
 
-/* =========================================================
-   危険度
-========================================================= */
+/* 危険度75以上の場合のみランクを赤色 */
 
-/* 危険度は75以上の場合のみ赤色 */
-
-.classification-card.danger-card > #dangerLevel {
-  color: var(--navy);
-}
-
-.classification-card.danger-card.is-high-risk > #dangerLevel {
+.classification-card.danger-card.is-high-risk .danger-rank {
   color: var(--danger);
 }
 
-/* 危険度・暴走率を説明文の下に横並びで表示 */
+/* 説明文 */
+
+.classification-card.danger-card > #dangerDescription {
+  order: 3;
+  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+/* 危険度・暴走率 */
 
 .danger-result {
+  order: 4;
+
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  margin-top: 20px;
   margin-bottom: 0;
 }
 
@@ -673,26 +689,32 @@ strong {
   overflow-wrap: anywhere;
 }
 
-.rampage-rate {
+/* 危険度数値は75以上の場合のみ赤色 */
+
+.classification-card.danger-card.is-high-risk
+  .danger-result
+  .danger-metric:first-child
+  strong {
+  color: var(--danger);
+}
+
+/* 暴走率 */
+
+.danger-metric + .danger-metric {
   padding-left: 20px;
   border-left: 1px solid #d8b7b7;
 }
 
-.rampage-rate span {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-}
+/* 通常のclassification-card */
 
-.rampage-rate strong {
-  margin-bottom: 0;
+.classification-card > strong {
+  display: block;
+  margin-bottom: 12px;
   color: var(--navy);
   font-family: var(--serif);
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .classification-card p {
@@ -985,7 +1007,6 @@ strong {
   align-items: center;
   justify-content: center;
 
-  /* ハンコを小さく */
   width: 75px;
   height: 75px;
 
@@ -1463,17 +1484,17 @@ strong {
     font-size: 26px;
   }
 
-  .classification-card p {
-    font-size: 12px;
+  .danger-rank {
+    font-size: 30px;
+    margin-bottom: 12px;
   }
 
-  /* =======================================================
-     危険度・暴走率
-  ======================================================= */
+  .classification-card.danger-card > #dangerDescription {
+    margin-bottom: 18px;
+  }
 
   .danger-result {
     gap: 16px;
-    margin-top: 18px;
   }
 
   .danger-metric > span {
@@ -1484,16 +1505,12 @@ strong {
     font-size: 18px;
   }
 
-  .rampage-rate {
+  .danger-metric + .danger-metric {
     padding-left: 14px;
   }
 
-  .rampage-rate span {
-    font-size: 9px;
-  }
-
-  .rampage-rate strong {
-    font-size: 18px;
+  .classification-card p {
+    font-size: 12px;
   }
 
   .magic-attribute-grid {
@@ -1574,7 +1591,6 @@ strong {
     gap: 24px;
   }
 
-  /* スマホでもハンコを小さく */
   .research-seal {
     width: 70px;
     height: 70px;
@@ -1592,7 +1608,6 @@ strong {
     font-size: 8px;
   }
 
-  /* 解析担当者 */
   .signature {
     flex: 0 0 190px;
     width: 190px;
@@ -1654,18 +1669,10 @@ strong {
 
 @media print {
 
-  /* -----------------------------------------
-     A4用紙設定
-  ----------------------------------------- */
-
   @page {
     size: A4 portrait;
     margin: 12mm;
   }
-
-  /* -----------------------------------------
-     印刷時の基本設定
-  ----------------------------------------- */
 
   html,
   body {
@@ -1682,10 +1689,6 @@ strong {
     -webkit-print-color-adjust: exact;
   }
 
-  /* -----------------------------------------
-     メイン用紙
-  ----------------------------------------- */
-
   .result-page {
     width: 100%;
     max-width: none;
@@ -1696,18 +1699,10 @@ strong {
     background: #ffffff;
   }
 
-  /* -----------------------------------------
-     画面専用要素を非表示
-  ----------------------------------------- */
-
   .result-actions,
   .page-footer {
     display: none !important;
   }
-
-  /* -----------------------------------------
-     ページ内での分割を防止
-  ----------------------------------------- */
 
   .document-header,
   .document-meta,
@@ -1729,20 +1724,12 @@ strong {
     page-break-inside: avoid;
   }
 
-  /* -----------------------------------------
-     見出しがページ末尾に孤立するのを防止
-  ----------------------------------------- */
-
   .section-heading,
   .report-group-heading,
   .subsection-heading {
     break-after: avoid;
     page-break-after: avoid;
   }
-
-  /* -----------------------------------------
-     表示色を印刷時にも維持
-  ----------------------------------------- */
 
   .section-number,
   .report-group-number,
@@ -1752,10 +1739,6 @@ strong {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
-
-  /* -----------------------------------------
-     背景・枠線を印刷時にも維持
-  ----------------------------------------- */
 
   .overall-evaluation,
   .classification-card,
@@ -1772,36 +1755,20 @@ strong {
     -webkit-print-color-adjust: exact;
   }
 
-  /* -----------------------------------------
-     ハンコ
-  ----------------------------------------- */
-
   .research-seal {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
-
-  /* -----------------------------------------
-     能力バー
-  ----------------------------------------- */
 
   .ability-bar {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
-  /* -----------------------------------------
-     リンク・ボタンの装飾を除去
-  ----------------------------------------- */
-
   a {
     color: inherit;
     text-decoration: none;
   }
-
-  /* -----------------------------------------
-     印刷時のアニメーション停止
-  ----------------------------------------- */
 
   *,
   *::before,
