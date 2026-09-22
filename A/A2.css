@@ -602,65 +602,42 @@ strong {
   background: var(--paper);
 }
 
+/* 危険度カードは横幅いっぱい */
+
+.classification-card.danger-card {
+  grid-column: 1 / -1;
+  background: #f5f8fb;
+  border-color: var(--line-dark);
+}
+
 /* =========================================================
    危険度カード
 ========================================================= */
 
-/*
-   通常時
-   総合評価カードと同じ方向性の淡い青灰色
-*/
-
 .classification-card.danger-card {
   display: flex;
   flex-direction: column;
-
   padding: 32px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f5f7fa 0%,
-      #ffffff 100%
-    );
-
-  border-color: var(--line-dark);
 }
 
-/*
-   危険度75以上
-   背景を淡い赤系へ変更
-*/
+/* 危険度75以上の場合は赤系背景 */
 
 .classification-card.danger-card.is-high-risk {
-  background:
-    linear-gradient(
-      135deg,
-      #f8eeee 0%,
-      #ffffff 100%
-    );
-
+  background: var(--danger-light);
   border-color: #d8b7b7;
 }
 
-.classification-label {
-  display: block;
+/* 危険度ラベル */
+
+.classification-card.danger-card > .classification-label {
   margin-bottom: 10px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
 }
 
-/* =========================================================
-   危険度ランク
-========================================================= */
+/* 大きく表示する危険度ランク */
 
 .danger-rank {
   display: block;
-
-  margin-bottom: 14px;
-
+  margin-bottom: 12px;
   color: var(--navy);
   font-family: var(--serif);
   font-size: clamp(34px, 5vw, 58px);
@@ -670,91 +647,46 @@ strong {
   overflow-wrap: anywhere;
 }
 
-/*
-   危険度75以上の場合
-   ランクを赤色へ
-*/
+/* 危険度75以上の場合のみランクを赤色 */
 
 .classification-card.danger-card.is-high-risk .danger-rank {
   color: var(--danger);
 }
 
-/* =========================================================
-   危険度説明
-========================================================= */
+/* 説明文 */
 
 .classification-card.danger-card > #dangerDescription {
   order: 3;
-
   max-width: 540px;
-
-  margin-bottom: 30px;
-
+  margin-bottom: 0;
   color: var(--text);
   font-size: 13px;
   line-height: 2;
   overflow-wrap: anywhere;
 }
 
-/* =========================================================
-   危険度・暴走率
-========================================================= */
+/* 危険度・暴走率 */
 
 .danger-result {
   order: 4;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-
-  gap: 0;
-
-  margin-top: auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-top: 48px;
   margin-bottom: 0;
 }
-
-/*
-   2つの数値エリア
-   総合評価の
-   「総合スコア」「解析信頼度」
-   と同じ構造
-*/
 
 .danger-metric {
   min-width: 0;
   padding-left: 20px;
-  padding-right: 20px;
-}
-
-/*
-   最初の項目だけ左側に余計な線を付けない
-*/
-
-.danger-metric:first-child {
-  padding-left: 0;
-  border-left: 0;
-}
-
-/*
-   2つ目の項目との境界線
-*/
-
-.danger-metric + .danger-metric {
   border-left: 1px solid var(--line-dark);
-}
-
-/*
-   高危険度時は境界線も赤系
-*/
-
-.classification-card.danger-card.is-high-risk
-  .danger-metric + .danger-metric {
-  border-left-color: #d8b7b7;
 }
 
 .danger-metric > span {
   display: block;
   margin-bottom: 6px;
-
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
@@ -763,20 +695,15 @@ strong {
 
 .danger-metric > strong {
   display: block;
-
   margin-bottom: 0;
-
   color: var(--navy);
   font-family: var(--serif);
   font-size: 30px;
-  font-weight: 700;
   line-height: 1.3;
   overflow-wrap: anywhere;
 }
 
-/*
-   危険度数値が75以上の場合のみ赤色
-*/
+/* 危険度数値は75以上の場合のみ赤色 */
 
 .classification-card.danger-card.is-high-risk
   .danger-result
@@ -785,9 +712,7 @@ strong {
   color: var(--danger);
 }
 
-/* =========================================================
-   通常のclassification-card
-========================================================= */
+/* 通常のclassification-card */
 
 .classification-card > strong {
   display: block;
@@ -1566,47 +1491,37 @@ strong {
     font-size: 26px;
   }
 
-  /* 危険度カード */
-
   .classification-card.danger-card {
     padding: 22px 18px;
   }
 
   .danger-rank {
-    margin-bottom: 14px;
     font-size: 42px;
+    margin-bottom: 12px;
   }
 
   .classification-card.danger-card > #dangerDescription {
-    margin-bottom: 26px;
+    margin-bottom: 0;
     font-size: 12px;
   }
 
   .danger-result {
     grid-template-columns: 1fr 1fr;
-    gap: 0;
+    gap: 12px;
+    margin-top: 32px;
   }
 
   .danger-metric {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .danger-metric:first-child {
-    padding-left: 0;
+    padding-left: 12px;
   }
 
   .danger-metric > span {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     font-size: 9px;
   }
 
   .danger-metric > strong {
     font-size: 25px;
-  }
-
-  .danger-metric + .danger-metric {
-    padding-left: 14px;
   }
 
   .classification-card p {
