@@ -749,6 +749,7 @@ strong {
 
 .magic-main-card {
   border-color: var(--line-dark);
+  background: #f8fafb;
 }
 
 .magic-ban-card {
@@ -861,6 +862,7 @@ strong {
 
 .ability-detail-grid .classification-card {
   padding: 24px;
+  background: #f8fafb;
 }
 
 /* =========================================================
